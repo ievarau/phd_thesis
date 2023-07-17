@@ -1,0 +1,29 @@
+
+## Genomes:
+
+%% https://www.nature.com/scitable/topicpage/discovery-of-dna-structure-and-function-watson-397/
+
+
+
+
+
+
+
+
+
+Conservation of the transcription factor binding
+            https://www.sciencedirect.com/science/article/pii/S0092867413008416?via%3Dihub
+
+
+
+
+
+Ever since the human genome was published, the challenge became to understand how genomes are regulated to allow for the diversity and functions of the cells.
+
+Only a small part of genomes codes proteins. 
+
+Gene expression involves multiple complex processes. Major players in regulation are transcription factor proteins.
+
+Transcription processes are also affected by epigenetic mechanisms. These include DNA methylation, microRNAs and histone tail modifications.
+
+

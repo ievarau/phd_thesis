@@ -1,0 +1,205 @@
+\documentclass[USenglish]{uiophdthesis}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{url}\urlstyle{sf}
+\usepackage{babel, csquotes, graphicx, textcomp, varioref}
+\usepackage[backend=biber,style=numeric-comp]{biblatex}
+\usepackage[hidelinks, hypertexnames=false]{hyperref}
+
+\title{Decoding transcription factor binding to the DNA}
+\author{Ieva Rauluševičiūtė} 
+
+\addbibresource{thesisbib.bib}
+
+\begin{document}
+\frontmatter{}
+\maketitle[
+  supervisor={Anthony Mathelier},
+  %% supervisors={A Supervisor\and Another Supervisor}, %% if more than one
+  %% dept={Department of Something},  %% if you want to include it
+  %% fac={Faculty of Theory},         %% if you want to include it
+]
+
+\begin{abstract}
+  TODO: Abstract of the thesis.
+\end{abstract}
+
+\begin{xabstract}[Sammendrag]
+  TODO: abstract in Norwegian (mandatory)
+\end{xabstract}
+
+\tableofcontents{}
+\listoffigures{}
+\listoftables{}
+
+\begin{preface}
+  TODO: preface (acknowledgements and thanks)
+\end{preface}
+
+\mainmatter{}
+
+
+
+
+
+
+\part*{Introduction}
+\chapter{Background}
+\section{Organisation of the genome}
+
+Talk about Eukaryotic genomes only...
+
+\subsection{DNA}
+
+DNA existence was discovered in 1869 by Friedrich Miescher when he found a new substance inside the nuclei of the human white blood cells that did not have the same properties as proteins or lipids \cite{pray2008discovery,dahm2008discovering}.
+        
+However, science world often emphasize not the discovery of nucleic acid itself, but the publishing of the structure of DNA. This was a fundamental moment in science as it allowed to explain the possible mechanism of DNA replication, thus information multiplication and transfer.
+
+
+
+Decipheric DNA structure
+This provided an explanation on how proteins are encoded by genes - nucleotides in the DNA encode the amino acids in the protein chain
+
+
+
+
+
+\subsection{Chromatin}
+
+\section{Fundamentals of genome regulation}
+
+\section{Gene regulation and cancer}
+
+
+
+
+\chapter{Gene regulation by transcription factors}
+\section{Transcription factors}
+\subsection{Protein structures and classification}
+\subsubsection{Protein domains}
+\subsubsection{Classification}
+
+DNA binding domains are highly conserved, thus are used to classify these proteins into families and classes.
+
+One of the most extensive classification of mammalian transcription factors - TFClass - include superclass, class, family, subfamily and genus \cite{wingender2018tfclass, wingender2013criteria}.
+
+\section{Transcription factor binding}
+
+
+
+\subsection{Mechanisms of gene regulation}
+
+\subsubsection{Cooperative transcription factor binding}
+
+
+
+
+
+\section{Investigating transcription factor binding}
+
+Throughout the years various methods have been developed to investigate transcription factor binding. First we rely on experimental techniques to probe the TF binding or openness of the chromatin. Classically we then use a number of computational strategies to process the experimental data. Experimental techniques can be classified into \textit{in vitro} and \textit{in vivo}. The goal of \textit{in vitro} methods is to identify TF consensus binding sites or describe binding energy. \textit{In vivo} methods, in addition to determining the consensus binding sites, aim to estimate sequence specificity and, more importantly, biological context of TF binding \cite{geertz2010experimental}. Both in vivo and in vitro techniques have varying resolutions and throughput, from being able to asses a few binding sites to investigating the binding throughout the whole genome. The usage of each technique depends on the research question. it is possible to use computational methods to predict the TF binding sites. The strategies vary from simple motif search to much more complex machine learning frameworks.
+
+\subsection{Experimental methods}
+
+\textit{In vitro methods}
+\textbf{Gel electrophoresis mobility shift assay (EMSA)}
+            
+SELEX
+            
+EMSA, PBM (describe briefly, more general).
+Methods that focuses on a selection of loci and require prior knowledge. For example to design the probes.
+
+\textit{In vivo methods}
+
+ChIP-seq
+DNaseI hypersensitivity
+(Predicting TFBSs in DHS data: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4573618/)
+
+Single Molecule Footprinting
+
+
+The paper that introduces ChIP-exo: https://www.sciencedirect.com/science/article/pii/S0092867411013511?via%3Dihub
+
+From workshop:
+In vitro:
+Low-throughput:
+EMSA
+Mid-throughput:
+DAP-seq
+High-throughput:
+PBM
+SELEX-based methods
+In vivo:
+ChIP-based techniques
+All techniques are low-throughput
+            
+\subsection{Computational methods}
+
+
+
+
+
+
+
+\chapter{Cell type-specific gene expression regulation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\uiopaper{JASPAR 2022: the 9th release of the open-access database of transcription factor binding profiles}
+\uioincludepdf{jaspar_2022_paper.pdf}
+
+\uiopaper{JASPAR 2024: }
+%% \uioincludepdf{jaspar_2024_paper.pdf}
+
+\uiopaper{Identification of transcription factor co-binding patterns with non-negative matrix factorization}
+\uioincludepdf{cobind_paper.pdf}
+
+
+\uiopaper{TFmeCan deconvolution}
+\chapter{Manuscript}
+TODO: manuscript or draft
+
+
+
+\part*{Discussion}
+% \part*{Conclusion}                     %% ... or ?? (if any)
+% \chapter{Results}                     %% ... or ??
+% Needed?
+
+% \chapter{Discussion}                     %% ... or ??
+% TODO
+
+\backmatter{}
+\printbibliography{}
+\end{document}
