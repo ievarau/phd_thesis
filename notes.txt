@@ -27,3 +27,49 @@ Gene expression involves multiple complex processes. Major players in regulation
 Transcription processes are also affected by epigenetic mechanisms. These include DNA methylation, microRNAs and histone tail modifications.
 
 
+
+
+
+
+
+
+\section{Investigating transcription factor binding}
+
+Throughout the years various methods have been developed to investigate transcription factor binding. First we rely on experimental techniques to probe the TF binding or openness of the chromatin. Classically we then use a number of computational strategies to process the experimental data. Experimental techniques can be classified into \textit{in vitro} and \textit{in vivo}. The goal of \textit{in vitro} methods is to identify TF consensus binding sites or describe binding energy. \textit{In vivo} methods, in addition to determining the consensus binding sites, aim to estimate sequence specificity and, more importantly, biological context of TF binding \cite{geertz2010experimental}. Both in vivo and in vitro techniques have varying resolutions and throughput, from being able to asses a few binding sites to investigating the binding throughout the whole genome. The usage of each technique depends on the research question. it is possible to use computational methods to predict the TF binding sites. The strategies vary from simple motif search to much more complex machine learning frameworks.
+
+\subsection{Experimental methods}
+
+\textit{In vitro methods}
+\textbf{Gel electrophoresis mobility shift assay (EMSA)}
+            
+SELEX
+            
+EMSA, PBM (describe briefly, more general).
+Methods that focuses on a selection of loci and require prior knowledge. For example to design the probes.
+
+\textit{In vivo methods}
+
+ChIP-seq
+DNaseI hypersensitivity
+(Predicting TFBSs in DHS data: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4573618/)
+
+Single Molecule Footprinting
+
+
+The paper that introduces ChIP-exo: https://www.sciencedirect.com/science/article/pii/S0092867411013511?via%3Dihub
+
+From workshop:
+In vitro:
+Low-throughput:
+EMSA
+Mid-throughput:
+DAP-seq
+High-throughput:
+PBM
+SELEX-based methods
+In vivo:
+ChIP-based techniques
+All techniques are low-throughput
+            
+\subsection{Computational methods}
+
