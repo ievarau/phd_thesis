@@ -1,7 +1,7 @@
 \documentclass[USenglish]{uiophdthesis}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{url}\urlstyle{sf}
-\usepackage{babel, csquotes, graphicx, textcomp, varioref}
+\usepackage{babel, csquotes, graphicx, textcomp, varioref, xcolor, acronym}
 \usepackage[backend=biber,style=numeric-comp]{biblatex}
 \usepackage[hidelinks, hypertexnames=false]{hyperref}
 
@@ -11,6 +11,7 @@
 \addbibresource{thesisbib.bib}
 
 \begin{document}
+
 \frontmatter{}
 \maketitle[
   supervisor={Anthony Mathelier},
@@ -19,202 +20,26 @@
   %% fac={Faculty of Theory},         %% if you want to include it
 ]
 
-\begin{abstract}
-  TODO: Abstract of the thesis.
-\end{abstract}
-
-\begin{xabstract}[Sammendrag]
-  TODO: abstract in Norwegian (mandatory)
-\end{xabstract}
+\include{parts/frontmatter/abstract}
 
 \tableofcontents{}
+
+
 \listoffigures{}
 \listoftables{}
 
-\begin{preface}
-  TODO: preface (acknowledgements and thanks)
-\end{preface}
+
+\include{parts/frontmatter/preface}
+
+\include{parts/frontmatter/abbreviations}
 
 \mainmatter{}
 
-
-
-
-
-
 \part*{Introduction}
-  \chapter{Background}
-    \section{Organisation of the genome}
 
-    Talk about Eukaryotic genomes only...
-
-    A eukaryotic genome contains different types of repetetive regions or motifs. These include transposable elements, tandem repeats, GC- and AT-rich sequences, splice sites and binding sites of non-coding RNA molecules. Importantly, crutial for gene expression regulation are DNA sequence motifs targeted by transcription factors \cite{boeva2016analysis}.
-
-
-      \subsection{DNA}
-
-      DNA existence was discovered in 1869 by Friedrich Miescher when he found a new substance inside the nuclei of the human white blood cells that did not have the same properties as proteins or lipids \cite{pray2008discovery,dahm2008discovering}.
-              
-      However, science world often emphasize not the discovery of nucleic acid itself, but the publishing of the structure of DNA. This was a fundamental moment in science as it allowed to explain the possible mechanism of DNA replication, thus information multiplication and transfer.
-
-
-
-      Decipheric DNA structure
-      This provided an explanation on how proteins are encoded by genes - nucleotides in the DNA encode the amino acids in the protein chain
-
-
-
-
-
-      \subsection{Chromatin}
-
-
-
-
-
-
-    \section{Fundamentals of gene transcription regulation}
-
-
-
-
-    Transcriptional regulation - at the DNA level:
-    - chromatin state modification (histone tail post-translational modifications - histone marks)
-        Histone methyltransferases, histone acetyltransferases, histone deacetylates, polycomb proteins.
-    - DNA methylation
-        DNA methyltransferases, 5mC-reading proteins (could be a lead to the transcription factors, slightly mention the poineering function, but more later)
-    - TFs
-        Bind enhancers, making a loop. (mention this very briefly, more details later on)
-
-
-
-    Post-transcriptional regulation - at the RNA level:
-    - small RNAs
-    - capping, RNA splicing, poly(A) tail, RNA editing, mRNA stability, nuclear export.
-
-
-
-
-    (Focus on transcriptional regulation.)
-
-
-
-
-
-    Gene expression regulation by transcription factors is one of the most studied fields, yet still contains a number of unanswered questions that keep the scientists busy. <---- as a last sentence?
-
-  \chapter{Gene transcription regulation by transcription factors}
-
-
-
-
-    \section{Transcription factors}
-
-
-
-
-
-      \subsection{Protein structures and classification}
-
-
-
-
-
-
-
-        \subsubsection{Protein domains}
-
-
-
-
-
-
-        \subsubsection{Classification}
-
-        DNA binding domains are highly conserved, thus are used to classify these proteins into families and classes.
-
-        One of the most extensive classification of mammalian transcription factors - TFClass - include superclass, class, family, subfamily and genus \cite{wingender2018tfclass, wingender2013criteria}.
-
-    \section{Transcription factor binding}
-
-
-    Transcription factors directly or indirectly bind genomic regions, known as promoters and enhancers. The location where TF resides onto DNA is referred to as a transcription factor binding site (TFBS). A promoter or an enhancer can have multiple TFBSs of the same or different TF. Transcription factors generally have binding preference to a set of DNA sequences - DNA binding motif \cite{boeva2016analysis}.
-
-
-
-      \subsection{DNA binding models}
-
-      In order to interpret TF binding to the regulatory regions, we need ways to represent the DNA binding. Currently, DNA binding is represented using various models.
-      
-      The most popular and widely used is positional weight matrix (PWM) or position-specific scoring matrix (PSSM). 
-
-
-      PFM, PWM. Other models to represent binding.
-
-
-      
-
-
-      There are two main strategies applied to analyse genomic sequences from TF binding perspective. One is to find over-represented sequence motifs using existing collections of DNA binding motifs. The second is to discover over-represented motifs \textit{de novo} \cite{boeva2016analysis}. 
-
-
-      \subsection{Mechanisms of gene regulation}
-
-
-      Go from the simplest to more complicated....
-
-        \subsubsection{Pioneering}
-
-        TFs are capable of binding heterochramatin through recruitment of histone acetyltransferases \cite{boeva2016analysis}.
-
-
-        
-        \subsubsection{Cooperative transcription factor binding}
-
-
-        When TFs interact or compete with each other binding sites co-localize or overlap \cite{boeva2016analysis}.
-
-        Notes: talk about mechanisms of binding and methods that investigate these mechanisms can be explained here too.
-        So this needs to be quite specific mechanisms and then specifics on the methods as well (experimental and computational methods that is).
-
-
-
-
-
-
-
-
-
-  \chapter{Cell type-specific gene expression regulation}
-
-  This is about how gene expression is cell-type specific, relate to the fact that we have some cool single-cell techniques that tackle this problem, but we have a lot of bulk data that could still be used.
-
-
-
-    \section{Gene expression regulation and cancer}
-
-
-    \section{Gene expression data deconvolution}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  \include{parts/introduction/background}
+  \include{parts/introduction/regulation}
+  \include{parts/introduction/cell_type_regulation}
 
 \part*{Objectives of the Study}
 
@@ -222,55 +47,17 @@
 
 \part*{Summary of Papers}
 
-\chapter*{Papers I-II}
-
-\section*{Paper I}
-
-\section*{Paper II}
-
-\chapter*{Paper III}
-
-\chapter*{Paper IV}
-
-
-
-
-
-
+  \include{parts/papers/summary_of_papers}
 
 \part*{Discussion}
-% \part*{Conclusion}                     %% ... or ?? (if any)
-% \chapter{Results}                     %% ... or ??
-% Needed?
 
-% \chapter{Discussion}                     %% ... or ??
-% TODO
-
-
-
-
-
+  \include{parts/discussion/discussion}
 
 
 \backmatter{}
+
 \printbibliography{}
 
-
-
-
-\uiopaper{JASPAR 2022: the 9th release of the open-access database of transcription factor binding profiles}
-\uioincludepdf{jaspar_2022_paper.pdf}
-
-\uiopaper{JASPAR 2024: }
-%% \uioincludepdf{jaspar_2024_paper.pdf}
-
-\uiopaper{Identification of transcription factor co-binding patterns with non-negative matrix factorization}
-\uioincludepdf{cobind_paper.pdf}
-
-
-\uiopaper{TFmeCan deconvolution}
-\chapter{Manuscript}
-TODO: manuscript or draft
-
+\include{parts/papers/papers}
 
 \end{document}
