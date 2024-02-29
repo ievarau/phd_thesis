@@ -1,0 +1,62 @@
+\documentclass[USenglish]{uiophdthesis}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{url}\urlstyle{sf}
+\usepackage{babel, csquotes, graphicx, textcomp, varioref, xcolor, acronym}
+\usepackage[backend=biber,style=numeric-comp]{biblatex}
+\usepackage[hidelinks, hypertexnames=false]{hyperref}
+
+\title{Decoding transcription factor binding to the DNA}
+\author{Ieva Rauluševičiūtė} 
+
+\addbibresource{thesisbib.bib}
+
+\begin{document}
+
+\frontmatter{}
+\maketitle[
+  supervisors={Anthony Mathelier \\ Jonas Paulsen},
+  dept={Department of Biosciences},
+  fac={Faculty of Mathematics and Natural Sciences},
+]
+
+\include{parts/frontmatter/abstract}
+
+\tableofcontents{}
+
+
+\listoffigures{}
+\listoftables{}
+
+
+\include{parts/frontmatter/preface}
+
+\include{parts/frontmatter/abbreviations}
+
+\mainmatter{}
+
+\part*{Introduction}
+
+  \include{parts/introduction/background}
+  \include{parts/introduction/regulation}
+  \include{parts/introduction/cell_type_regulation}
+
+\part*{Objectives of the Study}
+
+
+
+\part*{Summary of Papers}
+
+  \include{parts/papers/summary_of_papers}
+
+\part*{Discussion}
+
+  \include{parts/discussion/discussion}
+
+
+\backmatter{}
+
+\printbibliography{}
+
+\include{parts/papers/papers}
+
+\end{document}
