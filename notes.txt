@@ -1,4 +1,10 @@
 
+
+Oversimplified representation for public:
+https://www.nature.com/articles/d41586-024-00327-x
+
+
+
 ## Genomes:
 
 %% https://www.nature.com/scitable/topicpage/discovery-of-dna-structure-and-function-watson-397/
