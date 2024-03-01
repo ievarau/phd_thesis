@@ -13,8 +13,9 @@ Castro-Mondragon JA\footnotemark[\value{footnote}], Riudavets-Puig R\footnotemar
 
 \textbf{Paper I} and \textbf{Paper II} describes the two latest releases of the JASPAR database. JASPAR is a widely used open-access repository of transcription factor binding motifs created and maintained since 2004. One of the biggest database strengths is that all motifs are manually curated before they are added to the database. Motifs subjected for manual curation are discovered \textit{de novo} from peak data, mined from databases (for example, ReMap \cite{hammal2022remap} and GTRD \cite{kolmykov2021gtrd}) and publications, or already generated motifs are mined from such sources. Database is updated every 2 years by adding new profiles into two collections - CORE and UNVALIDATED. CORE collection contains profiles with orthogonal support, while UNVALIDATED collection has profiles of same good quality, but not yet confirmed by an independent experiment. In 2022 CORE and UNVALIDATED collections were enhanced or updated by 501 and 182 profiles, respectively, while in 2024 by 404 and 298 profiles, respectively.
 
-Since 2022, JASPAR is not only updated with new information, but existing profiles in both collections are revised. We revise UNVALIDATED collection profiles to check for possible new validation to move the profiles into the CORE collection. In 2022 we upgraded 52 such profiles, while in 2024 validation was found for 72 profiles. We also extensively revised the inconsistencies in the metadata that were accumulated over the years since the release of JASPAR. Metadata fields, such as TF class and family were revised and updated with the newest available information (for example, vertebrate profiles are classified using TFClass \cite{wingender2018tfclass}). In 2024 release 75\% (1,869 out of 2,506) JASPAR 2022 motifs and all incoming new motifs were updated by trimming. We applied an algorithm to remove the low IC positions on the sides of motifs to improve the quality of our collections.
+Since 2022, JASPAR is not only updated with new information, but existing profiles in both collections are consistently revised. We revise UNVALIDATED collection profiles to check for possible new validation to move the profiles into the CORE collection. In 2022 we upgraded 52 such profiles, while in 2024 validation was found for 72 profiles. We also extensively revised the inconsistencies in the metadata that were accumulated over the years since the release of JASPAR. Metadata fields, such as TF class and family were revised and updated with the newest available information (for example, vertebrate profiles are classified using TFClass \cite{wingender2018tfclass}). In 2024 release 75\% (1,869 out of 2,506) JASPAR 2022 motifs and all incoming new motifs were updated by trimming. We applied an algorithm to remove the low IC positions on the sides of motifs to improve the quality of our collections.
 
+In addition to the refining the motifs and it related metadata, we provide additional analysis and resources. This includes motif clustering, archetype motifs, TFBSs predictions, genome browser tracks, word clouds. 
 Accompanying data and analysis, such as motif clustering, archetype motifs, TFBS predictions and genome browser tracks.
 Accompanying tools, such as TFBS extraction, enrichment analysis.
 Multiple ways to access the database - via command line, RESTful API, R Bioconductor package and pyJASPAR.
@@ -32,4 +33,12 @@ With each release there is a need to process more and more data, which requires 
 \textbf{Paper III} describes a non-negative matrix factorization-based method to identify co-binding DNA patterns. The tools can be used to identify any DNA/RNA pattern in relation to the provided set of reference regions/sequences.
 
 
-What is NMF? Brief description.
+What is NMF? Brief description. Main purpose of the tool
+Brief description what is input output
+Proof-of-concept
+Results (numbers of discovered patterns in each species)
+PPI 
+Examples (CTCF, TEAD)
+Conservation
+DHS
+SMF
