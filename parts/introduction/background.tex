@@ -42,7 +42,7 @@ Gene is a basic unit of heredity. It is a stretch of DNA in the genome and subje
 
     \subsection{RNA}
 
-    RNA is produced during transcription, when transcription machinery with the main player RNA polymerase transcribes a portion of the genome. RNA molecule is single-stranded and similarly to the DNA, also consists of the sugar backbone (ribonuclease) and four types nucleotides --- \ac{U}, \ac{A}, \ac{C} and \ac{G} ({Figure \ref{rna_structure}}). RNA molecules can adapt a big variety of secondary structures via forming hydrogen bonds between nucleotides within the same molecule.
+    RNA is produced during transcription, when transcription machinery with the main player RNA polymerase transcribes a portion of the genome. RNA molecule is single-stranded and similarly to the DNA, also consists of the sugar backbone (ribonuclease) and four types nucleotides --- \ac{U}, \ac{A}, \ac{C} and \ac{G} ({Figure \ref{rna_structure}}). RNA molecules can adapt a big variety of secondary structures via forming hydrogen bonds between nucleotides (C pairs with G, while A pairs with U) within the same molecule \cite{higgs2000rna}.
 
     \begin{figure}
         \centering
@@ -51,13 +51,17 @@ Gene is a basic unit of heredity. It is a stretch of DNA in the genome and subje
         \label{rna_structure}
     \end{figure}
 
-    Besides the structural variety, RNAs can be grouped by their functions. The main types of RNAs are \ac{mRNA}, \ac{rRNA}, \ac{tRNA} and broad category of other \ac{ncRNAs} \cite{mrna, raina2014trnas, higgs2000rna}. A \ac{pre-mRNA} is produced in the nucleus during transcription by copying a gene \cite{mrna}. They are heavily processed to produce an mRNA that carries information to the cytoplasm to be translated to polypeptide \cite{moore2005birth}. Most of the pre-mRNA is processed by splicing, where intronic (non-protein coding) gene segments are cut out to leave only exons (protein-coding) \cite{lee2015mechanisms}. Introns can be spliced differently by choosing to leave out some exons, creating a variety of transcripts copied from the same gene. This is known as alternative splicing. A specific protein complex, spliceosome, is responsible for splicing. Splicing factor proteins recognize splicing signalling sequences at the intron-exon boundaries \cite{lee2015mechanisms}. In addition to the splicing, a cap is added at the 5' end of the RNA, while to the 3' end multiple A nucleotides are added to create a poly-A tail. After this, mRNA is mature and travels out of the nucleus to the ribosomes in the cytoplasm. Ribosomes receive individual mRNAs and reads the information coded. Ribosomes contain rRNA and each amino acid is brought into the ribosome by tRNAs that recognize every three mRNA nucleotides, termed codons \cite{raina2014trnas}.
+    Besides the structural variety, RNAs can be grouped by their functions. The main types of RNAs are \ac{mRNA}, \ac{rRNA}, \ac{tRNA} and broad category of other \ac{ncRNAs} \cite{mrna,raina2014trnas,higgs2000rna}. A \ac{pre-mRNA} is produced in the nucleus during transcription by copying a gene ({Figure \ref{gene_to_protein}}) \cite{mrna}. RNA is synthesized by RNA polymerase from \ac{NTPs} (ATP, GTP, CTP and UTP that are precursors of A, G, C and U, respectively). They are heavily processed to produce an mRNA that carries information to the cytoplasm to be translated to polypeptide. mRNA has an \ac{ORF}, consisted of introns and exons. The ORF is flanked by \ac{3'UTR} and \ac{5'UTR} \cite{moore2005birth,higgs2000rna}. Most of the pre-mRNA is processed by splicing, where intronic (non-protein coding) gene segments are cut out to leave only exons (protein-coding) \cite{lee2015mechanisms}. Introns can be spliced differently by choosing to leave out some exons, creating a variety of transcripts copied from the same gene. This is known as alternative splicing \cite{faustino2003pre}. A specific protein complex, spliceosome, is responsible for splicing. Splicing factor proteins recognize splicing signalling sequences at the intron-exon boundaries \cite{lee2015mechanisms,faustino2003pre}. In addition to the splicing, a cap is added at the 5' end of the RNA, while to the 3' end multiple A nucleotides are added to create a poly-A tail \cite{faustino2003pre}. After this, mRNA is mature and travels out of the nucleus to the ribosomes in the cytoplasm. Ribosomes receive individual mRNAs and reads the information encoded. Ribosomes contain rRNA and each amino acid is brought into the ribosome by tRNAs that recognize every three mRNA nucleotides, termed codons \cite{raina2014trnas,higgs2000rna}.
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=1\textwidth]{figures/transcription/transcription_translation.pdf}
+        \caption[From gene to protein]{\textbf{From gene to protein.} During transcription open reading frame (ORF), flanked by 5' and 3' untranslated regions (UTRs), is transcribed by RNA polymerase to produce pre-mRNA. General transcription factors (GTFs) are part of transcription complex and RNA polymerase uses nucleotide triphosphates to produce RNA molecule. Pre-mRNA has introns and exons. During splicing, spliceosome cuts out non-protein coding introns to leave only protein coding exons. 5' cap and 3' poly-A tail are added to produce a mature mRNA. It is then transported to the cytoplasm, where mRNA is translated into a polypeptide chain, which is later folded into a protein. Translation happens in ribosome, where each amino acid is brought by tRNAs.}
+        \label{gene_to_protein}
+    \end{figure}
 
     Non-coding RNAs can be classified into two subcategories based on their size --- \ac{lncRNAs} (longer than 200 nucleotides) and small ncRNAs (shorter than 200 nucleotides). The later group can be divided into \ac{miRNAs}, \ac{snoRNAs}, \ac{snRNAs}, \ac{siRNAs} and \ac{piRNAs}. miRNAs have an important function in eukaryotic gene regulation. They can target and silence mRNAs to prevent translating them into proteins \cite{mrna}. Many ncRNAs have been associated with diseases, such as cancer. For example, miRNA can act as a tumour suppressor and target genes responsible for cell growth. Aberrations in such miRNA functions can lead to tumorigenesis.
 
-
-
-
-
-
     \subsection{RNA polymerase and transcriptional machinery}
+
+    In eukaryotes, \ac{Pol II} is responsible for transcribing genes encoding mRNAs and some ncRNAs \cite{nikolov1997rna}.
