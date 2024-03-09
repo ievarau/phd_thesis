@@ -1,83 +1,71 @@
 \chapter{Background}
 
+The genome is a blueprint of life. It codes a recipe for growth, development and regulation of all processes in the cell whether it is a multicellular or a single-cell organism. In multicellular organisms, such as humans, the genome encodes intricate intracellular interactions that enables a collection of cells to become one coordinated organism. The genome is composed of \ac{DNA} and through the production of RNA and proteins, complex cellular mechanisms are organizing all the biological processes. By studying these mechanisms, we hope to better understand how genome is functioning. In this chapter basic molecular biology concepts, such as DNA and transcription, are overviewed to give a background that is required to dive deeper into how transcription is regulated.
+
 \section{Organization of the genome}
 
-In Eukaryotes hereditary information is stored as DNA in cell nucleus. Genomic DNA is transcribed and replicated. For example, if stretched into a single thread, human DNA is around 2 meters long and must be compacted into a nucleus. Therefore, multiple levels of organization are applied, starting from DNA helix and histone proteins and ending with chromosomes and their territories in the nucleus (\colorbox{pink}{Figure \ref{genome_organization}}) \cite{misteli2020self}. Specific organization ensures proper functioning of the genome - genes can be expressed in the right place and time. Genomic DNA is constantly being approached by regulatory proteins and other small molecules. And all this must be carefully regulated to ensure appropriate cell grow, division and differentiation.    
+In Eukaryotes hereditary information is stored as DNA in the cell nucleus. Genomic DNA is transcribed and replicated. For example, if stretched into a single thread, human DNA is around 2 meters long and must be compacted into a microscopic nucleus. Therefore, multiple levels of organization are applied, starting from DNA helix and histone proteins and ending with chromosomes and their territories in the nucleus ({Figure \ref{genome_organization}}) \cite{misteli2020self}. Specific organization ensures proper functioning of the genome --- genes can be expressed in the right place and time.
 
 \begin{figure}
     \centering
-    \includegraphics[width=1\textwidth]{figures/genome_organization/genome_organization_V1.pdf}
-    \caption[Genome organization]{blablabla}
-    % {chromatin-structure icon by Pauline Franz https://twitter.com/_paulinefranz is licensed under CC-BY 4.0 Unported https://creativecommons.org/licenses/by/4.0/}
+    \includegraphics[width=1\textwidth]{figures/genome_organization.jpg}
+    \caption[Eukaryotic genome organization]{\textbf{Eukaryotic genome organization.} Genomic DNA is wrapped up around histones to form nucleosomes - a basic unit of chromatin fibre. Chromatin can form loops that span kilobase pairs (kb) or megabase pairs (Mb) and are essential for gene expression regulation. Bigger stretches of chromatin are organized into domains or topologically associated domains (TADs), which in turn form chromatin compartments to tightly pack everything into the nucleus. Each chromosome usually occupies a territory in the nucleus. The nucleus also contains a nuclear body, architectural proteins and is surrounded by a nuclear envelope. Adapted from \cite{misteli2020self}.}
     \label{genome_organization}
 \end{figure}
 
     \subsection{DNA}
 
-    The existence of DNA was discovered in 1869 by Friedrich Miescher when he found a new substance inside the nuclei of the human white blood cells that did not have the same properties as proteins or lipids \cite{pray2008discovery,dahm2008discovering}. Interestingly, this is not the discovery related to DNA that is most remembered. In 1953 contributions of Rosalind Franklin, James Watson and Francis Crick led to a publication of resolved DNA molecule structure and is often considered to be the beginning of molecular biology (\colorbox{pink}{REF}). This is a fundamental moment in science history as it allowed to explain the possible mechanism of DNA replication, thus information multiplication and transfer. 
+    The existence of DNA was discovered in 1869 by Friedrich Miescher when he found a new substance inside the nuclei of the human white blood cells that did not have the same properties as proteins or lipids \cite{pray2008discovery,dahm2008discovering}. Interestingly, this is not the discovery related to DNA that is most remembered. In 1953 contributions of Rosalind Franklin, James Watson and Francis Crick led to a publication of resolved DNA molecule structure and is often considered to be the beginning of molecular biology \cite{watson1953molecular}. This is a fundamental moment in science history as it allowed to explain the possible mechanism of DNA replication, thus information multiplication and transfer.
 
-    DNA structure is based on a sugar backbone that holds four types of nucleotides - \ac{A}, \ac{T}, \ac{C} and \ac{G}.
+    DNA stores genetic information in the cell. Its structure is based on a sugar backbone (deoxyribose) that holds four main types of nucleotides --- purines \ac{A} and \ac{G}, and pyrimidines \ac{T} and \ac{C} \cite{dna_structure}. Chargaff's rule states that in the DNA of any species, the proportions of A and T nucleotides and C and G are always equal, demonstrating unique base-pairing (complementarity), when forming a double-stranded DNA helix \cite{chargaff1951composition,dna_structure}. A-T and C-G nucleotide pairs in two strands of the DNA are held by two and three hydrogen bonds respectively ({Figure \ref{dna_structure}}).
 
+    The most commonly found DNA structure is called a B form DNA. Two helical DNA strands are entwined in a way that forms spaces between the strands --- major and minor grooves, which are 22 and 12 \AA wide, respectively. The grooves create opportunities for the proteins to interact with the double-stranded DNA, which is a basis for transcription factor (TF) binding \cite{protein_dna_interaction}.
 
-
-    Deciphering DNA structure
-    This provided an explanation on how proteins are encoded by genes - nucleotides in the DNA encode the amino acids in the protein chain
-
-
-        \subsubsection{Types of genomic regions}
-        
-        A eukaryotic genome contains different types of repetitive regions or motifs. These include transposable elements, tandem repeats, GC- and AT-rich sequences, splice sites and binding sites of non-coding RNA molecules. Importantly, crucial for gene expression regulation are DNA sequence motifs targeted by transcription factors \cite{boeva2016analysis}.
-
-
-
+    \begin{figure}
+        \centering
+        \includegraphics[width=1\textwidth]{figures/dna/dna_structure_latest.pdf}
+        \caption[DNA structure]{\textbf{DNA structure.} The two chains of the DNA are composed of a sugar backbone and four nucleotides: adenine (A), thymine (T), cytosine (C) and guanine(G). Nucleotides in the two chains are connected via hydrogen bonds in a strict complementarity, where A is bound to T and C is bound to G.}
+        \label{dna_structure}
+    \end{figure}
 
     \subsection{Chromatin}
 
+    The basic element of chromatin is a nucleosome, which consists of 146 bp of DNA wrapped around core histone protein octamer. Nucleosomes are gathered into a chromatin fibre, which is typically 5-24 nM in diameter. The fibres are organizing into higher structures and eventually into a metaphase chromosome. During interphase, chromatin is organized into domains and compartments and tends to be located in specific territories ({Figure \ref{genome_organization}}) \cite{misteli2020self,morrison2021molecular}. Chromatin fibres from different chromosomes can interact at the edges, but they do not entangle. \ac{TADs} is a chromatin feature relevant for gene expression control.
 
-    The basic element of chromatin a 146 bp of DNA wrapped around core histone protein octamer defined as nucleosome \cite{misteli2020self}. Core histone proteins are the most commonly found in nucleosomes, but can be replaced with variants in special context, such as promoter regions.
+    Canonical core histone proteins are H2A, H2B, H3 and H4 with two copies of each in a single octameric core. Every core nucleosome is separated by a linker histone H1 \cite{marino2005histone,morrison2021molecular}. In certain genomic regions, well-conserved canonical histone proteins can be replaced by the variants. For example, H3.3 replaces the H3 histone in active genes and promoter regions \cite{marino2005histone, talbert2021histone}. Amino acids in histone protein N-terminal tails are subjected for extensive \ac{PTMs}, such as acetylation and methylation. These modifications are essential for controlling the accessibility of the chromatin. Accessible chromatin is accessed by a transcriptional machinery and regulatory proteins \cite{marino2005histone}.
 
+    Based on its activity state chromatin can be grouped into heterochromatin and euchromatin. Euchromatin is a more open, active chromatin, where nucleosomes are more widely spaced. There are more histone modifications (\ac{H3K4me3}, \ac{H3K27ac}, \ac{H3K36me}) and histone variants (H3.3, H2A.Z, H2A.B) associated with active transcription. On the other hand, heterochromatin is generally known as a silent chromatin and is less accessible and transcribed. Constitutive heterochromatin is more static and contains \ac{H3K9me3}. Facultative heterochromatin can switch between active and inactive states and is marked by \ac{H3K27me3}. For example, facultative heterochromatin is found on an inactive X-chromosome \cite{morrison2021molecular}.
 
-    Types of chromatin - euchromatin and heterochromatin.
+\section{Gene transcription}
 
+Gene is a basic unit of heredity. It is a stretch of DNA in the genome and subjected for transcription by RNA polymerase. Transcription is a process of copying DNA and producing an RNA molecule. Genes can be protein-coding or non-coding. The RNA made using protein-coding gene as a template will be translated into a protein, while non-coding genes produce functional non-coding RNA molecules. The process of transcription is organized by a collection of proteins that assemble into transcriptional machinery.
 
+    \subsection{RNA}
 
-    organization of DNA into chromosome territories
+    RNA is produced during transcription, when transcription machinery with the main player RNA polymerase transcribes a portion of the genome. RNA molecule is single-stranded and similarly to the DNA, also consists of the sugar backbone (ribonuclease) and four types nucleotides --- \ac{U}, \ac{A}, \ac{C} and \ac{G} ({Figure \ref{rna_structure}}). RNA molecules can adapt a big variety of secondary structures via forming hydrogen bonds between nucleotides (C pairs with G, while A pairs with U) within the same molecule \cite{higgs2000rna}.
 
+    \begin{figure}
+        \centering
+        \includegraphics[width=1\textwidth]{figures/dna/rna_structure_latest.pdf}
+        \caption[RNA structure]{\textbf{RNA structure.} RNA molecule consists of a single strand. It is composed of a sugar backbone and four nucleotides: uracil (U), adenine (A), cytosine (C) and guanine(G).}
+        \label{rna_structure}
+    \end{figure}
 
-    More recently, higher level organized chromatin structures are taken into account. For example, chromosome compartments.
+    Besides the structural variety, RNAs can be grouped by their functions. The main types of RNAs are \ac{mRNA}, \ac{rRNA}, \ac{tRNA} and broad category of other \ac{ncRNAs} \cite{mrna,raina2014trnas,higgs2000rna}. A \ac{pre-mRNA} is produced in the nucleus during transcription by copying a gene ({Figure \ref{gene_to_protein}}) \cite{mrna}. RNA is synthesized by RNA polymerase from \ac{NTPs} (ATP, GTP, CTP and UTP that are precursors of A, G, C and U, respectively). They are heavily processed to produce an mRNA that carries information to the cytoplasm to be translated to polypeptide. mRNA has an \ac{ORF}, consisted of introns and exons. The ORF is flanked by \ac{3'UTR} and \ac{5'UTR} \cite{moore2005birth,higgs2000rna}. Most of the pre-mRNA is processed by splicing, where intronic (non-protein coding) gene segments are cut out to leave only exons (protein-coding) \cite{lee2015mechanisms}. Introns can be spliced differently by choosing to leave out some exons, creating a variety of transcripts copied from the same gene. This is known as alternative splicing \cite{faustino2003pre}. A specific protein complex, spliceosome, is responsible for splicing. Splicing factor proteins recognize splicing signalling sequences at the intron-exon boundaries \cite{lee2015mechanisms,faustino2003pre}. In addition to the splicing, a cap is added at the 5' end of the RNA, while to the 3' end multiple A nucleotides are added to create a poly-A tail \cite{faustino2003pre}. After this, mRNA is mature and travels out of the nucleus to the ribosomes in the cytoplasm. Ribosomes receive individual mRNAs and reads the information encoded. Ribosomes contain rRNA and each amino acid is brought into the ribosome by tRNAs that recognize every three mRNA nucleotides, termed codons \cite{raina2014trnas,higgs2000rna}.
 
+    \begin{figure}
+        \centering
+        \includegraphics[width=1\textwidth]{figures/transcription/transcription_translation.pdf}
+        \caption[From gene to protein]{\textbf{From gene to protein.} During transcription open reading frame (ORF), flanked by 5' and 3' untranslated regions (UTRs), is transcribed by RNA polymerase to produce pre-mRNA. General transcription factors (GTFs) are part of transcription complex and RNA polymerase uses nucleotide triphosphates to produce RNA molecule. Pre-mRNA has introns and exons. During splicing, spliceosome cuts out non-protein coding introns to leave only protein coding exons. 5' cap and 3' poly-A tail are added to produce a mature mRNA. It is then transported to the cytoplasm, where mRNA is translated into a polypeptide chain, which is later folded into a protein. Translation happens in ribosome, where each amino acid is brought by tRNAs.}
+        \label{gene_to_protein}
+    \end{figure}
 
-    Phase separation maybe mention here?
+    Non-coding RNAs can be classified into two subcategories based on their size --- \ac{lncRNAs} (longer than 200 nucleotides) and small ncRNAs (shorter than 200 nucleotides). The later group can be divided into \ac{miRNAs}, \ac{snoRNAs}, \ac{snRNAs}, \ac{siRNAs} and \ac{piRNAs}. miRNAs have an important function in eukaryotic gene regulation. They can target and silence mRNAs to prevent translating them into proteins \cite{mrna}. Many ncRNAs have been associated with diseases, such as cancer. For example, miRNA can act as a tumour suppressor and target genes responsible for cell growth. Aberrations in such miRNA functions can lead to tumorigenesis.
 
+    \subsection{RNA polymerase and transcriptional machinery}
 
+    In eukaryotes, \ac{Pol II} is responsible for transcribing genes encoding mRNAs and some ncRNAs  \cite{nikolov1997rna}. This 12 subunit protein uses NTPs as a substrate to produce pre-mRNA molecules from a DNA template. RNA sequence is synthesized by using nucleotide complementarity. In the DNA template nucleotides A, C, G and T will be transcribed into RNA nucleotides U, G, C and A, respectively.
+    
+    Pol II is not able to recognize the \ac{TSSs} by itself and needs to be guided by a set of proteins, known as \ac{GTFs} ({Figure \ref{gene_to_protein}}). Pol II and GTFs forms a minimal transcription machinery and all these proteins together with the template DNA form the \ac{PIC} \cite{liu2013rna,nikolov1997rna}. The GTFs are TFIIB, TFIID, TFIIE, TFIIF and TFIIH, and each of them play a specific role in transcription initiation. They assemble one after another. TFIID is composed of \ac{TBP} and \ac{TAFs}, and recognizes a specific DNA sequence element near the TSS, TATA box. TFIIB and non-phosphorylated form of Pol II joins the complex, followed by TFIIF, TFIIE and TFIIH. Finally, Pol II is phosphorylated to proceed to elongation \cite{nikolov1997rna}. During transcription elongation the main portion of mRNA is produced. Transcription ends with transcription termination process, where pre-mRNA is released for further processing, splicing.
 
-
-\section{Fundamentals of gene transcription regulation}
-
-
-
-
-Transcriptional regulation - at the DNA level:
-- chromatin state modification (histone tail post-translational modifications - histone marks)
-    Histone methyltransferases, histone acetyltransferases, histone deacetylates, polycomb proteins.
-- DNA methylation
-    DNA methyltransferases, 5mC-reading proteins (could be a lead to the transcription factors, slightly mention the poineering function, but more later)
-- TFs
-    Bind enhancers, making a loop. (mention this very briefly, more details later on)
-
-
-
-Post-transcriptional regulation - at the RNA level:
-- small RNAs
-- capping, RNA splicing, poly(A) tail, RNA editing, mRNA stability, nuclear export.
-
-
-
-
-(Focus on transcriptional regulation.)
-
-
-
-
-
-Gene expression regulation by transcription factors is one of the most studied fields, yet still contains a number of unanswered questions that keep the scientists busy. <---- as a last sentence?
+    A limited set of genes are expressed in the majority of the cell types at the constant rates. These genes are referred to as housekeeping genes. However, for cells to differentiate and perform cell-type specific functions, specific genes need to be transcribed at the specific time and place. Basic transcriptional machinery is not able to control that, but is instructed by a variety of regulatory processes. For example, transcription factors (TFs) bind regulatory regions, such as promoters and enhancers, open the region and signal the PIC to be assembled at the associated gene promoter. Mechanisms of TF binding to the DNA and transcriptional regulation are very complex, and the field still lacks the details on how these processes are organized in the cell nucleus. Regulatory regions, TFs and transcription regulation are overviewed in more detail in the chapter below.
