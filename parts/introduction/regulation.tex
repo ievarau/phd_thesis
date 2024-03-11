@@ -7,66 +7,64 @@ Processes that are not directly associated with the DNA sequence, are responsibl
 \begin{figure}
   \centering
   \includegraphics[width=1\textwidth]{figures/regulatory_regions/regulation_latest.pdf}
-  \caption[Regulatory regions and transcription regulation]{\textbf{Transcription is regulated through protein binding to the gene cis-regulatory regions.} \textbf{A.} Regulatory regions can be found upstream and downstream of the gene body (open reading frame). Regulatory sequences can be in a close proximity (proximal) or separated by numerous bases (distal). Distal regulatory regions are enhancers and silencers. \textbf{B.} For transcriptional machinery to know which gene needs to be transcribed, transcription factors (TFs) are binding enhancers, which stimulates the binding of Mediator proteins and subsequently RNA polymerase II (Pol II). The binding brings enhancer and promoter regions closer in space and transcription starts. RNA Pol II proteins transcribes a gene into pre-mRNA, but also produces enhancer RNA (eRNA). Modified from \cite{wu2019super,villao2023plant}.}
+  \caption[Regulatory regions and transcription regulation]{\textbf{Transcription is regulated through protein binding to the gene cis-regulatory regions.} \textbf{A.} Regulatory regions can be found upstream and downstream of the gene body (open reading frame). Regulatory sequences can be in a close proximity (proximal) or separated by numerous bases (distal). Distal regulatory regions are enhancers and silencers. \textbf{B.} For transcriptional machinery to know which gene needs to be transcribed, transcription factors (TFs) are binding enhancers, which stimulates the binding of Mediator proteins and subsequently RNA polymerase II (Pol II). The binding brings enhancer and promoter regions closer in space and transcription starts. RNA Pol II proteins transcribes a gene into pre-mRNA, but also produces enhancer RNA (eRNA). Modified from \cite{wu2019super,villao2023plant,wasserman2004applied}.}
   \label{regions_loop}
 \end{figure}
 
   \section{Cis-regulatory regions}
 
-  Regulatory regions in the eukaryotic genome are segments of the DNA that are associated with capability to increase or decrease the transcription.
-
-
-
-  Importantly, crucial for gene expression regulation are DNA sequence motifs targeted by transcription factors \cite{boeva2016analysis}.
-
-
+  Regulatory regions in the eukaryotic genome are segments of the DNA that are associated with capability to increase or decrease the transcription. These regions are termed \ac{CRRs}. They are crucial for gene expression regulation, because they contain a set of short DNA sequences, \ac{TFBSs}, which are targeted by TFs \cite{boeva2016analysis,wasserman2004applied}. CRRs include promoters, enhancers and silencers.
 
     \subsection{Promoters}
 
-    Promoters are located at the 5' end region of the gene ({Figure \ref{regions_loop}}A) and are crucial for gene expression regulation. Promoters have specific DNA sequence elements that play roles in transcription initiation. For example, TATA box element is bound by TBP, while different sequence motifs can be bound by TFs \cite{villao2023plant}. Based on their composition and nucleosome distribution, promoters can be classified into four main types: type I, II, III and IV.
+    Promoters are located at the 5' end region of the gene ({Figure \ref{regions_loop}}A) and are crucial for gene expression regulation. Core promoters are located 40 bp upstream or downstream from the transcription start site (TSS) and are minimal regions needed for transcription initiation \cite{haberle2016promoter,kadonaga2012perspectives}. Promoters have specific DNA sequence elements important for gene regulation. For example, TATA box element in the core promoter is bound by TBP, the Initiator sequence is one of the most common elements and encompasses the +1 TSS, while different sequence motifs can be bound by specific TFs \cite{villao2023plant,wasserman2004applied,haberle2016promoter,kadonaga2012perspectives}. Another characteristic common for human promoters is the abundance of CpG dinucleotides. CpGs are targets for cytosine methylation, which is one of the gene regulatory mechanisms \cite{wasserman2004applied,saxonov2006genome}. Around 70\% of human promoters near TSSs contain a \ac{CGI}, which is a region with high frequency of CpGs \cite{deaton2011cpg,saxonov2006genome,haberle2016promoter}.
 
-
+    Based on promoter composition, nucleosome positioning and what genes they regulate, promoters can be classified into four main types: type I, II, III and IV \cite{haberle2016promoter}. Type I promoters are adult tissue-specific and their transcription starts at the precise position. These promoters have a TATA box around 30 bp upstream from the TSS and nucleosome are distributed in a disordered fashion along the sequence. Type II promoters are controlling the expression of the housekeeping genes and transcription can be initiated at the several locations. Type III promoters regulate developmental genes and also have a broad initiation pattern. Interestingly, these promoters depend on the input from distal enhancers. Type IV promoters are transcriptional machinery-specific and, like type I, have a sharp transcription initiation pattern. In type II, III and IV promoters there is a nucleosome-free region with precisely positioned two nucleosomes downstream and upstream. In addition, all three types of promoters have CGIs covering the TSSs \cite{haberle2016promoter}.
 
     \subsection{Enhancers and silencers}
 
-    Distal regulatory regions.
+    Enhancers are distal regulatory regions that activate transcription by acting on a promoter ({Figure \ref{regions_loop}}B). They often act in a spatially and temporally restricted manner, which means that enhancers are cell-type specific and are active only at the specific time points.
 
-    Enhancers can be occupied by multiple TFs, depending on how many TF binding sites the enhancer has \cite{wu2019super}.
+    Enhancers can be occupied by multiple TFs, depending on how many potential TFBSs the enhancer has \cite{wu2019super}.
 
     Fairly recently it has been discovered that enhancer DNA is being transcribed into non-coding RNA, termed \ac{eRNA}. These RNAs are promoting the functions of enhancers by recruiting TFs, promoting enhancer-promoter looping, influencing chromatin conformation or histone acetylation status \cite{wu2019super}.
     
+    Silencers, on the other hand, are DNA sequences that are bound by the repressor proteins in order to silence gene transcription \cite{spitz2012transcription}.
+
+
+    Enhancer loops - chromatin looping, TADs, CTCF and cohesin (maybe)
 
   \section{Transcription factors}
 
   Gene expression regulation by transcription factors is one of the most studied fields, yet still contains a number of unanswered questions that keep the scientists busy. 
 
-  \ac{TFBS}
-
-
-
-
-%       \subsection{Protein structures and classification}
 
 
 
 
 
-
-
-%         \subsubsection{Protein domains}
+    \subsection{Protein structures and classification}
 
 
 
 
 
 
-%         \subsubsection{Classification}
+
+      \subsubsection{Protein domains}
+
+
+
+
+
+
+      \subsubsection{Classification}
 
 %         DNA binding domains are highly conserved, thus are used to classify these proteins into families and classes.
 
 %         One of the most extensive classification of mammalian transcription factors - TFClass - include superclass, class, family, subfamily and genus \cite{wingender2018tfclass, wingender2013criteria}.
 
-%     \section{Transcription factor binding}
+  \section{Transcription factor binding}
 
 
 %     Transcription factors directly or indirectly bind genomic regions, known as promoters and enhancers. The location where TF resides onto DNA is referred to as a transcription factor binding site (TFBS). A promoter or an enhancer can have multiple TFBSs of the same or different TF. Transcription factors generally have binding preference to a set of DNA sequences - DNA binding motif \cite{boeva2016analysis}.
@@ -77,17 +75,17 @@ Processes that are not directly associated with the DNA sequence, are responsibl
 
 
 
-%       \subsection{Transcription factor DNA binding models}
+    \subsection{Transcription factor DNA binding models}
 
 %       In order to interpret TF binding to the regulatory regions, we need ways to represent the DNA binding. Currently, DNA binding is represented using various models.
-      
+
 %       The most popular and widely used is positional weight matrix (PWM) or position-specific scoring matrix (PSSM). 
 
 
 %       PFM, PWM. Other models to represent binding.
 
 
-      
+
 
 
 %       There are two main strategies applied to analyse genomic sequences from TF binding perspective. One is to find over-represented sequence motifs using existing collections of DNA binding motifs. The second is to discover over-represented motifs \textit{de novo} \cite{boeva2016analysis}. 
@@ -95,7 +93,9 @@ Processes that are not directly associated with the DNA sequence, are responsibl
 
 %       (As a last sentence) There is a common misconception that all TFs are binding DNA very specifically with little variation. In fact, there are different binding mechanisms that TFs can adapt to regulate gene expression in different scenarios.
 
-%       \subsection{Mechanisms of gene regulation}
+      \subsection{Mechanisms of gene regulation}
+
+
 
 
 %       Transcription factors can bind DNA in different ways, varying from direct binding to the DNA (most well studied) to indirect and cooperative binding. For example, transcription factor PU.1 can bind to DNA directly and indirectly. Direct binding of PU.1 to the consensus motif AGGAA leads to transcriptional activation, while indirect binding through a partner GATA1 to the GATA motif may lead to transcriptional repression \cite{boeva2016analysis}.
@@ -111,18 +111,19 @@ Processes that are not directly associated with the DNA sequence, are responsibl
 
 %       (Go from the simplest to more complicated....)
 
-%         \subsubsection{Direct TF binding}
+        \subsubsection{Direct and indirect TF binding}
 
 
+ChIP-seq, SELEX methods here. Aim to get the DNA pattern, motif, that is directly bound by the TF. What we get is a bit of another story.
 
 
-
-%         \subsubsection{Indirect TF binding}
-
+Current experimental techniques aim to identify direct TF binding, but in practice, the data reflect direct and indirect TF binding. Indirect can mean that TFs are binding through other TFs. It is still important information. However, then it is challenging to separate the two signals computationally. One method that was developed to identify TFBSs that are directly bound by the TF of interest is ChIP-eat. The method analyses ChIP-seq peaks. \cite{puig2021unibind,gheorghe2019map}
 
 
+        \subsubsection{Cooperative transcription factor binding}
 
-%         \subsubsection{Cooperative transcription factor binding}
+
+        Current models of enhancer activity: enhanceosome, billboard and collective TF binding \cite{spitz2012transcription}.
 
 
 %         When TFs interact or compete with each other binding sites co-localize or overlap \cite{boeva2016analysis}.
@@ -134,14 +135,14 @@ Processes that are not directly associated with the DNA sequence, are responsibl
 %         Notes: talk about mechanisms of binding and methods that investigate these mechanisms can be explained here too.
 %         So this needs to be quite specific mechanisms and then specifics on the methods as well (experimental and computational methods that is).
 
-%       \subsection{Impact of methylation to the DNA binding}
+      \subsection{Impact of methylation to the DNA binding}
 
 % This paper and also to make figure:
 
 %       https://www.science.org/doi/10.1126/science.aaj2239
 
 
-%       \subsubsection{Pioneering}
+        \subsubsection{Pioneering}
 
 %       TFs are capable of binding heterochramatin through recruitment of histone acetyltransferases \cite{boeva2016analysis}.
 
