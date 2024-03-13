@@ -2,7 +2,7 @@
 
 Multicellular organisms, such as human, are formed by thousands of cell types. However, the genome in every of those cells is identical. If the recipe is the same, how is it possible to have so many cells types that manage to work together and run such a complex organism? The expectation of the Human Genome project was that once we have a complete sequence of the genome, it will be fairly straightforward to solve the causes of diseases, easier to understand human evolution and development. But as it turned out, the majority of the human genome (98\%) does not code for proteins, but nevertheless is essential for the regulation of all expressed genes \cite{pang2023identification}. The genome is much more mysterious, and we are still studying its complexity \cite{kumar2016human}.
 
-Processes that are not directly associated with the DNA sequence, are responsible for controlling the genome and its gene expression. Such mechanisms are termed as epigenetic mechanisms (epi- means "over, outside") \cite{jablonka2002changing}. DNA methylation, histone tail modifications, micro RNA are all contributing to the regulation of gene expression transcription regulation. Genomic DNA is constantly being approached by regulatory proteins and other small molecules. The major players in transcriptional regulation are \ac{TFs}. Without TFs RNA polymerase and the basic transcriptional machinery would not be able to approach genes and begin transcription. TFs act in different modes and are able to find and bind regulatory regions --- promoters and enhancers. Bound TFs attract Mediator proteins and Pol II and form a loop that brings enhancers and promoter regions close in space even though they can be separated by kilobases in a linear space ({Figure \ref{regions_loop}}). The activation of gene expression is tightly regulated and is cell type- and time-specific.
+Processes that are not directly associated with the DNA sequence, are responsible for controlling the genome and its gene expression. Such mechanisms are termed as epigenetic mechanisms (epi- means "over, outside") \cite{jablonka2002changing}. DNA methylation, histone tail modifications, micro RNA are all contributing to the regulation of gene expression transcription regulation \cite{mitsis2020transcription}. Genomic DNA is constantly being approached by regulatory proteins and other small molecules. The major players in transcriptional regulation are \ac{TFs}. Without TFs RNA polymerase and the basic transcriptional machinery would not be able to approach genes and begin transcription. TFs act in different modes and are able to find and bind regulatory regions --- promoters and enhancers. Bound TFs attract Mediator proteins and Pol II and form a loop that brings enhancers and promoter regions close in space even though they can be separated by kilobases in a linear space ({Figure \ref{regions_loop}}). The activation of gene expression is tightly regulated and is cell type- and time-specific.
 
 \begin{figure}
   \centering
@@ -31,12 +31,21 @@ Processes that are not directly associated with the DNA sequence, are responsibl
 
   \section{Transcription factors}
 
-  Transcription factors (TFs) are key regulators of transcription. They directly interpret the genome by binding specific DNA sequence patterns, known as DNA motifs. The function of TFs is often studied together with the DNA motifs that they recognize \cite{lambert2018human}. There are various experimental methods to identify TF-DNA interactions and a variety of computational tools to model and represent those interactions. Most of the experimental techniques are limited to investigating individual TFs. However, in reality TFs are often cooperating with each other, compete for the same binding site or interact with DNA indirectly. All these are complex TF features that are still difficult to investigate and interpret with the currently available tools.
+  Transcription factors (TFs) are key regulators of transcription \cite{mitsis2020transcription,weidemuller2021transcription}. TFs act as a bridge between the cell signalling pathways and gene expression. Through receptors external cues trigger post-translational modification cascades that eventually result in the modulation of a set of TFs, which are then recruited at the gene regulatory regions \cite{weidemuller2021transcription}. Which TFs are modified depends on the stimuli, cell type and state. In this section TFs that directly interpret the genome by binding to the specific DNA sequence patterns will be discussed. Short DNA sequences recognized by TFs are known as DNA motifs. The function of TFs is often studied together with the DNA motifs that they recognize \cite{lambert2018human}. There are various experimental methods to identify TF-DNA interactions and a variety of computational tools to model and represent those interactions. Most of the experimental techniques are limited to investigating individual TFs. However, in reality TFs are often cooperating with each other, compete for the same binding site or interacting with the DNA indirectly \cite{mitsis2020transcription}. All these are complex TF activity mechanisms of that are still difficult to investigate and interpret with the currently available tools.
 
     \subsection{Protein structures and classification}
 
-    Transcription factor proteins have several domains, but the most important one to its function is \ac{DBD}. 
-    Transcription factors are classified by their DBDs.
+    Transcription factor proteins have several domains, but the used to recognize and bind DNA sequences is called a \ac{DBD}. TFs also have one or more activation or repressor domains, in many cases also a \ac{PPI} domain \cite{zhu2011mapping}. DBDs are extremely well-conserved and used to classify TFs into families and classes, where proteins with a very similar amino acid sequence in the DBD are grouped together. It is known that TFs from the same class or family tend to recognize the same or highly similar DNA patterns ({Figure \ref{dbd_classification}}) \cite{mitsis2020transcription}.
+
+
+    \begin{figure}
+      \centering
+      \includegraphics[width=1\textwidth]{figures/dbd_classification/dbd_classification_latest.pdf}
+      \caption[TF-DNA binding and TF classification]{\textbf{.} \textbf{A.} . \textbf{B.} Based on their DBD similarity are classified. Often TFs with similar DBDs are binding to highly similar DNA motifs. For example, when performing TF motif pairwise comparison, human TF motifs are grouping according to their DBDs. Adapted from \cite{lambert2018human}.}
+      \label{dbd_classification}
+    \end{figure}
+
+
 
       \subsubsection{Protein domains}
 
@@ -92,13 +101,16 @@ Hopping, scanning, etc from this paper: https://pubmed.ncbi.nlm.nih.gov/25333780
         \subsubsection{Motif discovery}
 
 
-        \subsubsection{Databases for TF-DNA binding models}
 
+        \subsubsection{Use of TF-DNA binding models}
 
+        There are several resources that store simple TF-DNA binding models in a for of PFMs and PWMs. The biggest and most popular ones include JASPAR, CIS-BP and HOCOMOCO.
 
-      \subsection{Mechanisms of gene regulation}
+        TF-DNA binding models can be used to predict putative TFBSs in the genome, using motif scanning tools, such as PWMScan \cite{weidemuller2021transcription}. However, it is known that genome scanning with a motif of interest results in numerous false positives, known as futility theorem \cite{wasserman2004applied}. Therefore, it can be challenging to identify the functional TF binding sites.
 
+      \subsection{Mechanisms of transcription regulation by TFs}
 
+      Transcription factors can be classified into activators and repressors, but this grouping is questioned as TFs can either activate or repress depending on the sequence context and available co-factors \cite{lambert2018human}.
 
 
       Transcription factors can bind DNA in different ways, varying from direct binding to the DNA (most well studied) to indirect and cooperative binding. For example, transcription factor PU.1 can bind to DNA directly and indirectly. Direct binding of PU.1 to the consensus motif AGGAA leads to transcriptional activation, while indirect binding through a partner GATA1 to the GATA motif may lead to transcriptional repression \cite{boeva2016analysis}.
@@ -126,13 +138,20 @@ Current experimental techniques aim to identify direct TF binding, but in practi
         \subsubsection{Cooperative transcription factor binding}
 
 
+
+
+
         Current models of enhancer activity: enhanceosome, billboard and collective TF binding \cite{spitz2012transcription}.
 
 
         When TFs interact or compete with each other binding sites co-localize or overlap \cite{boeva2016analysis}.
 
 
-        Cooperative binding does not always mean that two TFs will bind the DNA directly.
+        Cooperative binding does not always mean that two TFs will bind the DNA directly, they can be cooperating through protein-protein interactions or binding DNA indirectly \cite{mitsis2020transcription}.
+
+
+
+
 
 
         Notes: talk about mechanisms of binding and methods that investigate these mechanisms can be explained here too.
