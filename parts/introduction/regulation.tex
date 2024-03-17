@@ -38,7 +38,7 @@ Processes that are not directly associated with the DNA sequence, are responsibl
 
   \section{Transcription factors}
 
-  Transcription factors (TFs) are key regulators of transcription \cite{mitsis2020transcription,weidemuller2021transcription}. TFs act as a bridge between the cell signaling pathways and gene expression. Through receptors, external cues trigger post-translational modification cascades that eventually result in the modulation of a set of TFs, which are then recruited at the gene regulatory regions \cite{weidemuller2021transcription}. Which TFs are modified depends on the stimuli, cell type, and state. In this section TFs that directly interpret the genome by binding to the specific DNA sequence patterns will be discussed. Short DNA sequences recognized by TFs are known as DNA motifs. The function of TFs is often studied together with the DNA motifs that they recognize \cite{lambert2018human}. There are various experimental methods to identify TF-DNA interactions and a variety of computational tools to model and represent those interactions. Most of the experimental techniques are limited to investigating individual TFs. However, in reality, TFs often cooperate, compete for the same binding site, or interact with the DNA indirectly \cite{mitsis2020transcription}. All these are complex TF activity mechanisms that are still difficult to investigate and interpret with the currently available tools.
+  Transcription factors (TFs) are key regulators of transcription \cite{mitsis2020transcription,weidemuller2021transcription}. About 10\% of the human protein-coding genome codes for transcription factors \cite{levine2003transcription}. TFs act as a bridge between the cell signaling pathways and gene expression. Through receptors, external cues trigger post-translational modification cascades that eventually result in the modulation of a set of TFs, which are then recruited at the gene regulatory regions \cite{weidemuller2021transcription}. Which TFs are modified depends on the stimuli, cell type, and state. In this section TFs that directly interpret the genome by binding to the specific DNA sequence patterns will be discussed. Short DNA sequences recognized by TFs are known as DNA motifs. The function of TFs is often studied together with the DNA motifs that they recognize \cite{lambert2018human}. There are various experimental methods to identify TF-DNA interactions and a variety of computational tools to model and represent those interactions. Most of the experimental techniques are limited to investigating individual TFs. However, in reality, TFs often cooperate, compete for the same binding site, or interact with the DNA indirectly \cite{mitsis2020transcription}. All these are complex TF activity mechanisms that are still difficult to investigate and interpret with the currently available tools.
 
     \subsection{Protein structures and classification}
 
@@ -56,9 +56,11 @@ Processes that are not directly associated with the DNA sequence, are responsibl
   \section{Transcription factor binding}
 
 
+
   Transcription factors directly or indirectly bind genomic regions, known as promoters and enhancers. The location where TF resides in DNA is referred to as a transcription factor binding site (TFBS). A promoter or an enhancer can have multiple TFBSs of the same or different TF. Transcription factors generally have a binding preference to a set of DNA sequences - DNA binding motif \cite{boeva2016analysis}.
 
 
+  How they bind?
     
   Hopping, scanning, etc from this paper: https://pubmed.ncbi.nlm.nih.gov/25333780/
 
@@ -69,7 +71,7 @@ Processes that are not directly associated with the DNA sequence, are responsibl
   Transcription factors can be classified into activators and repressors, but this grouping is questioned as TFs can either activate or repress depending on the sequence context and available co-factors \cite{lambert2018human}.
 
 
-  Transcription factors can bind DNA in different ways, varying from direct binding to the DNA (most well studied) to indirect and cooperative binding. For example, transcription factor PU.1 can bind to DNA directly and indirectly. Direct binding of PU.1 to the consensus motif AGGAA leads to transcriptional activation, while indirect binding through a partner GATA1 to the GATA motif may lead to transcriptional repression \cite{boeva2016analysis}.
+  Transcription factors can bind DNA in different ways, varying from direct binding to the DNA (most well-studied) to indirect and cooperative binding. For example, transcription factor PU.1 can bind to DNA directly and indirectly. Direct binding of PU.1 to the consensus motif AGGAA leads to transcriptional activation, while indirect binding through a partner GATA1 to the GATA motif may lead to transcriptional repression \cite{boeva2016analysis}.
   
   It is important to understand that protein binding to DNA mechanisms vary. This is essential to increase the complexity in gene transcription regulation, which is a key to development of living organisms.
   
@@ -85,10 +87,7 @@ Processes that are not directly associated with the DNA sequence, are responsibl
     \subsubsection{Direct and indirect TF binding}
 
 
-ChIP-seq, SELEX methods here. Aim to get the DNA pattern, motif, that is directly bound by the TF. What we get is a bit of another story.
 
-
-Current experimental techniques aim to identify direct TF binding, but in practice, the data reflect direct and indirect TF binding. Indirect can mean that TFs are binding through other TFs. It is still important information. However, then it is challenging to separate the two signals computationally. One method that was developed to identify TFBSs that are directly bound by the TF of interest is ChIP-eat. The method analyses ChIP-seq peaks. \cite{puig2021unibind,gheorghe2019map}
 
 
     \subsubsection{Cooperative transcription factor binding}
@@ -113,17 +112,34 @@ Current experimental techniques aim to identify direct TF binding, but in practi
     Notes: talk about mechanisms of binding and methods that investigate these mechanisms can be explained here too.
     So this needs to be quite specific mechanisms and then specifics on the methods as well (experimental and computational methods that is).
 
-  \subsection{Impact of methylation to the DNA binding}
 
-% This paper and also to make figure:
-
-%       https://www.science.org/doi/10.1126/science.aaj2239
 
 
     \subsubsection{Pioneering}
 
   TFs are capable of binding heterochramatin through recruitment of histone acetyltransferases \cite{boeva2016analysis}.
 
+  \subsection{Impact of methylation to the DNA binding}
+
+
+% This paper and also to make figure:
+
+%       https://www.science.org/doi/10.1126/science.aaj2239
+
+  \subsection{Experimental methods to detect TF-DNA interactions}
+
+  Over the years, multiple experimental methods were developed to detect the binding preferences of the transcription factors. Broadly these methods can be categorized into \textit{in vitro} and \textit{in vitro}. The majority of the methods are limited to investigating the interactions of a single TF at the time. The most popular and relevant methods in these categories will be briefly described in this section.
+
+    \subsubsection{\textit{In vitro}}
+
+    \textit{In vitro} methods mainly aim to identify TF binding sequence preferences. For example, SELEX or PBM. Other methods, such as EMSA, can inform about the binding affinity \cite{geertz2010experimental}. The biggest limitation of \textit{in vitro} methods is that by design they are not able to give information about the biological context of the TF-DNA interaction.
+
+
+    \subsubsection{\textit{In vivo}}
+
+
+
+    ChIP-seq, SELEX methods here. Aim to get the DNA pattern, motif, that is directly bound by the TF. What we get is a bit of another story.
 
 
 
@@ -168,4 +184,5 @@ Current experimental techniques aim to identify direct TF binding, but in practi
 
       TF-DNA binding models can be used to predict putative TFBSs in the genome, using motif scanning tools, such as PWMScan \cite{weidemuller2021transcription}. However, it is known that genome scanning with a motif of interest results in numerous false positives, known as futility theorem \cite{wasserman2004applied}. Therefore, it can be challenging to identify the functional TF binding sites.
 
+      Current experimental techniques aim to identify direct TF binding, but in practice, the data reflect direct and indirect TF binding. Indirect can mean that TFs are binding through other TFs. It is still important information. However, then it is challenging to separate the two signals computationally. One method that was developed to identify TFBSs that are directly bound by the TF of interest is ChIP-eat. The method analyses ChIP-seq peaks. \cite{puig2021unibind,gheorghe2019map}
 
