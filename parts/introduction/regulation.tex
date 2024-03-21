@@ -155,14 +155,9 @@ Processes that are not directly associated with the DNA sequence, are responsibl
 
     In ChIP-seq, the DNA fragment sizes are variable and are longer (hundreds of base pairs) than the actual TF-protected region, because DNA is sheared randomly \cite{welch2017data,rhee2011comprehensive}. Therefore, the TF binding sites are not inferred in base pair resolution. Computational analysis and motif search are insufficient to identify all binding locations in ChIP-seq derived regions \cite{rhee2011comprehensive,yeh2022chip}. To overcome this limitation ChIP-exo technique was developed. The protocol has an additional step of immunoprecipitate treatment by 5` to 3` lambda exonuclease, which digests the unprotected ends of the DNA fragment bound by a TF. This allows us to get precise, nearly single-base resolution, genomic locations bound by a TF \cite{rhee2011comprehensive,yeh2022chip}. The length of such regions is 36-100 bp \cite{welch2017data}. A simplified version of the ChIP-exo protocol, ChIP-nexus, was developed in 2015 \cite{rossi2018simplified,welch2017data}.
 
-    The latest methods for TF binding region determination \textit{in vivo} include CUT\&Tag and CUT\&RUN \cite{kaya2019cut}. Both techniques are similar and based on specific antibodies recognizing the TF of interest. Then the antibody tethers the A-Tn5 transposase fusion protein and after its activation, high-resolution fragment libraries are generated. These novel methods allow for very low input and promise a more accurate determination of the TF-bound genomic locations by providing high resolution and exceptionally low background \cite{kaya2019cut,kaya2020efficient}
+    The latest methods for TF binding region identification \textit{in vivo} include CUT\&Tag and CUT\&RUN \cite{kaya2019cut}. Both techniques are similar and are based on specific antibodies recognizing the TF of interest. In CUT\&Tag, the antibody tethers the A-Tn5 transposase fusion protein. After its activation, transposase adds adapters for paired-end DNA sequencing, and high-resolution fragment libraries are generated \cite{kaya2019cut,kaya2020efficient}. In CUT\&RUN protocol, micrococcal nuclease (MNase) is tethered by the antibody and when activated cuts the DNA at the borders of TF binding \cite{skene2017efficient}. These novel methods allow for very low cell number input and profiling of TFs in single-cells (CUT\&Tag is better suited for this application) and promise a more accurate determination of the TF-bound genomic locations by providing high resolution and exceptionally low background \cite{skene2017efficient,kaya2019cut,kaya2020efficient}.
 
-
-
-
-
-
-
+    Even with new technologies emerging every year, ChIP-seq remains an important method for TF binding profiling. A vast amount of ChIP-seq data is publicly available, which might not be fully explored. This motivates researchers to work on novel computational methods that would allow them to study this data even further.
 
   \section{Computational modeling of TF-DNA interactions}
 
@@ -186,12 +181,13 @@ Processes that are not directly associated with the DNA sequence, are responsibl
 
     (As a last sentence) There is a common misconception that all TFs are binding DNA very specifically with little variation. In fact, there are different binding mechanisms that TFs can adapt to regulate gene expression in different scenarios.
 
-      \subsubsection{Motif discovery}
+    \subsection{Motif discovery}
 
 
 
     \subsection{Databases of TF-DNA models}
 
+    
     TRANSFAC
     CIS-BP
     HOCOMOCO
