@@ -170,13 +170,20 @@ Processes that are not directly associated with the DNA sequence, are responsibl
     The most popular and widely used is positional weight matrix (PWM) or position-specific scoring matrix (PSSM). 
 
 
+
     PFM, PWM. Other models to represent binding.
 
+    PFMs can be represented in different formats. For example, JASPAR format contains counts, while MEME format has probabilities for each nucleotide in each position.
 
 
+    \begin{figure}
+      \centering
+      \includegraphics[width=1\textwidth]{figures/models/tf_dna_models.pdf}
+      \caption[TF-DNA binding computational modelling]{\textbf{.} \textbf{A.} . \textbf{B.} .\textbf{C.} . \textbf{D.} .}
+      \label{tf_dna_models}
+    \end{figure}
 
-
-    There are two main strategies applied to analyse genomic sequences from TF binding perspective. One is to find over-represented sequence motifs using existing collections of DNA binding motifs. The second is to discover over-represented motifs \textit{de novo} \cite{boeva2016analysis}. 
+    There are two main strategies applied to analyze genomic sequences from TF binding perspective. One is to find over-represented sequence motifs using existing collections of DNA binding motifs. The second is to discover over-represented motifs \textit{de novo} \cite{boeva2016analysis}. 
 
 
     (As a last sentence) There is a common misconception that all TFs are binding DNA very specifically with little variation. In fact, there are different binding mechanisms that TFs can adapt to regulate gene expression in different scenarios.
@@ -187,8 +194,10 @@ Processes that are not directly associated with the DNA sequence, are responsibl
 
     \subsection{Databases of TF-DNA models}
 
-    
-    TRANSFAC
+    With an increased amount of available data on TF-DNA interactions, the effort to start collecting DNA motifs was made. Today, several repositories store TF DNA binding motifs. For example, JASPAR, TRANSFAC, HOCOMOCO, and CIS-BP \cite{rauluseviciute2024jaspar,matys2006transfac,wingender2008transfac}. For the users of such resources, it is important to understand what data is stored and how it is retrieved and processed. JASPAR open-access database stores DNA binding motifs from six taxa that were manually curated. JASPAR motifs are discovered from experimental data, such as ChIP-seq, or mined as PFMs from various resources and publications. CORE collection motifs are supported by independent evidence found by curators. In addition to motif collections, JASPAR provides analyzed data, such as motif clusters, and a variety of tools \cite{rauluseviciute2024jaspar}. TRANSFAC also stores curated DNA motifs with experimentally determined and predicted binding sites. However, the full database is not open-access \cite{matys2006transfac,wingender2008transfac}.
+
+
+
     CIS-BP
     HOCOMOCO
 
