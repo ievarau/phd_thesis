@@ -117,7 +117,8 @@ Processes that are not directly associated with the DNA sequence, are responsibl
 
     \subsubsection{Pioneering}
 
-  TFs are capable of binding heterochramatin through recruitment of histone acetyltransferases \cite{boeva2016analysis}.
+    A specific group of transcription factors can interact with the closed chromatin and trigger its opening for other TFs and proteins.
+    TFs are capable of binding heterochramatin through recruitment of histone acetyltransferases \cite{boeva2016analysis}.
 
   \subsection{Impact of methylation to the DNA binding}
 
@@ -140,13 +141,6 @@ Processes that are not directly associated with the DNA sequence, are responsibl
 
     A high-throughput technique that could be classified in between \textit{in vitro} and \textit{in vivo} is called \ac{DAP-seq}. In DAP-seq, the libraries of sequences are constructed using native DNA, preserving cell-specific modifications. This provides increased specificity compared to methods, such as SELEX. The library of sequences is then incubated with \textit{in vitro}-expressed and tagged TF. TF-bound sequences are purified and sequenced. Finally, sequences are then mapped to the genome of origin to identify locations preferentially bound by a TF \cite{bartlett2017mapping}.
 
-    \begin{figure}
-      \centering
-      \includegraphics[width=1\textwidth]{figures/chip_selex/chip_selex_latest.pdf}
-      \caption[Experimental methods to investigate TF-DNA interactions]{\textbf{Examples of experimental techniques to investigate TF-DNA interactions.} \textbf{A.} SELEX is an \textit{in vitro} method that allows the determination of the TF binding sequence preferences. In the procedure, a pool of random oligonucleotides is incubated with the TF of interest. Unbound oligonucleotides are separated from TF-DNA sequence complexes and washed away. Bound sequences are purified, amplified, and incubated again. The incubation cycle is repeated several times and after the last cycle, sequences bound with the highest affinity are sequences, and the resulting data is analyzed. \textbf{B.} ChIP-seq is an \textit{in vivo} technique for the identification of genomic locations bound by a TF of interest. DNA and proteins are cross-linked (1) and DNA is fragmented (2). The protein of interest is immunoprecipitated using a specific antibody (3). These DNA-protein complexes are selected and DNA is purified (4). Eluted DNA is sequenced (5), and the resulting data is analyzed (6).}
-      \label{chip_selex}
-    \end{figure}
-
     \subsubsection{\textit{In vivo}}
 
     Arguably the most popular technique to map TF-DNA interactions in living cells is \ac{ChIP-seq} \cite{johnson2007genome}. The ChIP-seq process starts with cross-linking (using formaldehyde) of the DNA and proteins in the living cells ({Figure \ref{chip_selex}}B). Then DNA is randomly fragmented using sonication leaving DNA segments bound and unbound by proteins. In a crucial step, a specific antibody is used to bind the TF of interest. TF-DNA complexes bound by an antibody are selected by washing away everything else. Protein-DNA cross-links are reversed and DNA fragments, previously protected by the TF, are purified. These DNA sequences are then subjected to sequencing. After sequencing the data is analyzed by mapping the sequencing reads to a genome and identifying those genomic regions that are enriched by TF binding \cite{johnson2007genome,park2009chip}.
@@ -158,6 +152,13 @@ Processes that are not directly associated with the DNA sequence, are responsibl
     The latest methods for TF binding region identification \textit{in vivo} include CUT\&Tag and CUT\&RUN \cite{kaya2019cut}. Both techniques are similar and are based on specific antibodies recognizing the TF of interest. In CUT\&Tag, the antibody tethers the A-Tn5 transposase fusion protein. After its activation, transposase adds adapters for paired-end DNA sequencing, and high-resolution fragment libraries are generated \cite{kaya2019cut,kaya2020efficient}. In CUT\&RUN protocol, micrococcal nuclease (MNase) is tethered by the antibody and when activated cuts the DNA at the borders of TF binding \cite{skene2017efficient}. These novel methods allow for very low cell number input and profiling of TFs in single-cells (CUT\&Tag is better suited for this application) and promise a more accurate determination of the TF-bound genomic locations by providing high resolution and exceptionally low background \cite{skene2017efficient,kaya2019cut,kaya2020efficient}.
 
     Even with new technologies emerging every year, ChIP-seq remains an important method for TF binding profiling. A vast amount of ChIP-seq data is publicly available, which might not be fully explored. This motivates researchers to work on novel computational methods that would allow them to study this data even further.
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{figures/chip_selex/chip_selex_latest.pdf}
+    \caption[Experimental methods to investigate TF-DNA interactions]{\textbf{Examples of experimental techniques to investigate TF-DNA interactions.} \textbf{A.} SELEX is an \textit{in vitro} method that allows the determination of the TF binding sequence preferences. In the procedure, a pool of random oligonucleotides is incubated with the TF of interest. Unbound oligonucleotides are separated from TF-DNA sequence complexes and washed away. Bound sequences are purified, amplified, and incubated again. The incubation cycle is repeated several times and after the last cycle, sequences bound with the highest affinity are sequences, and the resulting data is analyzed. \textbf{B.} ChIP-seq is an \textit{in vivo} technique for the identification of genomic locations bound by a TF of interest. DNA and proteins are cross-linked (1) and DNA is fragmented (2). The protein of interest is immunoprecipitated using a specific antibody (3). These DNA-protein complexes are selected and DNA is purified (4). Eluted DNA is sequenced (5), and the resulting data is analyzed (6).}
+    \label{chip_selex}
+  \end{figure}
 
   \section{Computational modeling of TF-DNA interactions}
 
