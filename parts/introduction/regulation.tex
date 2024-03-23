@@ -121,10 +121,16 @@ Processes that are not directly associated with the DNA sequence, are responsibl
 
     \subsubsection{Impact of methylation to the DNA binding}
 
+    DNA modifications impact how transcription factors bind. The most extensively studied epigenetic DNA modification is DNA methylation. Cytosines in the DNA molecule are modified by adding a methyl group in the context of CpG dinucleotides, generating \ac{5mC} ({Figure \ref{tf_methylation_binding}}A). This reaction is performed by "writers" --- \ac{DNMTs}, and the removal of methyl groups is conducted by \ac{TET} enzymes. Generally, hypermethylation of CpGs in the promoter regions is associated with transcription repression, while gene body hypermethylation indicates active genes. Therefore, DNA methylation is very important for TF binding.
+
+
+
+    However, the way TF-DNA interactions are most commonly modeled today does not take into account methylated CpGs (read more about computational modeling of TF-DNA interactions in the next section). There are special attempts to model TF binding to the methylated DNA. For example,      BLABLA     ({Figure \ref{tf_methylation_binding}}D)
+
     \begin{figure}
       \centering
       \includegraphics[width=1\textwidth]{figures/methylation_binding/methylation_binding.pdf}
-      \caption[TF binding to methylated DNA]{\textbf{.} \textbf{A.} . \textbf{B.} .\textbf{C.} . \textbf{D.} .}
+      \caption[TF binding to methylated DNA]{\textbf{TF binding is affected by DNA methylation.} \textbf{A.} DNA methyltransferases add methyl- group to the cytosines in the CpG context and generate 5-methylcytosine (5mC). \textbf{B.} Some TFs, such as HOXB13, specifically recognize DNA sequences with methylated cytosines. \textbf{C.} HOXB13 is able to bind to the motif containing a methylated CpG (above) and a motif without a CpG (below). \textbf{D.} Some specific methodologies investigate TF binding sensitivity to methylated sites. For example, NRF1 is sensitive to methylation and binds to a motif with CpGs that can be methylated.}
       \label{tf_methylation_binding}
     \end{figure}
 
