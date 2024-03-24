@@ -194,6 +194,11 @@ Processes that are not directly associated with the DNA sequence, are responsibl
 
     (As a last sentence) There is a common misconception that all TFs are binding DNA very specifically with little variation. In fact, there are different binding mechanisms that TFs can adapt to regulate gene expression in different scenarios.
 
+    \subsection{Deep learning modelling approaches}
+
+    % This paper: https://www-sciencedirect-com.ezproxy.uio.no/science/article/pii/S0010482522007132?via%3Dihub#fig2
+    One figure is really good as overall summary of what data is needed and what can be achieved with it.
+
     \subsection{Motif discovery}
 
 
@@ -202,9 +207,25 @@ Processes that are not directly associated with the DNA sequence, are responsibl
 
     With an increased amount of available data on TF-DNA interactions, the effort to start collecting DNA motifs was made. Today, several repositories store TF DNA binding motifs. For example, JASPAR, TRANSFAC, HOCOMOCO, and CIS-BP \cite{rauluseviciute2024jaspar,matys2006transfac,wingender2008transfac}. For the users of such resources, it is important to understand what data is stored and how it is retrieved and processed. JASPAR open-access database stores DNA binding motifs from six taxa that were manually curated. JASPAR motifs are discovered from experimental data, such as ChIP-seq or DAP-seq, or mined as PFMs from various resources (such as the selection of CIS-BP motifs) and publications. CORE collection motifs are supported by independent evidence found by curators. In addition to motif collections, JASPAR provides analyzed data, such as motif clusters, and a variety of tools \cite{rauluseviciute2024jaspar}. TRANSFAC also stores curated DNA motifs with experimentally determined and predicted binding sites. However, the full database is not open-access \cite{matys2006transfac,wingender2008transfac}. HOCOMOCO is a publicly available resource that compiles and stores human and mouse TF binding motifs produced using ChIP-seq or HT-SELEX data. The motifs in this database are human-curated and automatically benchmarked \cite{vorontsov2024hocomoco}. Finally, CIS-BP is also open-access and contains motifs for more than a thousand TFs from 131 diverse eukaryotes. Motifs are generated using \ac{PBM}, SELEX, or ChIP-seq data, but are also mined from other motif resources, such as TRANSFAC. A unique feature of CIS-BP is that the database offers inferred motifs. Based on the similarity of the DBDs, two TFs are binding similar motifs, therefore it is possible to infer a binding profile from one TF to a closely related other TF \cite{weirauch2014determination}.
 
+    Even if current databases contain thousands of motifs from various species, it is important to keep these resources updated by adding new data and refining the old. Finally, new ways of TF-DNA modeling (such as deep-learning models) motivate the expansion or creation of new databases that could offer a variety of TF-DNA interaction models to the community.
+
     \subsection{Use of TF-DNA binding models}
 
+    Enrichment of motifs
+
+    Annotating de novo discovered motifs
+
+    Scanning and predicting binding sites
     TF-DNA binding models can be used to predict putative TFBSs in the genome, using motif scanning tools, such as PWMScan \cite{weidemuller2021transcription}. However, it is known that genome scanning with a motif of interest results in numerous false positives, known as the futility theorem \cite{wasserman2004applied}. Therefore, it can be challenging to identify the functional TF binding sites.
 
+
+
     Current experimental techniques aim to identify direct TF binding, but in practice, the data reflect direct and indirect TF binding. Indirect can mean that TFs are binding through other TFs. It is still important information. However, then it is challenging to separate the two signals computationally. One method that was developed to identify TFBSs that are directly bound by the TF of interest is ChIP-eat. The method analyses ChIP-seq peaks. \cite{puig2021unibind,gheorghe2019map}
+
+    \begin{figure}
+      \centering
+      \includegraphics[width=1\textwidth]{figures/unibind/unibind_latest.pdf}
+      \caption[Use of TF-DNA binding models to infer direct TF-DNA interactions]{\textbf{.} \textbf{A.} . \textbf{B.} .\textbf{C.} . \textbf{D.} .}
+      \label{unibind}
+    \end{figure}
 
