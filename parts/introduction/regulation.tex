@@ -167,52 +167,71 @@ Processes that are not directly associated with the DNA sequence, are responsibl
 
   \section{Computational modeling of TF-DNA interactions}
 
-
+  Various experimental approaches for TF-DNA interaction analysis result in a set of sequences or genomic regions that indicate TF specificity towards DNA patterns. This allows us to computationally model TF-DNA interactions. A collection of models is available today, spanning from simple and most widely used \ac{PWMs} to the most advanced deep learning models. This section will overview different models, and techniques that generate them and will present a few resources that store such models.
 
     \subsection{Transcription factor DNA binding models}
 
+    To interpret TF binding to the regulatory regions, we need ways to represent the DNA binding. The most popular and widely used model is the \ac{PWMs} (also called weight matrices or \ac{PSSMs}) ({Figure \ref{tf_dna_models}}). PWM is a matrix of numbers of each possible base (A, C, G, or T for a DNA model) at each position in a TF binding site \cite{stormo2013modeling,wasserman2004applied}. From a set of aligned sequences (for example, processed experimental data or sequences collected from literature) that are bound by a TF of interest, a \ac{PFM} can be computed ({Figure \ref{tf_dna_models}}A-B). A PFM, or a count matrix, is created by counting the occurrences of each nucleotide at each position. Counts can be converted into probabilities using an equation
 
-    To interpret TF binding to the regulatory regions, we need ways to represent the DNA binding. Currently, DNA binding is represented using various models.
+    \begin{equation}
+      p(b,i)=\frac{f_{b,i}+s(b)}{N+\sum\limits_{b'\in\{A,C,G,T\}}s(b')}
+      \label{ppm}
+    \end{equation}
 
+    where $ f_{b,i} $ is counts of base $ b $ in position $ i $; $ N $ is the number of sites; $ p(b,i) $ is a probability of base $ b $ in position $ i $; $ s(b) $ is a pseudocount function.
 
-    The most popular and widely used is position weight matrix (PWM) or position-specific scoring matrix (PSSM). 
+    A PWM can then be constructed by dividing the nucleotide probabilities by expected background probabilities and converting the resulting values to a log scale. What background probabilities are chosen can be debatable, but the simplest model assumed equal 0.25 background probabilities for each base. The computation can be done using an equation
 
+    \begin{equation}
+      W_{b,i}=log_{2}\frac{p(b,i)}{p(b)}
+      \label{pwm}
+    \end{equation}
 
-    PWMs are commonly used to model TF-DNA interactions \cite{stormo2013modeling}. 
-
-    PFM, PWM. Other models to represent binding.
-
-    PFMs can be represented in different formats. For example, JASPAR format contains counts, while MEME format has probabilities for each nucleotide in each position.
+    where $ p(b) $ is a background probability of base $ b $; $ p(b,i) $ is a probability of base $ b $ in position $ i $; $ W_{b,i} $ is a PWM value or base $ b $ in position $ i $.
 
     
-    Frequency or count matrices can be visualized in multiple formats. For example, JASPAR format ({Figure \ref{tf_dna_models}}B) visualizes the counts, while MEME format visualizes the probabilities of each nucleotide in each position ({Figure \ref{tf_dna_models}}D).
+    Frequency or count matrices can be visualized in multiple formats. For example, JASPAR format ({Figure \ref{tf_dna_models}}B) visualizes the counts, while MEME format visualizes the probabilities of each nucleotide in each position ({Figure \ref{tf_dna_models}}C).
+
+    Only looking at the PWM or PFM matrices it is hard to interpret the actual DNA pattern behind them. Therefore, TF-DNA interaction specificity is usually visualized as a sequence logo. The logo gives information about the frequency of each base at each position but also provides information on the degree of conservation of each motif position. Sequence logo visualizes \ac{IC} in bits, which is a basic unit of information and spans from 0 to 2. IC can be computed from PWM using an equation
+
+    \begin{equation}
+      D_{i}=2+\sum\limits_{b}p_{b,i}log_{2}p_{b,i}
+      \label{ic}
+    \end{equation}
+
+    One of the biggest limitations of PWMs is that these models assume positions in the binding sequence to be independent. In reality, what nucleotide is located nearby is important for transcription factor binding. For example, CpG dinucleotide presence is discussed in the section above. PWM models can be expanded to capture additional information, such as DNA methylation. Other models include \ac{TFFMs}, DNA shape-based, or binding energy-based models.
+
+    (a bit about TFFMs and shape based, very briefly about energy based)
+    
+    Even with the limitations, the availability and ease of use keep PFMs and PWMs the primary method to model TF-DNA interactions. There is a variety of methods developed to discover DNA binding motifs from experimental data.
+
 
     \begin{figure}
       \centering
       \includegraphics[width=1\textwidth]{figures/models/tf_dna_models.pdf}
-      \caption[TF-DNA binding computational modelling]{\textbf{ATF4 (MA0833.3).} \textbf{A.} . \textbf{B.} .\textbf{C.} . \textbf{D.} . \textbf{E.} .}
+      \caption[TF-DNA binding computational modelling]{\textbf{Modeling the binding of ATF4 transcription factor.} \textbf{A.} A set of aligned sequences bound by ATF4. Sequences can be produced by various experimental techniques. \textbf{B.} Position frequency matrix (PFM) or count matrix that represents the nucleotide occurrence counts in each sequence position. The matrix is in JASPAR format. \textbf{C.} PFM can be converted into a position probability matrix (PPM). The matrix is in MEME format. \textbf{D.} Position weight matrix (PWM) computed from the PPM. \textbf{E.} A sequence logo that illustrates the ATF4 DNA binding motif. It visualizes information content (IC), where the highest values mean a strong preference towards a particular nucleotide. Matrices from the JASPAR database ID MA0833.3.}
       \label{tf_dna_models}
     \end{figure}
 
-    There are two main strategies applied to analyze genomic sequences from TF binding perspective. One is to find over-represented sequence motifs using existing collections of DNA binding motifs. The second is to discover over-represented motifs \textit{de novo} \cite{boeva2016analysis}. 
+      \subsubsection{\textit{De novo} motif discovery}
+
+      \textit{De novo} motif discovery is a process during which both PWM and the sites are inferred simultaneously \cite{stormo2013modeling}. 
+
+      kmer enrichment/overrepresentation
+
+      Emphasize de novo discovery and NMF could be introduced.
 
 
-    (As a last sentence) There is a common misconception that all TFs are binding DNA very specifically with little variation. In fact, there are different binding mechanisms that TFs can adapt to regulate gene expression in different scenarios.
 
+      There are two main strategies applied to analyze genomic sequences from TF binding perspective. One is to find over-represented sequence motifs using existing collections of DNA binding motifs. The second is to discover over-represented motifs \textit{de novo} \cite{boeva2016analysis}. 
 
-
-    \subsection{Motif discovery}
-
-    kmer enrichment/overrepresentation
-
-    Emphasize de novo discovery and at the end NMF could be introduced.
 
     \subsection{Deep learning modeling approaches}
 
     % This paper: https://www-sciencedirect-com.ezproxy.uio.no/science/article/pii/S0010482522007132?via%3Dihub#fig2
     One figure is really good as overall summary of what data is needed and what can be achieved with it.
     
-    \subsection{Databases of TF-DNA models}
+    \subsection{Databases of TF-DNA interaction models}
 
     With an increased amount of available data on TF-DNA interactions, the effort to start collecting DNA motifs was made. Today, several repositories store TF DNA binding motifs. For example, JASPAR, TRANSFAC, HOCOMOCO, and CIS-BP \cite{rauluseviciute2024jaspar,matys2006transfac,wingender2008transfac}. For the users of such resources, it is important to understand what data is stored and how it is retrieved and processed. JASPAR open-access database stores DNA binding motifs from six taxa that were manually curated. JASPAR motifs are discovered from experimental data, such as ChIP-seq or DAP-seq, or mined as PFMs from various resources (such as the selection of CIS-BP motifs) and publications. CORE collection motifs are supported by independent evidence found by curators. In addition to motif collections, JASPAR provides analyzed data, such as motif clusters, and a variety of tools \cite{rauluseviciute2024jaspar}. TRANSFAC also stores curated DNA motifs with experimentally determined and predicted binding sites. However, the full database is not open-access \cite{matys2006transfac,wingender2008transfac}. HOCOMOCO is a publicly available resource that compiles and stores human and mouse TF binding motifs produced using ChIP-seq or HT-SELEX data. The motifs in this database are human-curated and automatically benchmarked \cite{vorontsov2024hocomoco}. Finally, CIS-BP is also open-access and contains motifs for more than a thousand TFs from 131 diverse eukaryotes. Motifs are generated using \ac{PBM}, SELEX, or ChIP-seq data, but are also mined from other motif resources, such as TRANSFAC. A unique feature of CIS-BP is that the database offers inferred motifs. Based on the similarity of the DBDs, two TFs are binding similar motifs, therefore it is possible to infer a binding profile from one TF to a closely related other TF \cite{weirauch2014determination}.
 
@@ -239,7 +258,7 @@ Processes that are not directly associated with the DNA sequence, are responsibl
     \begin{figure}
       \centering
       \includegraphics[width=1\textwidth]{figures/unibind/unibind_latest.pdf}
-      \caption[Use of TF-DNA binding models to infer direct TF-DNA interactions]{\textbf{.} .}
+      \caption[Use of TF-DNA binding models to infer direct TF-DNA interactions]{\textbf{An example of combining experimental data with computational models to infer direct TF-DNA interactions.} The ChIP-eat pipeline takes ChIP-seq data in peaks and predicts transcription factor binding sites (TFBSs) using the DAMO-trained position weight matrix (PWM) of the profiled TF. During the procedure of automatic thresholding TFBSs that reflect direct TF-DNA binding to the canonical motif (red) are selected from the rest of the predictions that represent indirect or unspecific binding (blue). The final sets of direct TFBSs are collected for each analyzed dataset and compiled into the UniBind database.}
       \label{unibind}
     \end{figure}
 
