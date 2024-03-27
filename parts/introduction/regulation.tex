@@ -210,24 +210,30 @@ Processes that are not directly associated with the DNA sequence, are responsibl
       \begin{figure}
         \centering
         \includegraphics[width=1\textwidth]{figures/models/tf_dna_models.pdf}
-        \caption[TF-DNA binding computational modelling]{\textbf{Modeling the binding of ATF4 transcription factor.} \textbf{A.} A set of aligned sequences bound by ATF4. Sequences can be produced by various experimental techniques. \textbf{B.} Position frequency matrix (PFM) or count matrix that represents the nucleotide occurrence counts in each sequence position. The matrix is in JASPAR format. \textbf{C.} PFM can be converted into a position probability matrix (PPM). The matrix is in MEME format. \textbf{D.} Position weight matrix (PWM) computed from the PPM. \textbf{E.} A sequence logo that illustrates the ATF4 DNA binding motif. It visualizes information content (IC), where the highest values mean a strong preference towards a particular nucleotide. Matrices from the JASPAR database ID MA0833.3.}
+        \caption[TF-DNA binding computational modelling]{\textbf{Modeling the binding of ATF4 transcription factor.} \textbf{A.} A set of aligned sequences bound by ATF4. Sequences can be produced by various experimental techniques. \textbf{B.} Position frequency matrix (PFM), which represents the nucleotide occurrence counts in each sequence position (visualized in JASPAR format). \textbf{C.} PFM can be converted into a position probability matrix (PPM) (visualized in MEME format). \textbf{D.} Position weight matrix (PWM) computed from the PPM. \textbf{E.} A sequence logo visualizes information content (IC) for the ATF4 binding profile. High values indicate a strong preference toward a particular base. Matrices from the JASPAR database ID MA0833.3.}
         \label{tf_dna_models}
       \end{figure}
 
       \subsubsection{\textit{De novo} motif discovery}
 
-      There is a variety of methods developed to discover DNA binding motifs from experimental data.
-
-      \textit{De novo} motif discovery is a process during which both PWM and the sites are inferred simultaneously \cite{stormo2013modeling}. 
+      When analyzing TF-DNA interaction data, such as ChIP-seq, one can find over-represented sequence motifs using existing collections of DNA binding motifs (see the section below about the use of TF-DNA binding models). However, motif collections are always limited, so to discover new motifs, \textit{de novo} motif discovery approaches have been developed \cite{boeva2016analysis}. \textit{De novo} motif discovery is a process during which both PWM and the sites are inferred simultaneously \cite{stormo2013modeling}.
 
       kmer enrichment/overrepresentation
 
-      Emphasize de novo discovery and NMF could be introduced.
 
 
+      \subsubsection{Non-negative matrix factorization (NMF) for motif discovery}
 
-      There are two main strategies applied to analyze genomic sequences from TF binding perspective. One is to find over-represented sequence motifs using existing collections of DNA binding motifs. The second is to discover over-represented motifs \textit{de novo} \cite{boeva2016analysis}. 
+      A different approach from the above, \ac{NMF}, could be used for DNA pattern discovery.
 
+      ({Figure \ref{nmf_motif_discovery}}A)
+
+      \begin{figure}
+        \centering
+        \includegraphics[width=1\textwidth]{figures/nmf/nmf_for_discovery_latest.pdf}
+        \caption[NMF for DNA pattern discovery]{\textbf{Non-negative matrix factorization can be used for DNA pattern discovery in a set of sequences.} \textbf{A.} . \textbf{B.} . \textbf{C.} . Adapted from \cite{rauluseviciute2023identification}.}
+        \label{nmf_motif_discovery}
+      \end{figure}
 
     \subsection{Deep learning modeling approaches}
     
@@ -252,10 +258,15 @@ Processes that are not directly associated with the DNA sequence, are responsibl
     
       \subsubsection{Prediction of TF binding sites}
 
-      TF-DNA binding models can be used to predict putative TFBSs in the genome. There are various tools to perform motif scanning, for example, PWMScan \cite{weidemuller2021transcription}.
-      Resources, such as JASPAR, in addition to the collections of PFMs offer TFBS predictions for the most popular genome assemblies \cite{rauluseviciute2024jaspar}.
+      TF-DNA binding models can be used to predict putative transcription factor binding sites in the entire genome or a set of regions of interest (for example, ChIP-seq peaks or promoters) \cite{boeva2016analysis}. When searching promoters, one can find TFBSs for TFs that possibly are regulating that gene. When searching ChIP-seq peaks, possible co-factor binding can be predicted \cite{boeva2016analysis}.
+
+      In TFBS prediction, the true binding sites are expected to score the highest. However, one of the biggest difficulties is setting the PWM score threshold to determine the final set of those TFBS predictions and separate them from the background \cite{boeva2016analysis}. With the higher score cutoff fewer motif instances will be found, and the resulting binding sites are likely to correspond to the strong binding affinity, while with the lower cutoff and more sites detected, the sites might represent both strong and weak binding sites \cite{boeva2016analysis}. Usually, statistical significance (measured through \textit{p}-value) is evaluated to solve the issue of thresholding. For example, computing the probability to observe at least the same number of motif instances with a certain cutoff in a random sequence with total length (equal to the total length of sequences in the set of regions of interest) \cite{boeva2016analysis}. This task becomes difficult computationally if multiple motifs (possibly with overlaps) are being scored, which is relevant when investigating TF cooperativity and co-binding.
       
-      However, it is known that genome scanning with a motif of interest results in numerous false positives. The resulting predictions of the sites will not be functional \textit{in vivo} even though there is a strong likelihood of TF binding \textit{in vitro}. The phenomenon is known as the futility theorem \cite{wasserman2004applied}. False positively predicted TFBSs are not available for binding due to chromatin structure or local epigenetic properties \cite{mathelier2013next}. It does not mean that such sites are of no importance, but it can be challenging to separate functional TFBSs from non-functional ones.
+      Resources, such as JASPAR, in addition to the collections of PFMs, offer TFBS predictions for the most popular genome assemblies \cite{rauluseviciute2024jaspar}. But also there are various tools designed to perform motif scanning or find over-represented motifs in a set of regions. For example, PWMScan, FIMO, or HOMER \cite{weidemuller2021transcription,grant2011fimo,heinz2010simple}.
+
+      \subsubsection{Prediction of direct TF binding sites}
+
+      Genome scanning with a motif of interest results in numerous false positives. The resulting predictions of the sites will not be functional \textit{in vivo} even though there is a strong likelihood of TF binding \textit{in vitro}. The phenomenon is known as the futility theorem \cite{wasserman2004applied}. False positively predicted TFBSs are not available for binding due to chromatin structure or local epigenetic properties \cite{mathelier2013next}. It does not mean that such sites are of no importance, but it can be challenging to separate functional TFBSs from non-functional ones.
 
       Current experimental techniques aim to identify TF binding, but in practice, the data reflect direct and indirect or non-specific TF binding \cite{furey2012chip}. It is challenging to separate the two signals computationally. In addition, while the TFs interact with the DNA through short motifs, the ChIP-seq peaks are usually hundreds of base pairs long. The ChIP-eat computational approach was developed to identify TFBSs that are directly bound by the TF of interest. The method combines ChIP-seq peak data and PWMs to produce sets of direct TFBSs ({Figure \ref{unibind}}) \cite{puig2021unibind,gheorghe2019map}. Given a set of peaks and an optimized PWM of profiled TF, the TFBS enrichment zone is detected. Automatic thresholding identifies the set of TFBSs that are closest to the peak summit and have the highest PWM scores, which is an indication of direct TF-DNA interactions \cite{puig2021unibind,gheorghe2019map}. The resulting TFBSs are of the size of the DNA binding motif. TFBSs from 9 species are provided to the community as a UniBind database \cite{puig2021unibind}. Comparing UniBind TFBSs and predicted TFBSs in the JASPAR database, the conservation of the UniBind ones is much sharper and concentrated since they are produced using experimental data \cite{puig2021unibind}. But it also shows that the ChIP-eat approach can distinguish functional TFBSs. Therefore, these genomic regions can be a great starting point for further analysis. For example, enrichment analysis can identify, which TFBSs are enriched in a set of regions of interest and which TFs are driving transcription regulation in those regions \cite{puig2021unibind}.
 
@@ -266,9 +277,11 @@ Processes that are not directly associated with the DNA sequence, are responsibl
         \label{unibind}
       \end{figure}
 
-      \subsubsection{Enrichment of motifs}
-
       \subsubsection{Annotating \textit{de novo} discovered motifs}
+
+      Another use of collections of TF binding profiles is an annotation of \textit{de novo} discovered motifs. When unknown motifs are discovered, it can be difficult to interpret them. Therefore, motif comparison can indicate the known motifs from collections that are the most similar to the ones discovered. For example, the most similar motif could be from the same TF family, indicating that the discovered motif is correct.
+
+      There are computational tools designed to compare the motifs of interest against the provided collection of known motifs. For example, Tomtom 
 
 
 
