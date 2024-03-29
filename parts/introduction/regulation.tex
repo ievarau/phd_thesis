@@ -228,14 +228,18 @@ Processes that are not directly associated with the DNA sequence, are responsibl
 
       \subsubsection{Non-negative matrix factorization (NMF) for motif discovery}
 
-      A different approach from the above, \ac{NMF}, could be used for DNA pattern discovery.
+      A different approach from the above, \ac{NMF}, could be used for DNA pattern discovery in sequences. NMF is one of the matrix factorization techniques. In general, all matrix factorization algorithms learn two matrices, amplitude, and pattern \cite{stein2018enter}.
 
-      ({Figure \ref{nmf_motif_discovery}}A)
+      To apply NMF on genomic sequences, the nucleotide information must be one-hot encoded. It is a classical categorical data processing step for machine learning approaches. Each nucleotide is assigned a unique four-bit long code ({Figure \ref{nmf_motif_discovery}}A). Individual sequences are converted into a numerical array, which then can be passed to the NMF algorithm ({Figure \ref{nmf_motif_discovery}}B). In the learned amplitude matrix, each column stores continuous weights that describe the relative contribution of each sequence in each inferred component. On the other hand, each row in the pattern matrix describes the contribution of each position to a component. \cite{stein2018enter}. Therefore, these two matrices can be used to distinguish subsets of sequences with particular patterns that can then be represented as DNA sequence motifs. NMF has a hyperparameter $ k $, instructing how many components should be learned. For example, with $ k = 4 $ four DNA patterns are learned from an input set of DNA sequences ({Figure \ref{nmf_motif_discovery}}C).
+
+      NMF is the basis of a computational tool, seqArchR, to identify position-specific DNA patterns in promoter regions and decipher promoter architectures \cite{nikumbh2023identifying}. It is known that certain DNA motifs inform the selection of TSSs and are located at fixed distances from them. The seqArchR package can identify TSS-directing motifs, such as TATA or nucleosome position signal, but also lineage-specific motifs. Defining combinations of these motifs can be used to classify promoter architectures and associate them with specific gene regulatory programs \cite{nikumbh2023identifying}.
+
+      NMF algorithms take arrays as the input, which means that the input genomic sequences must be of the same length. Another important limitation is that sequence patterns that can be distinguished by NMF have to occur at fixed distances. Various patterns can be discovered in separate components, but there must be enough sequences with the same pattern at the same location. Lastly, a hyperparameter $ k $ can be difficult to define. There are various methodologies, such as the estimation of the cophenetic correlation coefficient, to define the number of components \cite{brunet2004metagenes}. However, there is no single best way to decide on this parameter.
 
       \begin{figure}
         \centering
         \includegraphics[width=1\textwidth]{figures/nmf/nmf_for_discovery_latest.pdf}
-        \caption[NMF for DNA pattern discovery]{\textbf{Non-negative matrix factorization can be used for DNA pattern discovery in a set of sequences.} \textbf{A.} . \textbf{B.} . \textbf{C.} . Adapted from \cite{rauluseviciute2023identification}.}
+        \caption[NMF for DNA pattern discovery]{\textbf{Application of non-negative matrix factorization for DNA pattern discovery in a set of sequences.} \textbf{A.} Every nucleotide is assigned a unique code. \textbf{B.} DNA sequences are one-hot encoded into an array of ones and zeroes. \textbf{C.} An example of 4 component NMF applied to a set of one-hot encoded DNA sequences (data matrix). The data matrix is factorized into amplitude and pattern matrices. Using the resulting matrices, candidate DNA patterns (motifs) can be built. One motif for each component is built. Adapted from \cite{rauluseviciute2023identification}.}
         \label{nmf_motif_discovery}
       \end{figure}
 
@@ -252,7 +256,7 @@ Processes that are not directly associated with the DNA sequence, are responsibl
 
     % This paper: https://www-sciencedirect-com.ezproxy.uio.no/science/article/pii/S0010482522007132?via%3Dihub#fig2
     One figure is really good as overall summary of what data is needed and what can be achieved with it.
-    
+
     \subsection{Databases of TF-DNA interaction models}
 
     With an increased amount of available data on TF-DNA interactions, the effort to start collecting DNA motifs was made. Today, several repositories store TF DNA binding motifs. For example, JASPAR, TRANSFAC, HOCOMOCO, and CIS-BP \cite{rauluseviciute2024jaspar,matys2006transfac,wingender2008transfac}. For the users of such resources, it is important to understand what data is stored and how it is retrieved and processed. JASPAR open-access database stores DNA binding motifs from six taxa that were manually curated. JASPAR motifs are discovered from experimental data, such as ChIP-seq or DAP-seq, or mined as PFMs from various resources (such as the selection of CIS-BP motifs) and publications. CORE collection motifs are supported by independent evidence found by curators. In addition to motif collections, JASPAR provides analyzed data, such as motif clusters, and a variety of tools \cite{rauluseviciute2024jaspar}. TRANSFAC also stores curated DNA motifs with experimentally determined and predicted binding sites. However, the full database is not open-access \cite{matys2006transfac,wingender2008transfac}. HOCOMOCO is a publicly available resource that compiles and stores human and mouse TF binding motifs produced using ChIP-seq or HT-SELEX data. The motifs in this database are human-curated and automatically benchmarked \cite{vorontsov2024hocomoco}. Finally, CIS-BP is also open-access and contains motifs for more than a thousand TFs from 131 diverse eukaryotes. Motifs are generated using \ac{PBM}, SELEX, or ChIP-seq data, but are also mined from other motif resources, such as TRANSFAC. A unique feature of CIS-BP is that the database offers inferred motifs. Based on the similarity of the DBDs, two TFs are binding similar motifs, therefore it is possible to infer a binding profile from one TF to a closely related other TF \cite{weirauch2014determination}.
@@ -260,7 +264,7 @@ Processes that are not directly associated with the DNA sequence, are responsibl
     Even if current databases contain thousands of motifs from various species, it is important to keep these resources updated by adding new data and refining the old. Finally, new ways of TF-DNA modeling (such as deep-learning models) motivate the expansion or creation of new databases that could offer a variety of TF-DNA interaction models to the community.
 
     \subsection{Use of TF-DNA binding models}
-    
+
     Collections of known TF binding profiles can be used in numerous ways. One of the most important applications is the prediction of TF binding sites. Putative TFBSs can be predicted in the entire genome or TF binding enrichment can be determined in a set of regions. Another popular application of the TF motifs is an annotation of \textit{de novo} discovered motifs, which is important when no binding preferences are known for a TF of interest.
 
       \subsubsection{Prediction of TF binding sites}
