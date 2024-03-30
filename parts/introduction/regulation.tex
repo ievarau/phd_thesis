@@ -55,48 +55,22 @@ Processes that are not directly associated with the DNA sequence, are responsibl
 
   \section{Transcription factor binding}
 
+  Transcription factors bind cis-regulatory regions, promoters, and enhancers, to regulate associated gene transcription. Depending on the sequence context (and available co-factors), TF can either activate or repress \cite{lambert2018human}. It is known that interactions with CRRs are highly cell-type-specific. The location where a TF resides in DNA is referred to as a transcription factor binding site (TFBS). A promoter or an enhancer can have multiple TFBSs of the same or different TF. Transcription factors generally have a binding preference for particular DNA patterns --- motifs \cite{boeva2016analysis}.
+
+  How do transcription factors find these small binding sites located in a long DNA molecule and surrounded by a variety of proteins and molecules in the nucleus? The four main forms of TF motion in the environment with DNA are (1) 3D Brownian diffusion in the nucleoplasm, (2) 1D sliding along the DNA, where TF binds DNA in a non-specific fashion, (3) already bound TF binds a nearby region (intersegmental transfer), (4) TF unbinds from a region, briefly diffuses, and rebinds to a nearby section of the same region (hopping) \cite{schmidt2014integrated}. Each of these motions takes a different time for a TF to find a target region.
+
+  The way a transcription factor interacts with the DNA influences transcription regulatory mechanisms. TF binding varies from direct binding to the DNA (most well-studied) to indirect and cooperative binding \cite{boeva2016analysis}. It is important to understand these mechanisms. Through the different binding modes, the complexity of gene transcription regulation can be increased. It is essential to ensure cell-type-specific transcription.
+
+    \subsection{Direct and indirect TF binding}
+
+    For example, transcription factor PU.1 can bind to DNA directly and indirectly. Direct binding of PU.1 to the consensus motif AGGAA leads to transcriptional activation, while indirect binding through a partner GATA1 to the GATA motif may lead to transcriptional repression \cite{boeva2016analysis}.
 
 
-  Transcription factors directly or indirectly bind genomic regions, known as promoters and enhancers. The location where TF resides in DNA is referred to as a transcription factor binding site (TFBS). A promoter or an enhancer can have multiple TFBSs of the same or different TF. Transcription factors generally have a binding preference to a set of DNA sequences - DNA binding motif \cite{boeva2016analysis}.
+    Computational approaches to distinguish direct from indirect TF-DNA interactions are discussed in the section about computational modeling.
 
+    \subsection{Cooperative transcription factor binding}
 
-  How they bind?
-    
-  Hopping, scanning, etc from this paper: https://pubmed.ncbi.nlm.nih.gov/25333780/
-
-
-
-  \subsection{Mechanisms of transcription regulation by TFs}
-
-  Transcription factors can be classified into activators and repressors, but this grouping is questioned as TFs can either activate or repress depending on the sequence context and available co-factors \cite{lambert2018human}.
-
-
-  Transcription factors can bind DNA in different ways, varying from direct binding to the DNA (most well-studied) to indirect and cooperative binding. For example, transcription factor PU.1 can bind to DNA directly and indirectly. Direct binding of PU.1 to the consensus motif AGGAA leads to transcriptional activation, while indirect binding through a partner GATA1 to the GATA motif may lead to transcriptional repression \cite{boeva2016analysis}.
-  
-  It is important to understand that protein binding to DNA mechanisms vary. This is essential to increase the complexity in gene transcription regulation, which is a key to development of living organisms.
-  
-  Scientists started to understand the variability of gene expression regulation mechanisms by inventing and applying a series of experimental and computational methods. The most famous examples include chromatin immunoprecipitation followed by sequencing (ChIP-seq) and \textit{de novo} motif discovery in genomic regions, respectively. Thus, it is important to understand the advantages and disadvantages of these methods.  
-  
-  
-  
-  In this section I will review these binding mechanisms.
-
-
-  (Go from the simplest to more complicated....)
-
-    \subsubsection{Direct and indirect TF binding}
-
-
-
-
-
-    \subsubsection{Cooperative transcription factor binding}
-
-
-
-
-
-    Current models of enhancer activity: enhanceosome, billboard and collective TF binding \cite{spitz2012transcription}.
+    Current models of enhancer activity: enhanceosome, billboard, and collective TF binding \cite{spitz2012transcription}.
 
 
     When TFs interact or compete with each other binding sites co-localize or overlap \cite{boeva2016analysis}.
@@ -105,21 +79,15 @@ Processes that are not directly associated with the DNA sequence, are responsibl
     Cooperative binding does not always mean that two TFs will bind the DNA directly, they can be cooperating through protein-protein interactions or binding DNA indirectly \cite{mitsis2020transcription}.
 
 
-
-
-
-
     Notes: talk about mechanisms of binding and methods that investigate these mechanisms can be explained here too.
     So this needs to be quite specific mechanisms and then specifics on the methods as well (experimental and computational methods that is).
 
 
-
-
-    \subsubsection{Pioneering}
+    \subsection{Pioneering}
 
     A specific group of transcription factors can interact with the nucleosome-protected closed chromatin and trigger its opening for other TFs and proteins \cite{barral2023pioneer}. These TFs are known as pioneer transcription factors. FOXA and GATA4 were the first factors detected to engage the enhancers in development and their occupancy preceded occupancy of the other TFs that bind to those enhancers \cite{zaret2011pioneer,cirillo2002opening,yu2020pioneer}. Today, well-characterized pioneer TFs include SOX2, KLF4, and OCT4, which are also known as Yamanaka factors because they can be used to induce pluripotency \cite{yu2020pioneer}. It was shown that pioneers bind the condensed chromatin before the activation of transcription, therefore showing their essentiality for region transcriptional activation \cite{yu2020pioneer}. It is known that in some cases (p53) (SOX2, KLF4, and OCT4) it is enough for a pioneer TF to recognize a partial DNA motif to bind closed chromatin, in other scenarios pioneers prefer binding near the nucleosome edge and their binding affinity is stronger than to the sites located in the naked DNA \cite{yu2020pioneer}. After binding, pioneer TFs open closed chromatin locally first. Then ATP-dependent chromatin remodelers, such as the SWI/SNF remodeling complex, are recruited to promote nucleosome eviction in the region \cite{barral2023pioneer}. Finally, acetyltransferases are recruited to modify histone tails and activate the cis-regulatory element \cite{barral2023pioneer,boeva2016analysis}.
 
-    \subsubsection{Impact of methylation to the DNA binding}
+    \subsection{Impact of methylation to the DNA binding}
 
     DNA modifications impact how transcription factors bind \cite{wang2019identification}. The most extensively studied epigenetic DNA modification is DNA methylation. Cytosines in the DNA molecule are modified by adding a methyl group in the context of CpG dinucleotides, generating \ac{5mC} ({Figure \ref{tf_methylation_binding}}A). This reaction is performed by "writers" --- \ac{DNMTs}, and the removal of methyl groups is conducted by \ac{TET} enzymes \cite{wang2019identification,schubeler2015function}. Generally, hypermethylation of CpGs in the promoter regions is associated with transcription repression, while gene body hypermethylation indicates active genes \cite{schubeler2015function,ball2009targeted}. Therefore, DNA methylation is very important for TFs that bind methylated motifs, and it has been shown that some prefer to interact with methylated sites or, in contrast, are prevented from binding to methylated motifs \cite{yin2017impact,schubeler2015function}. For example, the HOXB13 protein has three key residues that contribute to the preferential mCpG binding ({Figure \ref{tf_methylation_binding}}B-C) \cite{yin2017impact}. HOXB13 can also bind to the unmethylated motif, which then does not contain a CpG dinucleotide ({Figure \ref{tf_methylation_binding}}C). A portion of TFs (for example, MAX) are not influenced by methylation even though their motifs contain a CpG \cite{yin2017impact}. Changes in the methylation patterns can lead to aberrant TF binding, affecting transcription regulation and possibly causing diseases.
 
@@ -132,38 +100,38 @@ Processes that are not directly associated with the DNA sequence, are responsibl
       \label{tf_methylation_binding}
     \end{figure}
 
-  \subsection{Experimental methods to detect TF-DNA interactions}
+    \subsection{Experimental methods to detect TF-DNA interactions}
 
-  Over the years, multiple experimental methods were developed to detect the binding preferences of the transcription factors. Broadly these methods can be categorized into \textit{in vitro} and \textit{in vitro}. The majority of the methods are limited to investigating the interactions of a single TF at the time. The most popular and relevant methods in these categories will be briefly described in this section.
+    Over the years, multiple experimental methods were developed to detect the binding preferences of the transcription factors. Broadly these methods can be categorized into \textit{in vitro} and \textit{in vitro}. The majority of the methods are limited to investigating the interactions of a single TF at the time. The most popular and relevant methods in these categories will be briefly described in this section.
 
-    \subsubsection{\textit{In vitro}}
+      \subsubsection{\textit{In vitro}}
 
-    \textit{In vitro} methods mainly aim to identify TF binding sequence preferences. For example, \ac{SELEX} or PBM. Other methods, such as EMSA, can inform about the binding affinity \cite{geertz2010experimental}. The biggest limitation of \textit{in vitro} methods is that by design they are not able to give information about the biological context of the TF-DNA interaction.
+      \textit{In vitro} methods mainly aim to identify TF binding sequence preferences. For example, \ac{SELEX} or PBM. Other methods, such as EMSA, can inform about the binding affinity \cite{geertz2010experimental}. The biggest limitation of \textit{in vitro} methods is that by design they are not able to give information about the biological context of the TF-DNA interaction.
 
-    SELEX is a qualitative method developed decades ago, but high-throughput (HT-SELEX) and other versions are extensively used today \cite{kinzler1990gene,jolma2010multiplexed}. The basic principle of SELEX is the incubation of a purified TF with a pool of random DNA oligonucleotides ({Figure \ref{chip_selex}}A). Random sequences bound to the protein are collected, amplified, and incubated with the TF again. After multiple cycles of incubation, separation, elution, and amplification, the sequences that have the highest affinity are selected and sent to the sequencing procedure. The resulting sequencing data is analyzed to determine the TF binding sequence preference \cite{geertz2010experimental,jolma2010multiplexed}. Differently from a regular SELEX, in HT-SELEX one can study multiple transcription factors simultaneously. However, since the oligonucleotides are random, in SELEX it is not guaranteed that the sequences bound with the highest affinity reflect the functional binding preferences in a living cell.
+      SELEX is a qualitative method developed decades ago, but high-throughput (HT-SELEX) and other versions are extensively used today \cite{kinzler1990gene,jolma2010multiplexed}. The basic principle of SELEX is the incubation of a purified TF with a pool of random DNA oligonucleotides ({Figure \ref{chip_selex}}A). Random sequences bound to the protein are collected, amplified, and incubated with the TF again. After multiple cycles of incubation, separation, elution, and amplification, the sequences that have the highest affinity are selected and sent to the sequencing procedure. The resulting sequencing data is analyzed to determine the TF binding sequence preference \cite{geertz2010experimental,jolma2010multiplexed}. Differently from a regular SELEX, in HT-SELEX one can study multiple transcription factors simultaneously. However, since the oligonucleotides are random, in SELEX it is not guaranteed that the sequences bound with the highest affinity reflect the functional binding preferences in a living cell.
 
-    One variation of the SELEX protocol is of particular interest because it allows studying dimer TF sequence preferences. In the \ac{CAP-SELEX} protocol oligonucleotides are incubated with two TFs that are flagged with different flags. During two consecutive affinity purification steps, only those sequences bound by both TFs are selected for amplification \cite{jolma2015dna}. This technique gives an insight into how specifically two TFs can bind the same sequence. For example, we can determine preferred spacings or overlaps between two individual motifs and motif orientation \cite{jolma2015dna}.
+      One variation of the SELEX protocol is of particular interest because it allows studying dimer TF sequence preferences. In the \ac{CAP-SELEX} protocol oligonucleotides are incubated with two TFs that are flagged with different flags. During two consecutive affinity purification steps, only those sequences bound by both TFs are selected for amplification \cite{jolma2015dna}. This technique gives an insight into how specifically two TFs can bind the same sequence. For example, we can determine preferred spacings or overlaps between two individual motifs and motif orientation \cite{jolma2015dna}.
 
-    A high-throughput technique that could be classified in between \textit{in vitro} and \textit{in vivo} is called \ac{DAP-seq}. In DAP-seq, the libraries of sequences are constructed using native DNA, preserving cell-specific modifications. This provides increased specificity compared to methods, such as SELEX. The library of sequences is then incubated with \textit{in vitro}-expressed and tagged TF. TF-bound sequences are purified and sequenced. Finally, sequences are then mapped to the genome of origin to identify locations preferentially bound by a TF \cite{bartlett2017mapping}.
+      A high-throughput technique that could be classified in between \textit{in vitro} and \textit{in vivo} is called \ac{DAP-seq}. In DAP-seq, the libraries of sequences are constructed using native DNA, preserving cell-specific modifications. This provides increased specificity compared to methods, such as SELEX. The library of sequences is then incubated with \textit{in vitro}-expressed and tagged TF. TF-bound sequences are purified and sequenced. Finally, sequences are then mapped to the genome of origin to identify locations preferentially bound by a TF \cite{bartlett2017mapping}.
 
-    \subsubsection{\textit{In vivo}}
+      \subsubsection{\textit{In vivo}}
 
-    Arguably the most popular technique to map TF-DNA interactions in living cells is \ac{ChIP-seq} \cite{johnson2007genome}. The ChIP-seq process starts with cross-linking (using formaldehyde) of the DNA and proteins in the living cells ({Figure \ref{chip_selex}}B). Then DNA is randomly fragmented using sonication leaving DNA segments bound and unbound by proteins. In a crucial step, a specific antibody is used to bind the TF of interest. TF-DNA complexes bound by an antibody are selected by washing away everything else. Protein-DNA cross-links are reversed and DNA fragments, previously protected by the TF, are purified. These DNA sequences are then subjected to sequencing. After sequencing the data is analyzed by mapping the sequencing reads to a genome and identifying those genomic regions that are enriched by TF binding \cite{johnson2007genome,park2009chip}.
+      Arguably the most popular technique to map TF-DNA interactions in living cells is \ac{ChIP-seq} \cite{johnson2007genome}. The ChIP-seq process starts with cross-linking (using formaldehyde) of the DNA and proteins in the living cells ({Figure \ref{chip_selex}}B). Then DNA is randomly fragmented using sonication leaving DNA segments bound and unbound by proteins. In a crucial step, a specific antibody is used to bind the TF of interest. TF-DNA complexes bound by an antibody are selected by washing away everything else. Protein-DNA cross-links are reversed and DNA fragments, previously protected by the TF, are purified. These DNA sequences are then subjected to sequencing. After sequencing the data is analyzed by mapping the sequencing reads to a genome and identifying those genomic regions that are enriched by TF binding \cite{johnson2007genome,park2009chip}.
 
-    The biggest advantage of \textit{in vivo} techniques, such as ChIP-seq, is that the TF binding locations are determined in a specific tissue or cell line, thus reflecting the TF binding preferences in physiological conditions \cite{park2009chip}. However, this comes with a few limitations. TF binding and regulatory mechanisms are complex, so \textit{in vivo} binding is influenced by several factors that affect the outcome of the experiment. Differences in TF-DNA affinity, protein-protein interactions, indirect binding, and sequence biases can all affect how results are interpreted \cite{jolma2010multiplexed,rhee2011comprehensive,rossi2018simplified}. Other limitations of the ChIP-seq technology include studying only one TF at a time and that the immunoprecipitation requires a high-quality antibody, which can be difficult to acquire if the protein of interest is relatively unknown or poorly annotated \cite{park2009chip}.
+      The biggest advantage of \textit{in vivo} techniques, such as ChIP-seq, is that the TF binding locations are determined in a specific tissue or cell line, thus reflecting the TF binding preferences in physiological conditions \cite{park2009chip}. However, this comes with a few limitations. TF binding and regulatory mechanisms are complex, so \textit{in vivo} binding is influenced by several factors that affect the outcome of the experiment. Differences in TF-DNA affinity, protein-protein interactions, indirect binding, and sequence biases can all affect how results are interpreted \cite{jolma2010multiplexed,rhee2011comprehensive,rossi2018simplified}. Other limitations of the ChIP-seq technology include studying only one TF at a time and that the immunoprecipitation requires a high-quality antibody, which can be difficult to acquire if the protein of interest is relatively unknown or poorly annotated \cite{park2009chip}.
 
-    In ChIP-seq, the DNA fragment sizes are variable and are longer (hundreds of base pairs) than the actual TF-protected region, because DNA is sheared randomly \cite{welch2017data,rhee2011comprehensive}. Therefore, the TF binding sites are not inferred in base pair resolution. Computational analysis and motif search are insufficient to identify all binding locations in ChIP-seq derived regions \cite{rhee2011comprehensive,yeh2022chip}. To overcome this limitation ChIP-exo technique was developed. The protocol has an additional step of immunoprecipitate treatment by 5` to 3` lambda exonuclease, which digests the unprotected ends of the DNA fragment bound by a TF. This allows us to get precise, nearly single-base resolution, genomic locations bound by a TF \cite{rhee2011comprehensive,yeh2022chip}. The length of such regions is 36-100 bp \cite{welch2017data}. A simplified version of the ChIP-exo protocol, ChIP-nexus, was developed in 2015 \cite{rossi2018simplified,welch2017data}.
+      In ChIP-seq, the DNA fragment sizes are variable and are longer (hundreds of base pairs) than the actual TF-protected region, because DNA is sheared randomly \cite{welch2017data,rhee2011comprehensive}. Therefore, the TF binding sites are not inferred in base pair resolution. Computational analysis and motif search are insufficient to identify all binding locations in ChIP-seq derived regions \cite{rhee2011comprehensive,yeh2022chip}. To overcome this limitation ChIP-exo technique was developed. The protocol has an additional step of immunoprecipitate treatment by 5` to 3` lambda exonuclease, which digests the unprotected ends of the DNA fragment bound by a TF. This allows us to get precise, nearly single-base resolution, genomic locations bound by a TF \cite{rhee2011comprehensive,yeh2022chip}. The length of such regions is 36-100 bp \cite{welch2017data}. A simplified version of the ChIP-exo protocol, ChIP-nexus, was developed in 2015 \cite{rossi2018simplified,welch2017data}.
 
-    The latest methods for TF binding region identification \textit{in vivo} include CUT\&Tag and CUT\&RUN \cite{kaya2019cut}. Both techniques are similar and are based on specific antibodies recognizing the TF of interest. In CUT\&Tag, the antibody tethers the A-Tn5 transposase fusion protein. After its activation, transposase adds adapters for paired-end DNA sequencing, and high-resolution fragment libraries are generated \cite{kaya2019cut,kaya2020efficient}. In CUT\&RUN protocol, micrococcal nuclease (MNase) is tethered by the antibody and when activated cuts the DNA at the borders of TF binding \cite{skene2017efficient}. These novel methods allow for very low cell number input and profiling of TFs in single-cells (CUT\&Tag is better suited for this application) and promise a more accurate determination of the TF-bound genomic locations by providing high resolution and exceptionally low background \cite{skene2017efficient,kaya2019cut,kaya2020efficient}.
+      The latest methods for TF binding region identification \textit{in vivo} include CUT\&Tag and CUT\&RUN \cite{kaya2019cut}. Both techniques are similar and are based on specific antibodies recognizing the TF of interest. In CUT\&Tag, the antibody tethers the A-Tn5 transposase fusion protein. After its activation, transposase adds adapters for paired-end DNA sequencing, and high-resolution fragment libraries are generated \cite{kaya2019cut,kaya2020efficient}. In CUT\&RUN protocol, micrococcal nuclease (MNase) is tethered by the antibody and when activated cuts the DNA at the borders of TF binding \cite{skene2017efficient}. These novel methods allow for very low cell number input and profiling of TFs in single-cells (CUT\&Tag is better suited for this application) and promise a more accurate determination of the TF-bound genomic locations by providing high resolution and exceptionally low background \cite{skene2017efficient,kaya2019cut,kaya2020efficient}.
 
-    Even with new technologies emerging every year, ChIP-seq remains an important method for TF binding profiling. A vast amount of ChIP-seq data is publicly available, which might not be fully explored. This motivates researchers to work on novel computational methods that would allow them to study this data even further.
+      Even with new technologies emerging every year, ChIP-seq remains an important method for TF binding profiling. A vast amount of ChIP-seq data is publicly available, which might not be fully explored. This motivates researchers to work on novel computational methods that would allow them to study this data even further.
 
-  \begin{figure}
-    \centering
-    \includegraphics[width=1\textwidth]{figures/chip_selex/chip_selex_latest.pdf}
-    \caption[Experimental methods to investigate TF-DNA interactions]{\textbf{Examples of experimental techniques to investigate TF-DNA interactions.} \textbf{A.} SELEX is an \textit{in vitro} method that allows the determination of the TF binding sequence preferences. In the procedure, a pool of random oligonucleotides is incubated with the TF of interest. Unbound oligonucleotides are separated from TF-DNA sequence complexes and washed away. Bound sequences are purified, amplified, and incubated again. The incubation cycle is repeated several times and after the last cycle, sequences bound with the highest affinity are sequences, and the resulting data is analyzed. \textbf{B.} ChIP-seq is an \textit{in vivo} technique for the identification of genomic locations bound by a TF of interest. DNA and proteins are cross-linked (1) and DNA is fragmented (2). The protein of interest is immunoprecipitated using a specific antibody (3). These DNA-protein complexes are selected and DNA is purified (4). Eluted DNA is sequenced (5), and the resulting data is analyzed (6).}
-    \label{chip_selex}
-  \end{figure}
+    \begin{figure}
+      \centering
+      \includegraphics[width=1\textwidth]{figures/chip_selex/chip_selex_latest.pdf}
+      \caption[Experimental methods to investigate TF-DNA interactions]{\textbf{Examples of experimental techniques to investigate TF-DNA interactions.} \textbf{A.} SELEX is an \textit{in vitro} method that allows the determination of the TF binding sequence preferences. In the procedure, a pool of random oligonucleotides is incubated with the TF of interest. Unbound oligonucleotides are separated from TF-DNA sequence complexes and washed away. Bound sequences are purified, amplified, and incubated again. The incubation cycle is repeated several times and after the last cycle, sequences bound with the highest affinity are sequences, and the resulting data is analyzed. \textbf{B.} ChIP-seq is an \textit{in vivo} technique for the identification of genomic locations bound by a TF of interest. DNA and proteins are cross-linked (1) and DNA is fragmented (2). The protein of interest is immunoprecipitated using a specific antibody (3). These DNA-protein complexes are selected and DNA is purified (4). Eluted DNA is sequenced (5), and the resulting data is analyzed (6).}
+      \label{chip_selex}
+    \end{figure}
 
   \section{Computational modeling of TF-DNA interactions}
 
@@ -171,7 +139,7 @@ Processes that are not directly associated with the DNA sequence, are responsibl
 
     \subsection{Transcription factor DNA binding models}
 
-    \subsubsection{Position weight matrices (PWMs)}
+      \subsubsection{Position weight matrices (PWMs)}
 
       To interpret TF binding to the regulatory regions, we need ways to represent the DNA binding. The most popular and widely used model is the \ac{PWMs} (also called weight matrices or \ac{PSSMs}) ({Figure \ref{tf_dna_models}}). PWM is a matrix of numbers of each possible base (A, C, G, or T for a DNA model) at each position in a TF binding site \cite{stormo2013modeling,wasserman2004applied}. It provides a quantitative description of the known \ac{TFBSs} \cite{wasserman2004applied}. From a set of aligned sequences (for example, processed experimental data or sequences collected from literature) that are bound by a TF of interest, a \ac{PFM} can be computed ({Figure \ref{tf_dna_models}}A-B). A PFM, or a count matrix, is created by counting the occurrences of each nucleotide at each position. Counts can be converted into probabilities to build a \ac{PPM} ({Figure \ref{tf_dna_models}}C) using an equation
 
@@ -300,6 +268,3 @@ Processes that are not directly associated with the DNA sequence, are responsibl
       \subsubsection{Prediction of co-occuring TF binding events}
 
       As with \textit{de novo} motif discovery, the process of predicting TF binding sites is usually limited to the analysis of each TF binding profile individually, so deciphering the possible co-occurrence of TF motifs requires specialized tools. For example, SpaMo is computational tools that offer the analysis of co-binding events by using a library of known motifs to detect possible co-binding TFs relative to the indicated primary TF. The method was developed to analyze ChIP-seq data, where the profiled TF is the primary TF. It summarizes the spacing and orientation between the primary and secondary motifs and provides the match significance information. The algorithm tests every secondary motif whether there is enriched spacing of the predicted TFBSs with respect to the primary TFBSs \cite{whitington2011inferring}. A great limitation of SpaMo and similar tools is the requirement of known TF binding motif libraries, which means that unknown DNA patterns are missed by default. In addition, the results can return many significant candidates (secondary motifs), which can be difficult to interpret.
-
-
-
