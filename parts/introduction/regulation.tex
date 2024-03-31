@@ -65,11 +65,9 @@ Processes that are not directly associated with the DNA sequence, are responsibl
 
     \subsection{Direct and indirect TF binding}
 
-    Direct and indirect TF binding is an often discussed topic. 
-    For example, transcription factor Spi-1/PU.1 can bind to DNA directly and indirectly. Direct binding of Spi-1/PU.1 to the consensus motif $ AGGAA $ leads to transcriptional activation, while indirect binding through a partner GATA1 to the $ GATA $ motif may lead to transcriptional repression \cite{boeva2016analysis}.
+    Direct and indirect TF binding is an often discussed topic. When a transcription factor interacts with the DNA in a sequence-specific manner, it is referred to as a direct binding. In such cases, the protein recognizes a specific DNA motif. However, the affinity of this interaction can vary. In other cases, TF can bind the DNA indirectly. This mostly describes the binding through the other proteins \cite{gordan2009distinguishing}. Some TFs can bind both directly and indirectly. For example, transcription factor Spi-1/PU.1 can bind to DNA directly and indirectly. Direct binding of Spi-1/PU.1 to the consensus motif $ AGGAA $ leads to transcriptional activation, while indirect binding through a partner GATA1 to the $ GATA $ motif may lead to transcriptional repression \cite{boeva2016analysis}.
 
-
-    Computational approaches to distinguish direct from indirect TF-DNA interactions are discussed in the section about computational modeling.
+    Experimental techniques that map TF-DNA interactions, such as ChIP-seq, are potentially capturing both direct and indirect TF binding. Therefore, careful analysis of those regions and result interpretation is required. DNA motif analysis is the simplest way to determine, whether the TF is binding directly (canonical motif present) or indirectly (other motif present) \cite{gordan2009distinguishing}. Computational approaches to distinguish direct from indirect TF-DNA interactions are discussed in the section about computational modeling.
 
     \subsection{Cooperative transcription factor binding}
 
