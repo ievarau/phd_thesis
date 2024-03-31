@@ -29,14 +29,14 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.73851712"
-     inkscape:cx="378.4611"
-     inkscape:cy="371.69078"
+     inkscape:cx="377.78407"
+     inkscape:cy="370.33671"
      inkscape:window-width="1920"
      inkscape:window-height="1011"
      inkscape:window-x="0"
      inkscape:window-y="32"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer3"
      inkscape:export-bgcolor="#ffffffff" /><defs
      id="defs1"><rect
        x="8.0849504"
@@ -7780,7 +7780,7 @@
          style="font-size:3.52778px;line-height:1.15;text-align:center;text-anchor:middle;stroke-width:0.264583"
          x="105.87769"
          y="122.05485"
-         id="tspan70">- Fixed motif type and number</tspan><tspan
+         id="tspan70">- Fixed motif types and numbers</tspan><tspan
          sodipodi:role="line"
          style="font-size:3.52778px;line-height:1.15;text-align:center;text-anchor:middle;stroke-width:0.264583"
          x="105.87769"
@@ -7815,7 +7815,7 @@
          style="font-size:3.52778px;line-height:1.15;text-align:center;text-anchor:middle;stroke-width:0.264583"
          x="175.67516"
          y="126.11179"
-         id="tspan67-3">- Less sequence organization</tspan><tspan
+         id="tspan67-3">- Less sequence conservation</tspan><tspan
          sodipodi:role="line"
          style="font-size:3.52778px;line-height:1.15;text-align:center;text-anchor:middle;stroke-width:0.264583"
          x="175.67516"
