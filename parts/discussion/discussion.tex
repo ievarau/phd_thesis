@@ -60,3 +60,18 @@ CTCF result. That it was thought to be another TF. Future work would be to under
 
 
     Ease of use - web interfaces are good, but limited. Usually, they do not allow for large inputs, take time and downstream analysis of the results can be complicated due to the limited output (for example, often you cannot download the results as tables). The next thing to move to is containerization of command line tools. This would allow to use the tool in its full capacity, but in a much more user-friendly way. Arguably, containerized applications are easy to use for researchers with very limited experience in coding.
+
+
+    FAIR principles
+
+    Open access software and data
+
+
+    "Research parasites" according to some researchers. But a lot of data remains understudied. Examples of open-access data, such as ENCODE, are excellent. Data can be used in multiple studies and keep producing the scientific insights. For example, DHS data from ENCODE was used by Viestra et al. to compute the DHS footprints. Since ENCODE data was also used in UniBind, thus for COBIND, I was able to reuse the footprints to analyse the footprints in matching cell types. So the experimental data is not meant to be analysed once with one particular pipeline. If researchers store it well with good annotations, data will be reused multiple times. However, the need for proper annotation should be emphasized here. In particular, cell type annotations. We should come up with consensus annotations, so data from multiple experiments could be easily integrated together.
+    There are some cell type annotations available, but it is still challenging to apply them to large collections of data. 
+    BRENDA is tissue type ontology. Hard to automatically annotate large numbers of datasets. Needs manual interference to achieve best results.
+
+    Manual curation of the data
+    It is often underappreciated how much manual labor might be needed to maintain the quality of the data. Nowadays with a variety of computational tools, a lot of such labor can be eased, but often the final say comes from a researcher. For example, for JASPAR database update motifs are prepared using a computational pipeline. Top 3 motifs that are selected for the curation can have the same centrality values, so there is no automatic way to select the best of them. And centrality is only one criteria. Thus, the curator then evaluates the motifs visually and searchers the literature to select the best, if any of them are good at all.
+
+    Another example of the effort to increase the quality of the data in databases is revising and refining the classification of the transcription factors. It is a separate effort that many might not see as needed. For 2024 release plant TF classification was created and we were able to use this new classification and update the metadata for all plant transcription factors in JASPAR. Unfortunately, but for other taxons, such as nematodes or insects, we have to rely on unsystematic annotations to assign TF classes and families.
