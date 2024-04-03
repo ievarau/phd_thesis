@@ -8,50 +8,50 @@ Summary of the thesis in a broader context.
 
     \section{The current status and future perspectives of computational models for TF-DNA interactions}
 
-%     PWM limitations
+    PWM limitations
 
-%     Previous attempts to evaluate modeling approaches for TF sequence specificity. DREAM5 challenge.
-%     There are comparisons of models. For example in this paper:
-%     % https://www.nature.com/articles/nbt.2486 
-%     Figure 2 has the comparison heatmap. Maybe I could use that figure. Most of the models are PWM, but there are dinucleotide and kmer as well. No deep learning?
-%     Performance of the models and their implementations vary and depend on the TF binding variance \cite{weirauch2013evaluation}.
+    Previous attempts to evaluate modeling approaches for TF sequence specificity. DREAM5 challenge.
+    There are comparisons of models. For example in this paper:
+    % https://www.nature.com/articles/nbt.2486 
+    Figure 2 has the comparison heatmap. Maybe I could use that figure. Most of the models are PWM, but there are dinucleotide and kmer as well. No deep learning?
+    Performance of the models and their implementations vary and depend on the TF binding variance \cite{weirauch2013evaluation}.
 
-%     This benchmark as well:
-%     % https://link.springer.com/article/10.1186/s13059-020-01996-3
-
-
-%     The most recent challenge, Ibis, aims to engage the scientific community into thinking about and implement new TF-DNA interaction models.
-
-%     Discuss motif trimming in JASPAR 2024. Apparently Taipale's selex paper or whatever says that low information positions are the ones that matter when it comes to the binding of a specific TF family member (why one member and not another will bind even though the motifs are the same). I could give an argument for downstream data analysis, that those positions don't really provide any information. Also, maybe cooperation matters more and those low information positions are actually masking the possible grammar, because of technical limitations. You chip only one protein and expect short, so surrounding are kind of averaged out.
-%     Brings the conformation of the DNA. (dna shape paper from Anthony)
+    This benchmark as well:
+    % https://link.springer.com/article/10.1186/s13059-020-01996-3
 
 
-%     Limitations of PFMs in all major TF-DNA binding models repositories - DNA methylation is not represented.
+    The most recent challenge, Ibis, aims to engage the scientific community into thinking about and implement new TF-DNA interaction models.
+
+    Discuss motif trimming in JASPAR 2024. Apparently Taipale's selex paper or whatever says that low information positions are the ones that matter when it comes to the binding of a specific TF family member (why one member and not another will bind even though the motifs are the same). I could give an argument for downstream data analysis, that those positions don't really provide any information. Also, maybe cooperation matters more and those low information positions are actually masking the possible grammar, because of technical limitations. You chip only one protein and expect short, so surrounding are kind of averaged out.
+    Brings the conformation of the DNA. (dna shape paper from Anthony)
 
 
-%     Deep learning.
+    Limitations of PFMs in all major TF-DNA binding models repositories - DNA methylation is not represented.
+
+
+    Deep learning.
 
 
     \section{Identifying and defining TF co-binding}
 
 
 
-% Evolutionary conservation. More conservation of the original tfbs when there is a co-binder.
+Evolutionary conservation. More conservation of the original tfbs when there is a co-binder.
 
 
 
 
-% Species conservation.
+Species conservation.
 
 
 
-%     Future work - cell type specificity. 
-%     Combinatorics gives a level of complexity in gene regulation needed for cell differentiation. Therefore, different co-binding events are cell-type specific. To fully understand the co-binding of TFs, analyzing these events in a cell-type-specific manner would be essential. However, with big data, which is sourced from various open-access resources, cell-type annotations often vary so much that it is hard to find a way to harmonize them for further analysis. A lot of manual effort would be needed to detangle cell-type annotations. Some cell-type ontologies are available, but they have their advantages and disadvantages.
+    Future work - cell type specificity. 
+    Combinatorics gives a level of complexity in gene regulation needed for cell differentiation. Therefore, different co-binding events are cell-type specific. To fully understand the co-binding of TFs, analyzing these events in a cell-type-specific manner would be essential. However, with big data, which is sourced from various open-access resources, cell-type annotations often vary so much that it is hard to find a way to harmonize them for further analysis. A lot of manual effort would be needed to detangle cell-type annotations. Some cell-type ontologies are available, but they have their advantages and disadvantages.
     
-%     I can discuss that it is hard to look into, because of the lack of annotation. <---- This could mention that in the next session database maintenance importance will be discussed.
+    I can discuss that it is hard to look into, because of the lack of annotation. <---- This could mention that in the next session database maintenance importance will be discussed.
 
 
-%     CTCF result. That it was thought to be another TF. Future work would be to understand and figure out what function that could be.
+    CTCF result. That it was thought to be another TF. Future work would be to understand and figure out what function that could be.
 
 
 
@@ -59,44 +59,42 @@ Summary of the thesis in a broader context.
 
     Nowadays, every researcher is using some kind of database. From the very well-known scientific literature database PubMed to highly specialized databases, such as JASPAR \cite{canese2013pubmed,rauluseviciute2024jaspar}. Since it is such a trivial everyday activity, many do not put much thought into how these databases come to be and what effort is needed to keep them running. Sometimes it is assumed that they were once created and now keep themselves alive. In reality, a lot of effort from teams of people is put in every day to maintain and update scientific databases. For example, the JASPAR database is updated every 2 years, which means that for 2 years an international team of people mines and processes the motif data, then manually curates it, while also constantly updating data processing pipelines, developing new tools and maintaining the old ones. Last, but not least, in addition to preparing a new release, the JASPAR team is monitoring the user feedback: addressing potential errors and bugs in data and tools and taking suggestions that could be incorporated into the new release.
 
-    Manual curation
-    Manual curation of the data
-    It is often underappreciated how much manual labor might be needed to maintain the quality of the data. Nowadays with a variety of computational tools, a lot of such labor can be eased, but often the final say comes from a researcher. For example, for JASPAR database update motifs are prepared using a computational pipeline. Top 3 motifs that are selected for the curation can have the same centrality values, so there is no automatic way to select the best of them. And centrality is only one criteria. Thus, the curator then evaluates the motifs visually and searches the literature to select the best, if any of them are good at all.
-    Another example of the effort to increase the quality of the data in databases is revising and refining the classification of the transcription factors. It is a separate effort that many might not see as needed. For 2024 release plant TF classification was created and we were able to use this new classification and update the metadata for all plant transcription factors in JASPAR. Unfortunately, but for other taxons, such as nematodes or insects, we have to rely on unsystematic annotations to assign TF classes and families.
-
-
+    One of the biggest aspects of the JASPAR database that distinguishes it from other similar databases, is that JASPAR relies on manual motif curation. It is often underappreciated how much manual labor might be needed to maintain the quality of the data. Today with a variety of computational tools, a lot of such labor can be eased, but often the final say comes from a researcher. For example, for JASPAR database update motifs are prepared using a computational pipeline, and the top three motifs from each processed peak dataset are selected for further inspection. These motifs can have the same centrality values, so there is no automatic way to select the best of them. Thus, the curator then evaluates the motifs visually and searches the literature to select the best, if any of them are good at all. Another example of the effort to increase the quality of the data in databases is revising and refining the classification of the transcription factors. It is a separate initiative that many might not be seen as essential next to the need to add more new data. For the 2024 release, we used a new plant TF classification Plant-TFClass to update the metadata for all plant transcription factors in JASPAR \cite{blanc2024plant}. Unfortunately, for other taxa, such as nematodes or insects, we have to rely on unsystematic annotations to assign TF classes and families. Even though a lot of new data was added particularly for these two taxa. This is a great motivation to put more effort into other than vertebrate taxa in future updates of the database.
 
     User input is very important when managing a database, such as JASPAR. However, to receive such feedback, the database has to be user-friendly in the first place. 
     Graphical interfaces
-    Platform to provide feeback - Q\&A
+    Platform to provide feedback - Q\&A
 
 
-    Some efforts aim to enhance the automatic data usability by machines, in addition to supporting its usage by individual researchers. Good data management supports scientific discoveries. FAIR, which stands for Findability, Accessibility, Interoperability, and Reusability, serves as a guide for data producers and publishers \cite{wilkinson2016fair}. These principles can be applied also to the algorithms, tools, and workflows that were used to produce the data. The authors of FAIR emphasize that beyond high-quality production of the data, it is important to include a notion of "long-term care" of digital assets. The care of such assets includes ethical considerations for personal data. Specific guidelines for sensitive data are created and should be followed. In JASPAR database FAIR principles are followed. Database is open-access and provides the data in conventional formats, such as JASPAR, MEME, TRANSFAC and RAW-formatted frequency matrices for TF binding. Motif instances are provided in well-known BED and FASTA formats. The metadata associated with each profile is provided whenever possible. However, it is important to note that the amount of the metadata highly depends on its availability in the original source of the data. All this data can be accessed in various ways: user-friendly website, Python and Bioconductor packages, and API. Users can choose the most comfortable to them access. The results, generated by COBIND pipeline are also freely available as a user-friendly interactive webpage. Users can browse the page directly and download associated data.
+    Some efforts aim to enhance the automatic data usability by machines, in addition to supporting its usage by individual researchers. Good data management supports scientific discoveries. \ac{FAIR} serves as a guide for data producers and publishers \cite{wilkinson2016fair}. Briefly, findable means that the data is described with rich metadata, which is clear and identifiable. Accessible means that the data and its metadata can be accessed using a unique identifier, the protocol is open and free, and metadata should be accessible even when the data is no longer available. Interoperability means that the metadata follows FAIR-compatible vocabulary, includes references to other sources, and generally uses formal and broadly applicable language. Finally, reusability implies that data and metadata are released with clear usage license and meet relevant to the community standards \cite{wilkinson2016fair}. These principles should be applied also to the algorithms, tools, and workflows that were used to produce the data. The authors of FAIR emphasize that beyond high-quality production of the data, it is important to include a notion of "long-term care" of digital assets. The care of such assets includes ethical considerations for personal data. Specific guidelines for sensitive data are created and should be followed. In JASPAR database FAIR principles are followed. The database is open-access and provides the data in conventional formats, such as JASPAR, MEME, TRANSFAC, and RAW-formatted frequency matrices for TF binding. Motif instances are provided in well-known BED and FASTA formats. The metadata associated with each profile is provided whenever possible. However, it is important to note that the amount of the metadata highly depends on its availability in the source of the data. All this data can be accessed in various ways: user-friendly website, Python and Bioconductor packages, and API. Users can choose the most comfortable to them access. The results, generated by the COBIND pipeline are also freely available as a user-friendly interactive webpage. Users can browse the page directly and download associated data.
 
 
     One of the FAIR principles is accessibility. It is worth highlighting because even today open access to the resources is not commonly accepted. Some researchers even went on to publish their opinion stating that computational biologists, who use published experimental data are "research parasites".
-    A very important thing to mention when discussing data usability is open-access. 
+    A very important thing to mention when discussing data usability is open access. 
+    ZENODO, Figshare. Data can be versioned and properly cited, because it receives a \ac{DOI}.
     "Research parasites" according to some researchers. But a lot of data remains understudied. Examples of open-access data, such as ENCODE, are excellent. Data can be used in multiple studies and keep producing the scientific insights. For example, DHS data from ENCODE was used by Viestra et al. to compute the DHS footprints. Since ENCODE data was also used in UniBind, thus for COBIND, I was able to reuse the footprints to analyse the footprints in matching cell types. So the experimental data is not meant to be analysed once with one particular pipeline. If researchers store it well with good annotations, data will be reused multiple times. However, the need for proper annotation should be emphasized here. In particular, cell type annotations. We should come up with consensus annotations, so data from multiple experiments could be easily integrated together.
     There are some cell type annotations available, but it is still challenging to apply them to large collections of data. 
     BRENDA is tissue type ontology. Hard to automatically annotate large numbers of datasets. Needs manual interference to achieve best results.
+
 
     To be able to find the data, access it, use it to develop tools, to produce more data, while navigating and entangling complex biological questions --- that is the job of a bioinformatician. Being able to do it freely and then make it available to fellow researchers --- that is what every researcher should aim for.
 
     \section{Development of new bioinformatics tools}
 
-    Besides using scientific databases, every researcher nowadays uses computational tools. Some of these tools are commercial and come with laboratory equipment, but many are developed by individual or small groups of researchers --- bioinformaticians. The latter category of tools can exist as command line tools, packages (Bioconductor, R, Python), or pipelines (Nextflow, Snakemake). The quality of this software varies from extremely easy to use to unusable, unmaintained tools. Certain software quality aspects make some tools much more used and more easily maintained.
+    Besides using scientific databases, everyday researchers use computational tools. Some of these tools are commercial and come with laboratory equipment, but many are developed by individual bioinformaticians or small groups of researchers. The latter category of tools can exist as command line tools, packages (Bioconductor, R, Python), or pipelines (Nextflow, Snakemake) \cite{gentleman2004bioconductor,r2023language,python2009language,di2017nextflow,molder2021sustainable}. The quality of this software varies from extremely easy to use to unusable, unmaintained tools. Certain software quality aspects make some tools much more used and more easily maintained.
 
-    Choosing the right implementation platform
-    Package, pipeline
-    There is no single correct answer.
+    JASPAR database update relies on many individual software pieces. In 2024, we summarized them into three big software components, "3D", that are organized into pipelines. (1) The "\textbf{D}iscovery" pipeline in Snakemake discovers motifs from peak data or processes external motifs and prepares them for manual curation. (2) The "\textbf{D}ownstream pipeline (now also implemented in Snakemake) collects curated motifs and prepares all additional results and data needed for the website. (3) The "\textbf{D}eployment" pipeline, now organized as an Ansible playbook and launched using the Jenkins platform, takes care of creating the updated website. The first and second components are intercepted by manual curation, while the second and third are separated by data collection and moving into an appropriate place. Even with the manual curation step it is possible to connect all the components needed to perform a complex task, such as database update. COBIND, on the other hand, is a much simpler computational tool, written as a collection of scripts, but all of them are organized into a Snakemake pipeline to make it easy to use. Organizing scientific software into pipelines is not the only solution, but in this form, for the user, it is relatively easy to understand and follow.
 
-    Version control, public access via Bitbucket or GitHub
+    Developing a pipeline or a package can be a personal choice as long as the software is usable. One of the biggest challenges when trying to reuse someone else's written software is dependency management. 
+
+
 
     Easing the usage through dependency management
     Containers, Conda
     Ease of use - web interfaces are good, but limited. Usually, they do not allow for large inputs, take time and downstream analysis of the results can be complicated due to the limited output (for example, often you cannot download the results as tables). The next thing to move to is containerization of command line tools. This would allow to use the tool in its full capacity, but in a much more user-friendly way. Arguably, containerized applications are easy to use for researchers with very limited experience in coding.
 
-
+    Version control, public access via Bitbucket or GitHub
+    Zenodo (provides DOI)
 %     Transparency through open-access and documentation
 
 
