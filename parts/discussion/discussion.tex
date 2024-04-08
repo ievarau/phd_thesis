@@ -10,6 +10,21 @@ Summary of the thesis in a broader context.
 
     PWM limitations
 
+    Discuss motif trimming in JASPAR 2024. Apparently Taipale's selex paper or whatever says that low information positions are the ones that matter when it comes to the binding of a specific TF family member (why one member and not another will bind even though the motifs are the same). I could give an argument for downstream data analysis, that those positions don't really provide any information. Also, maybe cooperation matters more and those low information positions are actually masking the possible grammar, because of technical limitations. You chip only one protein and expect short, so surrounding are kind of averaged out.
+    Brings the conformation of the DNA. (dna shape paper from Anthony)
+
+
+    DNA modifications are not represented in the majority of models.
+    Limitations of PFMs in all major TF-DNA binding models repositories - DNA methylation is not represented.
+
+    Overall, the different contributors to the TF-DNA interactions are not integrated in a more classical models. Usually, there is a separate model that is based on DNA shape, or integrates DNA methylation. But no "theory of everything" so far.
+
+
+
+
+
+    Evaluating the PWMs
+
 
 
 
@@ -25,19 +40,13 @@ Summary of the thesis in a broader context.
     Even different PWMs for the same TF can be performing differently. One study attempted to identify the best performing PWM for each TF \cite{ambrosini2020insights}.
 
 
+    Building new models
+
 
     The most recent challenge, Ibis, aims to engage the scientific community into thinking about and implement new TF-DNA interaction models.
 
-    Discuss motif trimming in JASPAR 2024. Apparently Taipale's selex paper or whatever says that low information positions are the ones that matter when it comes to the binding of a specific TF family member (why one member and not another will bind even though the motifs are the same). I could give an argument for downstream data analysis, that those positions don't really provide any information. Also, maybe cooperation matters more and those low information positions are actually masking the possible grammar, because of technical limitations. You chip only one protein and expect short, so surrounding are kind of averaged out.
-    Brings the conformation of the DNA. (dna shape paper from Anthony)
 
-
-    DNA modifications are not represented in the majority of models.
-    Limitations of PFMs in all major TF-DNA binding models repositories - DNA methylation is not represented.
-
-    Overall, the different contributors to the TF-DNA interactions are not integrated in a more classical models. Usually, there is a separate model that is based on DNA shape, or integrates DNA methylation. But no "theory of everything" so far.
-
-    Deep learning.
+    Deep learning
 
 
     \section{Identifying and defining TF co-binding}
@@ -58,7 +67,7 @@ Summary of the thesis in a broader context.
 
     CTCF result. That it was thought to be another TF. Future work would be to understand and figure out what function that could be.
 
-    MethMotif provides information for the co-binding status \cite{dyer2024methmotif}.
+    MethMotif database provides information for the co-binding status \cite{dyer2024methmotif}. The co-factor evaluation is based on the intersection of two sets of peaks that profile different TFs. For each set of intersected peaks motifs are generated \textit{de novo} along with the determination of the DNA methylation status \cite{dyer2024methmotif,lin2020tfregulomer}. However, such analysis results have to be carefully interpreted, because the peaks derived from ChIP-seq experiments vary in size and intersection results depend on the parameters (what size overlap or gap is allowed). Finally, from this analysis, we can confidently say that the two TFs at some point bind to the same regions, but it does not mean that they co-bind together. To determine the true co-binding events, other types of approaches are needed. For example, single-molecule footprinting (SMF).
 
     \section{The need for maintenance and update of the scientific databases}
 
