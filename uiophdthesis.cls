@@ -199,10 +199,8 @@
           \@author
         \end{tabular}\par}
       \vskip 3em
-      \ifthenelse{\equal{\uiophd@supervisors}{}}
-        {\ifthenelse{\equal{\uiophd@supervisor}{}}{}
-	  {{\large Supervisor:\\ \uiophd@supervisor\par}\vskip 3em}}
-	{{\large Supervisors:\\ \uiophd@supervisors\par}\vskip 3em}
+  {{\large Supervisor:\\ \uiophd@supervisor\par}\vskip 3em}
+  {{\large Co-supervisor:\\ \uiophd@cosupervisor\par}\vskip 3em}
       \ifthenelse{\equal{\uiophd@dept}{}}{}
         {\uiophd@dept\par \vskip 0.5em}
       \ifthenelse{\equal{\uiophd@fac}{}}{}
@@ -223,12 +221,12 @@
 \define@key{uiophd@keys}{dept}{\def \uiophd@dept {#1}}%
 \define@key{uiophd@keys}{fac}{\def \uiophd@fac {#1}}%
 \define@key{uiophd@keys}{supervisor}{\def \uiophd@supervisor {#1}}%
-\define@key{uiophd@keys}{supervisors}{\def \uiophd@supervisors {#1}}%
+\define@key{uiophd@keys}{cosupervisor}{\def \uiophd@cosupervisor {#1}}%
 \date{}
 \def \uiophd@dept {}
 \def \uiophd@fac {}
 \def \uiophd@supervisor {}
-\def \uiophd@supervisors {}
+\def \uiophd@cosupervisor {}
 
 %% Define \begin{preface}
 \newenvironment{preface}{%
