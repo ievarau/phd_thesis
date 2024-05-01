@@ -40,7 +40,7 @@ Regulatory proteins and other small molecules are constantly approaching genomic
 
   Transcription factors (TFs) are key transcription regulators \cite{mitsis2020transcription,weidemuller2021transcription}. About ten percent of the human protein-coding genome codes for transcription factors \cite{levine2003transcription}. TFs act as a bridge between the cell signaling pathways and gene expression. Through receptors, external cues trigger post-translational modification cascades that eventually result in the modulation of a set of TFs, which are then recruited at the gene cis-regulatory regions \cite{weidemuller2021transcription}. Depending on the stimuli, cell type, and state, TFs are modified. Short DNA sequences recognized by TFs are known as DNA motifs \cite{lambert2018human}. The function of TFs and their recognized DNA motifs are often studied together. Various experimental methods exist to identify TF-DNA interactions and various computational tools to model and represent those interactions. Most of the experimental techniques are limited to investigating individual TFs. However, in reality, TFs often cooperate, compete for the same binding site, or interact with the DNA indirectly \cite{mitsis2020transcription}. These complex TF activity mechanisms are still challenging to investigate and interpret with currently available tools.
 
-    \subsection{Protein structures and classification}
+    \subsection{Structural classification}
 
     Eukaryotic transcription factor proteins have at least two domains: DNA binding and activation or repression. Optionally, there are \ac{PPI} or effector domains to regulate TF activity \cite{zhu2011mapping,minchin201393,wingender2013criteria}. \ac{DBD} recognize and bind specific DNA patterns (motifs). Many protein-DNA complex structures are available in resources, such as \ac{PDB} \cite{yesudhas2017proteins,berman2000protein,wingender2013criteria}. For example, the \ac{bHLH} domain proteins have two \( \alpha \)-helices connected by a turn. These domains are known to dimerize, and each monomer recognizes one side of a symmetric DNA sequence ({Figure \ref{dbd_classification}}A). bHLH proteins bind at the major groove of the DNA molecule \cite{yesudhas2017proteins}. Homeodomain-type DBDs are highly conserved. POU5F1, also known as OCT4, has two DBDs, which are binding cooperatively at the major groove ({Figure \ref{dbd_classification}}B).
 
@@ -55,7 +55,17 @@ Regulatory proteins and other small molecules are constantly approaching genomic
 
     In 2009, a group of researchers defined and described 23 human TF families, where 80\% of all known human TFs at the time had C\textsubscript{2}H\textsubscript{2} zinc-finger, homeodomain, or HLH DBDs \cite{vaquerizas2009census}. Later classifications expanded from humans to all mammalian TFs. One of the most extensive classifications of mammalian transcription factors, TFClass, includes superclass, class, family, subfamily, and genus categories \cite{wingender2018tfclass, wingender2013criteria,wingender2015tfclass}. For example, in the JASPAR database (storing TF-DNA binding computational models), TF families and class categories are the most used to annotate TF-DNA binding profiles. The most up-to-date version classifies more than 39,000 TFs from up to 41 mammalian species. The TFClass annotates TF DBDs and classifies TFs using phylogenetic analyses \cite{wingender2018tfclass}. More recently, a similar classification of plant TFs was released. Many DBDs are present in plants but not mammals, which hindered the complete classification of the plant TFs. Plant-TFClass addressed that by adding eight new classes and 37 new families to classify most of the 56 plant TF types \cite{blanc2024plant}. This recent development in TF classification highlights the need to consistently revise and update current classifications, also considering other taxa, such as nematodes or insects.
 
-  \section{Transcription factor binding}
+    \subsection{Functional classification}
+
+
+
+
+
+
+
+
+
+  \section{Transcription factor binding to the DNA}
 
   Transcription factors bind cis-regulatory regions (promoters and enhancers) to regulate associated gene transcription. TFs typically recognize short (10-20 bp) DNA sequence motifs \cite{ambrosini2020insights}. Depending on the sequence context and available co-factors, TFs can either activate or repress transcription of a gene \cite{lambert2018human}. Interactions with CRRs are highly cell-type-specific. The location where a TF binds DNA is called a transcription factor binding site (TFBS). A promoter or an enhancer can have multiple TFBSs of the same or different TF. Transcription factors generally have a binding preference for particular DNA patterns, also known as DNA motifs \cite{boeva2016analysis}.
 
