@@ -1,18 +1,20 @@
 \chapter{Computational modeling of transcription factor-DNA interactions}
 
-Researchers employ various experimental methods to analyze transcription factors and DNA interactions, producing sequences or genomic regions. They indicate TF specificity towards particular DNA patterns. This information provides the basis for computational modeling of TF-DNA interactions. A collection of models is available today, from simple and most widely used \ac{PWMs} to the most advanced deep learning models. This chapter will cover different models and techniques used to create them, showcase resources that store these models, and explore how they can be applied in research.
+Researchers employ various experimental methods to study how transcription factors interact with DNA, identifying sequences or genomic regions that indicate TF specificity for particular DNA patterns. This data serves as the foundation for the computational modeling of TF-DNA interactions. Different models are available today, from simple and widely used \ac{PWMs} to advanced deep learning models. This chapter will cover different models and techniques used to create them, highlighting resources that store these models and explore their applications in research.
 
   \section{Transcription factor DNA binding models}
 
     \subsection{Position weight matrices (PWMs)}
 
-    We need ways to represent the DNA binding to interpret TF binding to the regulatory regions. The most popular and widely used model is the \ac{PWMs} (also called weight matrices or \ac{PSSMs}) ({Figure \ref{tf_dna_models}}) \cite{ambrosini2020insights,weirauch2013evaluation}. PWM assigns scores, representing binding preference and energy, to potential target sequences \cite{ambrosini2020insights,weirauch2013evaluation}. The binding is typically first represented as a matrix of counts of each possible base (A, C, G, or T for a DNA model) at each position in a TF binding site \cite{stormo2013modeling,wasserman2004applied,weirauch2013evaluation}. The matrix length is the length of the DNA motif recognized by the TF \cite{ambrosini2020insights}. It quantitatively describes the known \ac{TFBSs} \cite{wasserman2004applied}. From a set of aligned sequences (for example, processed experimental data or sequences collected from literature) that are bound by a TF of interest, a \ac{PFM} can be computed ({Figure \ref{tf_dna_models}}A-B) \cite{ambrosini2018pwmscan}. A PFM, or a count matrix, is created by counting the occurrences of each nucleotide at each position. Counts can be converted into probabilities to build a \ac{PPM} ({Figure \ref{tf_dna_models}}C) using an equation
+    To understand how TFs bind to regulatory regions of DNA, we need effective representation methods. The most popular and widely used model is the \ac{PWMs} (also called weight matrices or \ac{PSSMs}) ({Figure \ref{tf_dna_models}}) \cite{ambrosini2020insights,weirauch2013evaluation}. PWMs assign scores to potential target sequences, reflecting binding preferences and energy \cite{ambrosini2020insights,weirauch2013evaluation}. Initially, binding is represented as a matrix of counts of each possible base (A, C, G, or T for a DNA model) at each position in a TF binding site \cite{stormo2013modeling,wasserman2004applied,weirauch2013evaluation}. The length of this matrix corresponds to the DNA motif length recognized by the TF \cite{ambrosini2020insights}. This matrix quantitatively describes the known \ac{TFBSs} \cite{wasserman2004applied}.
+    
+    From a set of aligned sequences (for example, processed experimental data or sequences collected from literature) that are bound by a TF of interest, a \ac{PFM} can be computed ({Figure \ref{tf_dna_models}}A-B) \cite{ambrosini2018pwmscan}. A PFM, or a count matrix, is created by counting the occurrences of each nucleotide at each position. Counts can be converted into probabilities to build a \ac{PPM} ({Figure \ref{tf_dna_models}}C) using
 
     \begin{equation}
       p(b,i)=\frac{f_{b,i}+s(b)}{N+\sum\limits_{b'\in\{A,C,G,T\}}s(b')}
       \label{ppm}
     \end{equation}
-    where $ f_{b,i} $ is counts of base $ b $ in position $ i $; $ N $ is the number of sites; $ p(b,i) $ is a probability of base $ b $ in position $ i $; $ s(b) $ is a pseudocount function. Pseudocounts can be added to each cell of the PFM to eliminate zeroes when the number of binding sites is very small \cite{wasserman2004applied}.
+    where $ p(b,i) $ is a probability of base $ b $ in position $ i $; $ f_{b,i} $ is counts of base $ b $ in position $ i $; $ s(b) $ is a pseudocount function; $ N $ is the number of sites. Pseudocounts can be added to each cell of the PFM to eliminate zeroes when the number of binding sites is very small \cite{wasserman2004applied}.
 
     A PWM ({Figure \ref{tf_dna_models}}D) is constructed by dividing the nucleotide probabilities by expected background probabilities and converting the resulting values to a log scale. The most straightforward model assumed equal 0.25 background probabilities for each base. The computation is done using an equation
 
@@ -57,7 +59,7 @@ Researchers employ various experimental methods to analyze transcription factors
   
     \begin{figure}
       \centering
-      \includegraphics[width=1\textwidth]{figures/deep_learning/DL_models.pdf}
+      \includegraphics[width=1\textwidth]{figures/deep_learning/DL_models_latest.pdf}
       \caption[Deep learning modeling approaches]{\textbf{To model TF-DNA interaction, various types of deep learning models are currently available.} Three groups of modeling approaches can be based on (1) DNA sequence information only, (2) DNA sequence and DNA shape information, or (3) DNA sequence and epigenomic profile information, such as DNA methylation. Such models are then evaluated. Finally, using different approaches, TF binding motifs are extracted. Adapted from \cite{wang2022towards}.}
       \label{deep_learning_modeling}
     \end{figure}
@@ -87,7 +89,7 @@ Researchers employ various experimental methods to analyze transcription factors
     \begin{figure}
       \centering
       \includegraphics[width=1\textwidth]{figures/nmf/nmf_for_discovery_latest.pdf}
-      \caption[NMF for DNA pattern discovery]{\textbf{Application of non-negative matrix factorization for DNA pattern discovery in sequences.} \textbf{A.} Every nucleotide is assigned a unique code. \textbf{B.} DNA sequences are one-hot encoded into an array of ones and zeroes. \textbf{C.} An example of 4 component NMF applied to a set of one-hot encoded DNA sequences (data matrix). The data matrix is factorized into amplitude and pattern matrices. Candidate DNA patterns (motifs) can be built using the resulting matrices. Each component produces one motif. Adapted from \cite{rauluseviciute2023identification}.}
+      \caption[NMF for DNA pattern discovery]{\textbf{Application of non-negative matrix factorization for DNA pattern discovery in sequences.} An example of 4 component NMF applied to a set of one-hot encoded DNA sequences (data matrix). The data matrix is factorized into amplitude and pattern matrices. Candidate DNA patterns (motifs) can be built using the resulting matrices. Each component produces one motif. Adapted from \cite{rauluseviciute2023identification}.}
       \label{nmf_motif_discovery}
     \end{figure}
 
@@ -133,5 +135,14 @@ Researchers employ various experimental methods to analyze transcription factors
     \subsection{Prediction of TF co-binding events}
 
     As with \textit{de novo} motif discovery, predicting TF binding sites is usually limited to individually analyzing each TF binding profile, so deciphering the possible co-occurrence of TF motifs requires specialized tools. For example, SpaMo is a computational tool that analyzes co-binding events using a library of known motifs to detect possible co-binding TFs relative to the indicated primary TF \cite{whitington2011inferring}. The method was developed to analyze ChIP-seq data, where the profiled TF is the primary TF. It summarizes the spacing and orientation between the primary and secondary motifs and provides information on the match's significance. The algorithm tests every secondary motif to determine whether the predicted TFBSs have enriched spacing concerning the primary TFBSs \cite{whitington2011inferring}. A significant limitation of SpaMo and similar tools is the requirement of known TF binding motif libraries, meaning unknown DNA patterns are missed by default. In addition, the results can return many significant candidates (secondary motifs), making it difficult to interpret.
+
+    ({Figure \ref{predicting_cobinding}})
+
+    \begin{figure}
+      \centering
+      \includegraphics[width=1\textwidth]{figures/cooperation_problem/cooperation_problem_latest.pdf}
+      \caption[Predicting TF co-binding events]{\textbf{.} .}
+      \label{predicting_cobinding}
+    \end{figure}
 
     It is crucial to consider the context in which individual TFs are binding. The cooperative binding of multiple TFs in the regulatory regions enables fine-tuning transcription. Therefore, developing computational tools for analyzing such mechanisms is as essential as developing experimental technologies investigating cooperative binding.
