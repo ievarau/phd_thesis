@@ -28,8 +28,8 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="1.0014751"
-     inkscape:cx="378.94102"
-     inkscape:cy="555.68032"
+     inkscape:cx="126.81294"
+     inkscape:cy="186.2253"
      inkscape:window-width="2560"
      inkscape:window-height="1371"
      inkscape:window-x="0"
@@ -2998,7 +2998,7 @@
          style="font-size:4.23333px;text-align:center;text-anchor:middle;stroke-width:0.264583"
          x="134.94693"
          y="65.882065"
-         id="tspan1-89">DAMO trained PWM</tspan></text><g
+         id="tspan1-89">PWM</tspan></text><g
        id="g7"
        transform="translate(64.640881,-101.94867)"><g
          id="g6"
@@ -3414,7 +3414,7 @@
          style="font-size:4.23333px;text-align:center;text-anchor:middle;stroke-width:0.264583"
          x="46.507725"
          y="146.86018"
-         id="tspan1-89-8-7-9">Computing direct TFBSs</tspan></text><rect
+         id="tspan1-89-8-7-9">Direct TF-DNA interactions</tspan></text><rect
        style="opacity:1;fill:#ffffff;fill-opacity:0.99955821;fill-rule:evenodd;stroke:none;stroke-width:0.3;paint-order:fill markers stroke"
        id="rect12"
        width="6.826746"
