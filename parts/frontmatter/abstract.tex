@@ -1,13 +1,17 @@
 \begin{abstract}
 
 
-    TODO: Abstract of the thesis.
+    Transcription factor (TF) binding to the DNA is critical to regulating the transcription of DNA to RNA. TFs bind regulatory DNA regions to ensure specific genes are transcribed at the right place and time. Cis-regulatory regions (CRRs), named promoters and enhancers, are targeted by TFs, which then bring other proteins and RNA polymerase II to initiate transcription. TFs are sequence-specific. Their DNA-binding domains (DBDs) interact with short DNA nucleotide sequences, known as transcription factor binding sites (TFBSs).
 
+    The binding properties of individual TFs are well documented. However, transcription regulation is a complex process and often involves the cooperation of multiple TFs. Different combinations of TFs interact with the DNA cooperatively by co-binding the same region or forming protein complexes. Many cellular processes, such as cell differentiation and response to external stimuli, depend on TF cooperation. However, the investigation of combinatorial TF binding is complicated since most experimental techniques are probing the binding of individual TFs.
 
+    Using experimental techniques, such as chromatin immunoprecipitation followed by sequencing (ChIP-seq), genomic sequences bound by TF-of-interest can be determined. One of the biggest challenges is to model TF-DNA interactions computationally. Today's most widely used TF-DNA interaction computational model is position weight matrices (PWMs). Experimentally derived sequences can be used to summarize TF-DNA interactions into a PWM and define a DNA motif recognized by a particular TF. Motifs can also be discovered \textit{de novo} from a set of genomic sequences by searching for overrepresented patterns. Computational models of TF-DNA interactions are stored in databases and can be used to, for example, predict TFBSs, annotate unknown motifs or predict TF co-binding events.
 
-    The main goal of this thesis was to explore transcription factor-DNA interactions. 
+    The main goal of this thesis was to employ computational approaches to explore TF-DNA interactions by (1) discovering new TF binding profiles and updating the JASPAR database while also developing and updating robust pipelines for automated data processing and post-processing, and (2) identifying and characterizing co-binding DNA patterns.
 
+    The first objective was achieved by contributing to the two latest releases of the JASPAR database. For both releases a huge amount of publicly available genomic data was collected to discover DNA binding motifs. They were then manually curated and good quality motifs assigned to the CORE or UNVALIDATED collections, depending on the orthogonal support available. In addition to new information added to the database, existing profiles were revised to asure the quality of the metadata. The final sets of motifs were used for downstream analysis, which results are also available on the JASPAR website. Finally, the update of the database depends on complex software components, which were extensively revised and updated for each release.
 
+    The second objective was achieved by developing a pipeline COBIND to discover TF co-binding patterns. The discovery method is based on non-negative matrix factorization (NMF) and automatically finds potential TF co-binding patterns relative to the known TFBSs. We applied the pipeline to 5,699 TFBS datasets for 401 TFs in seven species. The found co-binding patterns were shared for TFs from the same structural family. They are also likely functionally relevant as they harbor higher evolutionary conservation compared to the isolated TFBSs. Furthermore, open chromatin data and single-molecule footprinting data supported the co-binding predictions in matching human cell lines and mouse embryonic stem cells, respectively.
 
 \end{abstract}
 
