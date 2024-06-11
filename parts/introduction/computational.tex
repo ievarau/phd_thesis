@@ -6,7 +6,7 @@ Researchers employ various experimental methods to study how transcription facto
 
     \subsection{Position weight matrices (PWMs)}
 
-    The most popular and widely used computational TF binding model is the \ac{PWMs} (also called weight matrices or \ac{PSSMs}) ({Figure \ref{tf_dna_models}}) \cite{ambrosini2020insights,weirauch2013evaluation}. Several steps are followed when building a PWM.
+    The most popular and widely used representation of TF-DNA interactions is the \ac{PWMs} (also called weight matrices or \ac{PSSMs}) ({Figure \ref{tf_dna_models}}) \cite{ambrosini2020insights,weirauch2013evaluation,stormo2015dna}. Several steps are followed when building a PWM.
 
     \begin{figure}
       \centering
@@ -150,7 +150,49 @@ Researchers employ various experimental methods to study how transcription facto
 
   \section{Databases of TF-DNA interaction models}
 
-  Researchers started collecting TF binding profiles when more data on TF-DNA interactions became available. Today, several repositories store TF DNA binding motifs. For example, JASPAR, TRANSFAC, HOCOMOCO, and CIS-BP \cite{rauluseviciute2024jaspar,matys2006transfac,wingender2008transfac,vorontsov2024hocomoco,weirauch2014determination}. For the users of such resources, it is essential to understand what data is stored and how it is retrieved and processed. JASPAR is an open-access database and stores DNA binding motifs from six taxa. All motifs in JASPAR are manually curated. JASPAR discovers motifs from experimental data, such as ChIP-seq or DAP-seq, or mined as PFMs from various resources (for instance, a selection of CIS-BP database motifs) and publications. Independent evidence found by curators supports CORE collection motifs. In addition to motif collections, JASPAR provides analyzed data, such as motif clusters and various tools \cite{rauluseviciute2024jaspar}. TRANSFAC also stores curated DNA motifs with experimentally determined and predicted binding sites. However, the complete database is not open-access \cite{matys2006transfac,wingender2008transfac}. HOCOMOCO is a publicly available resource that compiles and stores human and mouse TF binding motifs produced using ChIP-seq or HT-SELEX data. The motifs in this database are human-curated and automatically benchmarked \cite{vorontsov2024hocomoco}. Finally, CIS-BP is also open-access and contains motifs for more than a thousand TFs from 131 diverse eukaryotes. Motifs are generated using \ac{PBM}, SELEX, or ChIP-seq data but are also mined from other motif resources, such as TRANSFAC. A unique feature of CIS-BP is that the database offers inferred motifs. Based on the similarity of the DBDs, two TFs are binding similar motifs. Therefore, it is possible to assume a binding profile from one TF to a closely related other TF \cite{weirauch2014determination}. Specialized databases, such as MethMotif, store cell-type-specific TF binding profiles that are enriched with DNA methylation patterns \cite{dyer2024methmotif}.
+  Several repositories store PWMs. For example, JASPAR, TRANSFAC, HOCOMOCO, and CIS-BP ({Table \ref{motif_databases}}) \cite{rauluseviciute2024jaspar,matys2006transfac,wingender2008transfac,vorontsov2024hocomoco,weirauch2014determination}. For the users of such resources, it is essential to understand what data is stored and how it is retrieved and processed. JASPAR is an open-access database and stores DNA binding motifs for TFs from six taxa. All motifs in JASPAR are manually curated. JASPAR discovers motifs from experimental data, such as ChIP-seq or DAP-seq, or mined as PFMs from various resources (for instance, a selection of CIS-BP database motifs) and publications. Independent evidence found by curators supports CORE collection motifs. In addition to motif collections, JASPAR provides analyzed data, such as motif clusters and various tools \cite{rauluseviciute2024jaspar}. TRANSFAC also stores curated DNA motifs with experimentally determined and predicted binding sites. However, the complete database is not open-access \cite{matys2006transfac,wingender2008transfac}. HOCOMOCO is a publicly available resource that compiles and stores human and mouse TF binding motifs produced using ChIP-seq or HT-SELEX data. The motifs in this database are human-curated and automatically benchmarked \cite{vorontsov2024hocomoco}. Finally, CIS-BP is also open-access and contains motifs for more than a thousand TFs from 131 diverse eukaryotes. Motifs are generated using \ac{PBM}, SELEX, or ChIP-seq data but are also mined from other motif resources, such as TRANSFAC. A unique feature of CIS-BP is that the database offers inferred motifs. Based on the similarity of the DBDs, two TFs are binding similar motifs. Therefore, it is possible to assume a binding profile from one TF to a closely related other TF \cite{weirauch2014determination}. Specialized databases, such as MethMotif, store cell-type-specific TF binding profiles that are enriched with DNA methylation patterns \cite{dyer2024methmotif}.
+
+  \begin{table}[htbp]
+    \centering
+    \caption{\textbf{An overview of DNA binding motif databases.}}
+    \label{motif_databases}
+    \begin{tabular}{p{0.175\linewidth} p{0.55\linewidth} p{0.125\linewidth}}
+        \toprule
+        \textbf{Database}
+        & 
+        \textbf{Content}
+        &
+        \textbf{Reference}
+        \\
+        \midrule
+        JASPAR
+        & 
+        Open-access manually curated collections of DNA binding motifs for six taxonomic groups. The CORE collection contains motifs with orthogonal support.
+        &
+        \cite{rauluseviciute2024jaspar}
+        \\[0.3ex]
+        TRANSFAC
+        &
+        xx
+        &
+        \cite{wingender2008transfac}
+        \\[0.3ex]
+        HOCOMOCO
+        &
+        Open-access manually curated motif collections of human and mouse TFs.
+        &
+        \cite{vorontsov2024hocomoco}
+        \\[0.3ex]
+        CIS-BP
+        &
+        Open-access database with a comprehensive list of predicted TFs from >300 species. Motifs are available if known.
+        &
+        xx
+        % \multirow{ 2}{*}{The ball - which is blue - is round.}
+        \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
   Even if current databases contain thousands of motifs from various species, it is essential to keep these resources updated by adding new data and refining the old. Finally, new ways of TF-DNA modeling (such as deep-learning models) motivate the expansion or creation of new databases that could offer a variety of TF-DNA interaction models to the community.
 
