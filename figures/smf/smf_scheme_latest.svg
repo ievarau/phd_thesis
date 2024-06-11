@@ -29,13 +29,13 @@
      inkscape:document-units="mm"
      inkscape:zoom="2.1184484"
      inkscape:cx="234.36965"
-     inkscape:cy="249.94709"
-     inkscape:window-width="2560"
-     inkscape:window-height="1371"
+     inkscape:cy="249.94708"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
      inkscape:window-x="0"
      inkscape:window-y="32"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer15"
+     inkscape:current-layer="g136"
      inkscape:export-bgcolor="#ffffffff" /><defs
      id="defs1"><inkscape:path-effect
        effect="bspline"
@@ -162365,7 +162365,7 @@
                id="tspan118978-0"
                x="54.860256"
                y="33.221474"
-               style="stroke-width:0.0873481">Anchor + Co-binding</tspan></text><text
+               style="stroke-width:0.0873481">TF1 + TF2</tspan></text><text
              xml:space="preserve"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:0.786132px;font-family:Helvetica;-inkscape-font-specification:'Helvetica, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0873481"
              id="text17326-6-2"
@@ -162374,7 +162374,7 @@
                sodipodi:role="line"
                id="tspan131"
                x="54.821873"
-               y="34.184315">Co-binding</tspan></text><text
+               y="34.184315">TF1</tspan></text><text
              xml:space="preserve"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:0.786132px;font-family:Helvetica;-inkscape-font-specification:'Helvetica, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0873481"
              id="text17326-6-9"
@@ -162383,7 +162383,7 @@
                sodipodi:role="line"
                id="tspan132"
                x="54.860256"
-               y="35.22488">Anchor</tspan></text><text
+               y="35.22488">TF2</tspan></text><text
              xml:space="preserve"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:0.786132px;font-family:Helvetica;-inkscape-font-specification:'Helvetica, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0873481"
              id="text17326-6-0"
