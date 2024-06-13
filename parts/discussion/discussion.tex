@@ -22,7 +22,10 @@ Transcription factor binding to the DNA is an essential mechanism of transcripti
 
     Several TF cooperative binding models were proposed. TFs are bound by strict grammar in the enhanceosome model, while in the billboard model, the grammar is more relaxed. The third model, TF collective, is more variable, where not all TF binding sites might be required, and some TFs bind the region indirectly. All models have support, and some enhancers contain a mixture of binding models \cite{georgakopoulos2023transcription,wang2022towards}. Some studies emphasize the importance of strict TF binding, where TF binding site order and orientation are essential for transcription regulation activity \cite{georgakopoulos2023transcription}. Other researchers conclude that most TFs use a soft syntax, and strict binding rules are not necessary \cite{avsec2021base}. It is important to note that most studies are done on a subset of TFs, often in a specific tissue or cell type. For example, Avsec \textit{et al.} studied the cooperative binding of four pluripotency factors in mouse embryonic stem cells and demonstrated the soft binding syntax. In contrast, Georgakopoulos-Soares \textit{et al.} researched the binding syntax for pair and triplet combinations of eighteen liver-associated TFs and concluded that orientation and order are essential contributors \cite{georgakopoulos2023transcription}. The COBIND approach is limited to discovering co-binding patterns with fixed spacings (enhanceosome model). However, since individual patterns are found as separate components resulting from the non-negative matrix factorization algorithm, the same motif, but with different spacings, can be found if enough sequences are enriched in such combinations.
 
+
     TF concentration
+
+    
     
     Pioneering
 
@@ -66,3 +69,29 @@ Transcription factor binding to the DNA is an essential mechanism of transcripti
     Finally, an essential aspect of scientific software quality is proper version control, accessibility, and code documentation. This should be applied to bioinformatics tools and all scientific codes written for data analysis. It is the only way to ensure the transparency and reproducibility of the published results. Tools, such as Bitbucket (\url{https://bitbucket.org/}) or GitHub (\url{https://github.com/}) provide all functionalities for code storage, the control of version and releases, and documentation. These practices are helpful not only to potential users but also to bioinformaticians themselves. Using branches and writing appropriate commit messages will help when developing the code. Proper README documentation should inform what the software is about, the usage, the required and optional inputs, and the expected output. JASPAR and COBIND software are freely available and extensively documented on Bitbucket.
 
     Following sound software development principles gives users confidence and motivates them to use the tools. With the reproducibility crisis in science \cite{baker20161}, it is imperative to invest time in the development and maintenance of high-quality, user-friendly software.
+\\
+
+\textbf{Declaration}
+
+While writing this thesis, I used Grammarly and ChatGPT to improve the grammar, language, and readability. After employing these tools, I reviewed and edited the content as necessary. I take full responsibility for the final content of the thesis.
+
+
+
+
+
+
+
+
+
+\subsection{Impact of methylation to the DNA binding}
+
+DNA modifications impact how transcription factors bind \cite{wang2019identification}. The most extensively studied epigenetic DNA modification is DNA methylation. ``Writers'', \ac{DNMTs}, modify the cytosines in the DNA molecule by adding a methyl group in the context of CpG dinucleotides, generating \ac{5mC} ({Figure \ref{tf_methylation_binding}}A). In contrast, \ac{TET} enzymes conduct the removal of methyl groups \cite{wang2019identification,schubeler2015function}. Generally, hypermethylation of CpGs in the promoter regions is associated with transcription repression, while gene body hypermethylation indicates active genes \cite{schubeler2015function,ball2009targeted}. Therefore, DNA methylation is essential for TFs that bind methylated motifs, and some prefer to interact with methylated sites \cite{yin2017impact,schubeler2015function}. For example, the HOXB13 protein has three key residues that contribute to the preferential mCpG binding ({Figure \ref{tf_methylation_binding}}B-C) \cite{yin2017impact}. HOXB13 can also bind to the unmethylated motif, which then does not contain a CpG dinucleotide ({Figure \ref{tf_methylation_binding}}C). Some TFs (for example, MAX) are not influenced by methylation even though their motifs contain a CpG \cite{yin2017impact}. For other TFs, DNA hypermethylation suppresses their binding. Changes in the methylation patterns can lead to aberrant TF binding, affecting transcription regulation and possibly causing diseases.
+
+Most common TF-DNA interactions computational models do not consider methylated CpGs and position interdependency. The dependency between the positions in the TF-recognized DNA sequence is of particular relevance when analyzing CpG dinucleotides. A CpG in the binding motif does not inform whether it needs to be methylated for the TF to bind. There are specific attempts to model TF binding to the methylated DNA. For example, the MEDEMO toolkit analyzes TF binding motifs by including information about DNA methylation \cite{grau2023widespread}. The simplest way to include methylation information is to extend the alphabet where 5mC is replaced with M and G on the opposite strand with an H \cite{grau2023widespread,viner2024modeling}. Methylation-aware TF binding models can use such methylation-aware genomes for training. These can, therefore, inform about methylation sensitivity ({Figure \ref{tf_methylation_binding}}D) and allow the identification of differential TF binding regions in ChIP-seq data \cite{grau2023widespread}. The modeling can also include other DNA modifications (5-hydroxymethylcytosine, 5-formylmethylcytosine, or 5-carboxylmethylcytosine) by coding them as specific letters \cite{viner2024modeling}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1\textwidth]{figures/methylation_binding/methylation_binding.pdf}
+  \caption[TF binding to methylated DNA]{\textbf{TF binding is affected by DNA methylation.} \textbf{A.} DNA methyltransferases add methyl- group to the cytosines in the CpG context and generate 5-methylcytosine (5mC). \textbf{B.} Some TFs, such as HOXB13, specifically recognize DNA sequences with methylated cytosines. Three key protein residues, Arg, Ile, and Val, direct the specificity towards 5mC. \textbf{C.} HOXB13 prefers binding to the motif containing a methylated CpG (primary motif; above) but also binds a motif without a CpG with lower affinity (secondary motif; below). \textbf{D.} Some specific methodologies investigate TF binding sensitivity to methylated sites. For example, NRF1 is sensitive to methylation and binds to a motif with CpG content. Based on the sites bound by NRF1, NRF1 does not prefer methylated CpGs. The first CpG is less affected by methylation than the second. Adapted from \cite{yin2017impact,grau2023widespread}.}
+  \label{tf_methylation_binding}
+\end{figure}

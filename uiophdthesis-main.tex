@@ -4,6 +4,10 @@
 \usepackage{babel, csquotes, graphicx, textcomp, varioref, xcolor, acronym}
 \usepackage[backend=biber,style=numeric-comp,sorting=none]{biblatex}
 \usepackage[hidelinks, hypertexnames=false]{hyperref}
+\usepackage{booktabs}
+\usepackage[tableposition = top]{caption}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 \title{Computational Approaches to Exploring Transcription Factor-DNA Interactions: From Resource Development to Co-binding Prediction}
 \author{Ieva Rauluševičiūtė} 
@@ -17,6 +21,7 @@
 \maketitle[
 supervisor={Anthony Mathelier},
 cosupervisor={Jonas Paulsen},
+ncmm={Center for Molecular Medicine Norway},
 dept={Department of Biosciences},
 fac={Faculty of Mathematics and Natural Sciences}
 ]
@@ -27,7 +32,7 @@ fac={Faculty of Mathematics and Natural Sciences}
 
 
 \listoffigures{}
-% \listoftables{}
+\listoftables{}
 
 
 \include{parts/frontmatter/preface}
