@@ -201,19 +201,21 @@
       \vskip 3em
   {{\large Supervisor:\\ \uiophd@supervisor\par}\vskip 3em}
   {{\large Co-supervisor:\\ \uiophd@cosupervisor\par}\vskip 3em}
-      {{\includegraphics[width=4.5cm]{paperwork/NCMM_logo.png}}\vskip 0.5em}
+      {{\includegraphics[width=4.15cm]{paperwork/NCMM_logo.png}}\vskip 0.5em}
       \ifthenelse{\equal{\uiophd@ncmm}{}}{}
         {\uiophd@ncmm\par \vskip 0.5em}
       \ifthenelse{\equal{\uiophd@medfac}{}}{}
-        {\uiophd@medfac\par \vskip 1em}
+        {\uiophd@medfac\par \vskip 0.5em}
+      \ifthenelse{\equal{\uiophd@uio}{}}{}
+        {\uiophd@uio\par \vskip 1em}
         % {{and\\}\vskip 0.5em}
-      {{\includegraphics[width=2.3cm]{paperwork/UIO_logo.jpg}}\vskip 0.5em}
+      {{\includegraphics[width=2.05cm]{paperwork/UIO_logo.jpg}}\vskip 0.5em}
       \ifthenelse{\equal{\uiophd@dept}{}}{}
         {\uiophd@dept\par \vskip 0.5em}
       \ifthenelse{\equal{\uiophd@fac}{}}{}
         {\uiophd@fac\par \vskip 0.5em}
       \ifthenelse{\equal{\uiophd@uio}{}}{}
-        {\uiophd@uio\par \vskip 1em}
+        {\uiophd@uio\par \vskip 0.5em}
       \vskip 1em
       \@date
     \end{center}\par
