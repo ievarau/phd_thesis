@@ -11,7 +11,7 @@ Researchers employ various experimental methods to study how transcription facto
     \begin{figure}
       \centering
       \includegraphics[scale=0.79]{figures/models/tf_dna_models.pdf}
-      \caption[TF-DNA binding computational modelling]{\textbf{Modeling the binding of ATF4 transcription factor.} \textbf{A.} A set of aligned sequences bound by ATF4. Various experimental techniques can produce sequences. \textbf{B.} Position frequency matrix (PFM), which represents the nucleotide occurrence counts in each sequence position (visualized in JASPAR format). \textbf{C.} PFM can be converted into a position probability matrix (PPM) (visualized in MEME format). \textbf{D.} Position weight matrix (PWM) computed from the PPM. \textbf{E.} A sequence logo visualizes information content (IC) for the ATF4 binding profile. High values indicate a strong preference toward a particular base. Matrices are from the JASPAR database ID MA0833.3.}
+      \caption[Modeling the binding of ATF4 transcription factor]{\textbf{Modeling the binding of ATF4 transcription factor.} \textbf{A.} A set of aligned sequences bound by ATF4. Various experimental techniques can produce sequences. \textbf{B.} Position frequency matrix (PFM), which represents the nucleotide occurrence counts in each sequence position (visualized in JASPAR format). \textbf{C.} PFM can be converted into a position probability matrix (PPM) (visualized in MEME format). \textbf{D.} Position weight matrix (PWM) computed from the PPM. \textbf{E.} A sequence logo visualizes information content (IC) for the ATF4 binding profile. High values indicate a strong preference toward a particular base. Matrices are from the JASPAR database ID MA0833.3.}
       \label{tf_dna_models}
     \end{figure}
 
@@ -116,7 +116,7 @@ Researchers employ various experimental methods to study how transcription facto
     \begin{figure}
       \centering
       \includegraphics[width=1\textwidth]{figures/nmf/nmf_for_discovery_latest.pdf}
-      \caption[NMF for DNA pattern discovery]{\textbf{Application of non-negative matrix factorization for DNA pattern discovery in sequences.} An example of 4 patterns NMF applied to a set of one-hot encoded DNA sequences (data matrix). The data matrix is factorized into amplitude and pattern matrices. Candidate DNA patterns (motifs) can be built using the resulting matrices. Each pattern produces one motif. Adapted from \cite{rauluseviciute2023identification}.}
+      \caption[NMF for DNA pattern discovery in sequences]{\textbf{Application of non-negative matrix factorization (NMF) for DNA pattern discovery in sequences.} An example of 4 patterns NMF applied to a set of one-hot encoded DNA sequences (data matrix). The data matrix is factorized into amplitude and pattern matrices. Candidate DNA patterns (motifs) can be built using the resulting matrices. Each pattern produces one motif. Adapted from \cite{rauluseviciute2023identification}.}
       \label{nmf_motif_discovery}
     \end{figure}
 
@@ -127,7 +127,7 @@ Researchers employ various experimental methods to study how transcription facto
     \begin{figure}
       \centering
       \includegraphics[width=0.9\textwidth]{figures/seqarchr/seqarchr_latest.pdf}
-      \caption[NMF application in SeqArchR]{\textbf{SeqArchR applies NMF to identify position-specific DNA patterns in promoter regions.} \textbf{A.} Dinucleotide profiles of the aligned input N number of DNA sequences of length \textit{L} are represented as a one-hot encoded matrix (0/1 matrix). The input sequences should be aligned using a reference point, such as a transcription start site (TSS). The NMF algorithm is applied to factorize the input matrix into the amplitude and pattern matrices, asking for four DNA patterns. \textbf{B.} The discovered patterns are visualized. Adapted from \cite{nikumbh2023identifying}.}
+      \caption[SeqArchR applies NMF to identify position-specific DNA patterns in promoter regions]{\textbf{SeqArchR applies non-negative matrix factorization (NMF) to identify position-specific DNA patterns in promoter regions.} \textbf{A.} Dinucleotide profiles of the aligned input N number of DNA sequences of length \textit{L} are represented as a one-hot encoded matrix (0/1 matrix). The input sequences should be aligned using a reference point, such as a transcription start site (TSS). The NMF algorithm is applied to factorize the input matrix into the amplitude and pattern matrices, asking for four DNA patterns. \textbf{B.} The discovered patterns are visualized. Adapted from \cite{nikumbh2023identifying}.}
       \label{seqarchr}
     \end{figure}
 
@@ -211,7 +211,7 @@ Researchers employ various experimental methods to study how transcription facto
     \begin{figure}
       \centering
       \includegraphics[width=0.9\textwidth]{figures/unibind/unibind_latest.pdf}
-      \caption[Use of TF-DNA binding models to infer direct TF-DNA interactions]{\textbf{An example of combining experimental data with computational models to infer direct TF-DNA interactions.} The ChIP-eat pipeline takes ChIP-seq data in peaks and predicts transcription factor binding sites (TFBSs) using the DAMO-trained position weight matrix (PWM) of the profiled TF. The automatic thresholding selects TFBSs, which represent direct TF-DNA binding to the canonical motif (red), from the rest of the predictions, representing indirect or unspecific binding (blue). The final sets of direct TFBSs are collected for each analyzed dataset and compiled into the UniBind database. Adapted from \cite{puig2021unibind}.}
+      \caption[An example of combining experimental data with computational models to infer direct TF-DNA interactions]{\textbf{An example of combining experimental data with computational models to infer direct TF-DNA interactions.} The ChIP-eat pipeline takes ChIP-seq data in peaks and predicts transcription factor binding sites (TFBSs) using the DAMO-trained position weight matrix (PWM) of the profiled TF. The automatic thresholding selects TFBSs, which represent direct TF-DNA binding to the canonical motif (red), from the rest of the predictions, representing indirect or unspecific binding (blue). The final sets of direct TFBSs are collected for each analyzed dataset and compiled into the UniBind database. Adapted from \cite{puig2021unibind}.}
       \label{unibind}
     \end{figure}
 
