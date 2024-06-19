@@ -201,16 +201,20 @@
       \vskip 3em
   {{\large Supervisor:\\ \uiophd@supervisor\par}\vskip 3em}
   {{\large Co-supervisor:\\ \uiophd@cosupervisor\par}\vskip 3em}
+      {{\includegraphics[width=4.5cm]{paperwork/NCMM_logo.png}}\vskip 0.5em}
       \ifthenelse{\equal{\uiophd@ncmm}{}}{}
         {\uiophd@ncmm\par \vskip 0.5em}
       \ifthenelse{\equal{\uiophd@medfac}{}}{}
-        {\uiophd@medfac\par \vskip 0.5em}
-        {{and\\}\vskip 0.5em}
+        {\uiophd@medfac\par \vskip 1em}
+        % {{and\\}\vskip 0.5em}
+      {{\includegraphics[width=2.3cm]{paperwork/UIO_logo.jpg}}\vskip 0.5em}
       \ifthenelse{\equal{\uiophd@dept}{}}{}
         {\uiophd@dept\par \vskip 0.5em}
       \ifthenelse{\equal{\uiophd@fac}{}}{}
-        {\uiophd@fac\par \vskip 1em}
-      \vskip 3em
+        {\uiophd@fac\par \vskip 0.5em}
+      \ifthenelse{\equal{\uiophd@uio}{}}{}
+        {\uiophd@uio\par \vskip 1em}
+      \vskip 1em
       \@date
     \end{center}\par
     \@thanks
@@ -227,6 +231,7 @@
 \define@key{uiophd@keys}{medfac}{\def \uiophd@medfac {#1}}%
 \define@key{uiophd@keys}{dept}{\def \uiophd@dept {#1}}%
 \define@key{uiophd@keys}{fac}{\def \uiophd@fac {#1}}%
+\define@key{uiophd@keys}{uio}{\def \uiophd@uio {#1}}%
 \define@key{uiophd@keys}{supervisor}{\def \uiophd@supervisor {#1}}%
 \define@key{uiophd@keys}{cosupervisor}{\def \uiophd@cosupervisor {#1}}%
 \date{}
@@ -234,6 +239,7 @@
 \def \uiophd@medfac {}
 \def \uiophd@dept {}
 \def \uiophd@fac {}
+\def \uiophd@uio {}
 \def \uiophd@supervisor {}
 \def \uiophd@cosupervisor {}
 
