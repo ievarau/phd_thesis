@@ -1,6 +1,6 @@
 \chapter{Computational modeling of transcription factor-DNA interactions}
 
-Researchers employ various experimental methods to study how transcription factors interact with DNA, identifying sequences or genomic regions that can reveal the TF specificity for particular DNA patterns. However, obtaining where all TFs bind in all cell types and conditions is intractable. In addition, assessing how mutations could alter binding is also difficult. To address these issues, researchers rely on computational modeling of TF-DNA interactions. Different models are available today, from simple and widely used \ac{PWMs} to advanced deep learning models. This chapter will cover different models and techniques used to create them, highlighting resources that store these models and explore their applications in research.
+Researchers employ various experimental methods to study how transcription factors interact with DNA, identifying sequences or genomic regions that can reveal the TF specificity for particular DNA patterns. However, obtaining where all TFs bind in all cell types and conditions is intractable. In addition, assessing how mutations could alter binding is also difficult. To address these issues, researchers rely on computational modeling of TF-DNA interactions. Different models are available today, from simple and widely used \ac{PWMs} to advanced deep learning models \cite{wasserman2004applied,avsec2021base}. This chapter will cover different models and techniques used to create them, highlighting resources that store these models and explore their applications in research.
 
   \section{Transcription factor DNA binding models}
 
@@ -23,7 +23,7 @@ Researchers employ various experimental methods to study how transcription facto
       p(b,i)=\frac{f_{b,i}+s(b)}{N+\sum\limits_{b'\in\{A,C,G,T\}}s(b')}
       \label{ppm}
     \end{equation}
-    where $ p(b,i) $ is the probability of base $ b $ at position $ i $; $ f_{b,i} $ is the number of base $ b $ at position $ i $; $ s(b) $ is a pseudocount function; $ N $ is the total number of sites. Pseudocounts is added to each cell of the PFM to eliminate zeros to compute the PWM \cite{wasserman2004applied}.
+    where $ p(b,i) $ is the probability of base $ b $ at position $ i $; $ f_{b,i} $ is the number of base $ b $ at position $ i $; $ s(b) $ is a pseudocount function; $ N $ is the total number of sites. Pseudocounts are added to each cell of the PFM to eliminate zeros to compute the PWM \cite{wasserman2004applied}.
 
     (3) A PWM ({Figure \ref{tf_dna_models}}D) is constructed by dividing the probabilities by the expected background probabilities and converting the resulting values to a log scale (known as a log odds ratio). The most straightforward model assumes equal 0.25 background probabilities for each base. The computation is done using
 
@@ -35,7 +35,7 @@ Researchers employ various experimental methods to study how transcription facto
 
     Frequency or count matrices can be represented in multiple formats. For example, the JASPAR format ({Figure \ref{tf_dna_models}}B) visualizes the counts, while the MEME format visualizes the probabilities of each nucleotide in each position ({Figure \ref{tf_dna_models}}C). Some computational tools require a specific format, so familiarity with different count and probability representations is needed.
 
-    Interpreting the actual DNA pattern preferentially bound by a TF from PWMs or PFMs can be challenging. Sequence logos generated from the PWMs offer a helpful visualization that simplifies the understanding of the binding pattern \cite{schneider1990sequence} ({Figure \ref{tf_dna_models}}E). These logos give information about the frequency of each base at each position and its deviation from the expectation. Specifically, the sequence logo visualizes \ac{IC} in bits, which quantifies the conservation and variability of nucleotides at each position. The IC at a given position will be high if a particular nucleotide is highly conserved at that position. The IC will also be high if there is a strong preference for a specific nucleotide, and variations at that position are not tolerated. IC can be computed from probabilities using
+    Interpreting the actual DNA pattern preferentially bound by a TF from PWMs or PFMs can be challenging. Sequence logos generated from the PWMs offer a helpful visualization that simplifies the understanding of the binding pattern \cite{schneider1990sequence} ({Figure \ref{tf_dna_models}}E). These logos give information about the frequency of each base at each position and its deviation from the expectation. Specifically, the sequence logo visualizes \ac{IC} in bits, which quantifies the conservation and variability of nucleotides at each position \cite{schneider1990sequence,wasserman2004applied}. The IC at a given position will be high if a particular nucleotide is highly conserved at that position. The IC will also be high if there is a strong preference for a specific nucleotide, and variations at that position are not tolerated. IC can be computed from probabilities using
 
     \begin{equation}
       D_{i}=2+\sum\limits_{b}p_{b,i}log_{2}p_{b,i}
@@ -66,11 +66,11 @@ Researchers employ various experimental methods to study how transcription facto
 
     \subsection{\textit{De novo} motif discovery}
 
-    When analyzing TF-DNA interaction data, such as ChIP-seq, one can find over-represented sequence motifs using existing collections of DNA binding motifs (see the section on databases of TF-DNA binding models). However, motif collections are always limited, so to discover new motifs, \textit{de novo} motif discovery approaches have been developed \cite{boeva2016analysis}. \textit{De novo} motif discovery is a process inferring enriched DNA patterns in a set of DNA sequences compared to background expectations \cite{stormo2013modeling}. The aim of \textit{de novo} motif discovery is to find short, statistically over-represented DNA patterns in input set of sequences \cite{lihu2015review,das2007survey}. The used background can be a Markov model with nucleotide frequencies similar to the input or random sequences, such as shuffled original input sequences. Algorithms discover motifs in sequences derived from experimental methods, such as SELEX, \ac{PBM}, and ChIP-based techniques \cite{boeva2016analysis}.
+    When analyzing TF-DNA interaction data, such as ChIP-seq, one can find over-represented sequence motifs using existing collections of DNA binding motifs (see the section on databases of TF-DNA binding models). However, motif collections are always limited, so to discover new motifs, \textit{de novo} motif discovery approaches have been developed \cite{boeva2016analysis}. \textit{De novo} motif discovery is a process inferring enriched DNA patterns in a set of DNA sequences compared to background expectations \cite{stormo2013modeling}. The aim of \textit{de novo} motif discovery is to find short, statistically over-represented DNA patterns in input sets of sequences \cite{lihu2015review,das2007survey}. The used background can be a Markov model with nucleotide frequencies similar to the input or random sequences, such as shuffled original input sequences. Algorithms discover motifs in sequences derived from experimental methods, such as SELEX, \ac{PBM}, and ChIP-based techniques \cite{boeva2016analysis}.
 
-    "Word-based" approaches gather approximate occurrences of a \textit{k}-mer in the input sequences and rank them based on their over-representation. RSAT \textit{peak-motifs} relies on several of such algorithms, namely oligo-, position-, and dyad-analysis ({Table \ref{de_novo_tools}}) \cite{,thomas2011rsat,thomas2012rsat,santana2022rsat}. Oligo-analysis detects over-represented oligonucleotides, while position-analysis identifies oligonucleotides with heterogeneous positional distributions in a provided set of sequences \cite{van1998extracting,helden2000statistical,thomas2011rsat}. By default, word-based analysis performs 6 and 7 bp length motif search \cite{thomas2012rsat}. Dyad-analysis detects spaced motifs, which dimeric TFs can bind \cite{helden2000discovering,thomas2011rsat}. Researchers observed that regulatory sites in the yeast genome often contain pairs of highly conserved trinucleotides, separated by non-conserved positions \cite{helden2000discovering}. RSAT \textit{peak-motifs} can also perform differential analysis (oligo-diff) when a control set is provided \cite{thomas2012rsat}.
+    ``Word-based'' approaches gather approximate occurrences of a \textit{k}-mer in the input sequences and rank them based on their over-representation. RSAT \textit{peak-motifs} relies on several of such algorithms, namely oligo-, position- and dyad-analysis ({Table \ref{de_novo_tools}}) \cite{,thomas2011rsat,thomas2012rsat,santana2022rsat}. Oligo-analysis detects over-represented oligonucleotides, while position-analysis identifies oligonucleotides with heterogeneous positional distributions in a provided set of sequences \cite{van1998extracting,helden2000statistical,thomas2011rsat}. By default, word-based analysis performs 6 and 7 bp length motif search \cite{thomas2012rsat}. Dyad-analysis detects spaced motifs, which dimeric TFs can bind \cite{helden2000discovering,thomas2011rsat}. Researchers observed that regulatory sites in the yeast genome often contain pairs of highly conserved trinucleotides, separated by non-conserved positions \cite{helden2000discovering}. RSAT \textit{peak-motifs} can also perform differential analysis (\textit{oligo-diff}) when a control set is provided \cite{thomas2012rsat}.
 
-    On the other hand, "profile-based" algorithms iteratively optimize an initial PWM and perform heuristic searches. These methods select positions from the input set, align the sequences, and then build and score the PWM \cite{lihu2015review}. For example, the computational tool MEME starts the motif search with multiple \textit{k}-mers, then it selects the current best to be optimized using \ac{EM} \cite{bailey1994fitting,zambelli2013motif}. STREME is the newest motif discovery tool from the authors of MEME that allows larger sets of input sequences ({Table \ref{de_novo_tools}}) \cite{bailey2021streme}.
+    On the other hand, ``profile-based'' algorithms iteratively optimize an initial PWM and perform heuristic searches. These methods select positions from the input set, align the sequences, and then build and score the PWM \cite{lihu2015review}. For example, the computational tool MEME starts the motif search with multiple \textit{k}-mers, then it selects the current best to be optimized using \ac{EM} \cite{bailey1994fitting,zambelli2013motif}. STREME is the newest motif discovery tool from the authors of MEME that allows larger sets of input sequences ({Table \ref{de_novo_tools}}) \cite{bailey2021streme}.
 
     \begin{table}[htbp]
       \centering
@@ -87,19 +87,19 @@ Researchers employ various experimental methods to study how transcription facto
           \midrule
           MEME
           & 
-          Profile-based algorithm; uses expectation maximization (EM); finds recurring, fixed-length, ungapped patterns.
+          ``Profile-based'' algorithm; uses expectation maximization (EM); finds recurring, fixed-length, ungapped patterns.
           &
           \cite{bailey1994fitting}
           \\[0.3ex]
           STREME
           &
-          Profile-based algorithm; uses suffix tree-based optimization; finds recurring, fixed-length (3-30 bp), ungapped patterns.
+          ``Profile-based'' algorithm; uses suffix tree-based optimization; finds recurring, fixed-length (3-30 bp), ungapped patterns.
           &
           \cite{bailey2021streme}
           \\[0.3ex]
           RSAT
           &
-          Word-based algorithms; oligo-, position-, and dyad-analysis; find variable size motifs.
+          ``Word-based'' algorithms; oligo-, position- and dyad-analysis; find variable size motifs.
           &
           \cite{thomas2011rsat,thomas2012rsat,santana2022rsat}
           \\
@@ -127,7 +127,7 @@ Researchers employ various experimental methods to study how transcription facto
     \begin{figure}
       \centering
       \includegraphics[width=0.9\textwidth]{figures/seqarchr/seqarchr_latest.pdf}
-      \caption[SeqArchR applies NMF to identify position-specific DNA patterns in promoter regions]{\textbf{SeqArchR applies non-negative matrix factorization (NMF) to identify position-specific DNA patterns in promoter regions.} \textbf{A.} Dinucleotide profiles of the aligned input N number of DNA sequences of length \textit{L} are represented as a one-hot encoded matrix (0/1 matrix). The input sequences should be aligned using a reference point, such as a transcription start site (TSS). The NMF algorithm is applied to factorize the input matrix into the amplitude and pattern matrices, asking for four DNA patterns. \textbf{B.} The discovered patterns are visualized. Adapted from \cite{nikumbh2023identifying}.}
+      \caption[SeqArchR applies NMF to identify DNA patterns in promoters]{\textbf{SeqArchR applies non-negative matrix factorization (NMF) to identify position-specific DNA patterns in promoter regions.} \textbf{A.} Dinucleotide profiles of the aligned input N number of DNA sequences of length \textit{L} are represented as a one-hot encoded matrix (0/1 matrix). The input sequences should be aligned using a reference point, such as a transcription start site (TSS). The NMF algorithm is applied to factorize the input matrix into the amplitude and pattern matrices, asking for four DNA patterns. \textbf{B.} The discovered patterns are visualized. Adapted from \cite{nikumbh2023identifying}.}
       \label{seqarchr}
     \end{figure}
 
@@ -158,7 +158,7 @@ Researchers employ various experimental methods to study how transcription facto
         \\[0.3ex]
         TRANSFAC
         &
-        Curated collection of TF binding motifs.
+        A curated collection of TF binding motifs.
         &
         \cite{wingender2008transfac}
         \\[0.3ex]
@@ -178,7 +178,7 @@ Researchers employ various experimental methods to study how transcription facto
     \end{tabular}
 \end{table}
   
-  JASPAR is an open-access database that stores DNA binding motifs for TFs from six taxa. All motifs in JASPAR are manually curated. JASPAR discovers motifs from experimental data, such as ChIP-seq or DAP-seq, or mined as PFMs from various resources (for instance, a selection of CIS-BP database motifs) and publications. Independent evidence found by curators supports the CORE collection of motifs. In addition to motif collections, JASPAR provides complementary data, such as motif clusters and various tools \cite{rauluseviciute2024jaspar}. TRANSFAC also stores curated DNA motifs with experimentally determined and predicted binding sites. However, the complete database is not open-access \cite{matys2006transfac,wingender2008transfac}. HOCOMOCO is a publicly available resource that compiles and stores human and mouse TF binding motifs. The motifs in the latest release of the database are human-curated and automatically benchmarked \cite{vorontsov2024hocomoco}. Finally, CIS-BP is also open-access and contains motifs for more than a thousand TFs from 131 diverse eukaryotes. Motifs are generated using \ac{PBM}, SELEX, or ChIP-seq data but are also mined from other motif resources, such as TRANSFAC and JASPAR. A unique feature of CIS-BP is that the database offers inferred motifs. Based on the similarity of the DBDs, two TFs are binding similar motifs. Therefore, it is possible to infer a binding profile from one TF to a closely related other TF \cite{weirauch2014determination}.
+  JASPAR is an open-access database that stores DNA binding motifs for TFs from six taxa \cite{rauluseviciute2024jaspar}. All motifs in JASPAR are manually curated. JASPAR discovers motifs from experimental data, such as ChIP-seq or DAP-seq, or mined as PFMs from various resources (for instance, a selection of CIS-BP database motifs) and publications. Independent evidence found by curators supports the CORE collection of motifs. In addition to motif collections, JASPAR provides complementary data, such as motif clusters and various tools \cite{rauluseviciute2024jaspar}. TRANSFAC also stores curated DNA motifs with experimentally determined and predicted binding sites. However, the complete database is not open-access \cite{matys2006transfac,wingender2008transfac}. HOCOMOCO is a publicly available resource that compiles and stores human and mouse TF binding motifs. The motifs in the latest release of the database are human-curated and automatically benchmarked \cite{vorontsov2024hocomoco}. Finally, CIS-BP is also open-access and contains motifs for more than a thousand TFs from 131 diverse eukaryotes. Motifs are generated using \ac{PBM}, SELEX, or ChIP-seq data but are also mined from other motif resources, such as TRANSFAC and JASPAR. A unique feature of CIS-BP is that the database offers inferred motifs. Based on the similarity of the DBDs, two TFs are binding similar motifs. Therefore, it is possible to infer a binding profile from one TF to a closely related other TF \cite{weirauch2014determination}.
 
   Even if current databases contain thousands of motifs from various species, it is essential to keep these resources updated by adding new data and refining the old. Finally, new ways of TF-DNA modeling (such as DL models) motivate the expansion or creation of new databases that could offer a variety of TF-DNA interaction models to the community.
 
@@ -200,18 +200,18 @@ Researchers employ various experimental methods to study how transcription facto
 
     The final set of TFBS predictions is separated from the background by applying a score threshold. Statistical significance (measured through \textit{p}-value) is evaluated to determine this threshold. For example, this might involve computing the probability of observing at least the same number of motif instances with a specific cutoff in a random sequence of total length equal to the total size of sequences in the set of regions of interest \cite{boeva2016analysis}. This task becomes computationally challenging when scoring multiple motifs, especially if they overlap, which is relevant when investigating TF cooperativity and co-binding.
 
-    Using a higher score cutoff results in fewer motif instances being identified, with these likely corresponding to strong binding affinity sites. Conversely, a lower cutoff results in more sites, which may include both strong and weak binding sites \cite{boeva2016analysis}. Nonetheless, the "futility theorem" suggests that predicted TFBSs outnumber the sites actually occupied by a TF \cite{wasserman2004applied}. False positive TFBS predictions might be inaccessible for binding due to chromatin structure or local epigenetic properties \cite{mathelier2013next}.
+    Using a higher score cutoff results in fewer motif instances being identified, with these likely corresponding to strong binding affinity sites. Conversely, a lower cutoff results in more sites, which may include both strong and weak binding sites \cite{boeva2016analysis}. Nonetheless, the ``futility theorem'' suggests that predicted TFBSs outnumber the sites actually occupied by a TF \cite{wasserman2004applied}. False positive TFBS predictions might be inaccessible for binding due to chromatin structure or local epigenetic properties \cite{mathelier2013next}.
 
     Resources such as JASPAR, in addition to the collections of PFMs, offer TFBS predictions for popular genome assemblies \cite{rauluseviciute2024jaspar}. Various bioinformatics tools, such as PWMScan, FIMO, and HOMER, are designed to scan or find over-represented motifs in genomic sequences \cite{weidemuller2021transcription,grant2011fimo,heinz2010simple}.
 
     \subsection{Prediction of direct TF binding sites}
 
-    According to the "futility theorem", only a subset of predicted TFBSs are occupied by a TF at a given time in a given cell type and condition. Identifying those TFBSs can be challenging. One way to address this and provide TFBSs with stronger confidence is to combine experimental data with computational models, such as PWMs. This strategy is employed to compute TFBSs stored in the UniBind database ({Figure \ref{unibind}}) \cite{puig2021unibind,gheorghe2019map}.
+    According to the ``futility theorem'', only a subset of predicted TFBSs are occupied by a TF at a given time in a given cell type and condition. Identifying those TFBSs can be challenging. One way to address this and provide TFBSs with stronger confidence is to combine experimental data with computational models, such as PWMs. This strategy is employed to compute TFBSs stored in the UniBind database ({Figure \ref{unibind}}) \cite{puig2021unibind,gheorghe2019map}.
 
     \begin{figure}
       \centering
       \includegraphics[width=0.9\textwidth]{figures/unibind/unibind_latest.pdf}
-      \caption[An example of combining experimental data with computational models to infer direct TF-DNA interactions]{\textbf{An example of combining experimental data with computational models to infer direct TF-DNA interactions.} The ChIP-eat pipeline takes ChIP-seq data in peaks and predicts transcription factor binding sites (TFBSs) using the DAMO-trained position weight matrix (PWM) of the profiled TF. The automatic thresholding selects TFBSs, which represent direct TF-DNA binding to the canonical motif (red), from the rest of the predictions, representing indirect or unspecific binding (blue). The final sets of direct TFBSs are collected for each analyzed dataset and compiled into the UniBind database. Adapted from \cite{puig2021unibind}.}
+      \caption[Inferring direct TF-DNA interactions]{\textbf{An example of combining experimental data with computational models to infer direct TF-DNA interactions.} The ChIP-eat pipeline takes ChIP-seq data in peaks and predicts transcription factor binding sites (TFBSs) using the DAMO-trained position weight matrix (PWM) of the profiled TF. The automatic thresholding selects TFBSs, which represent direct TF-DNA binding to the canonical motif (red), from the rest of the predictions, representing indirect or unspecific binding (blue). The final sets of direct TFBSs are collected for each analyzed dataset and compiled into the UniBind database. Adapted from \cite{puig2021unibind}.}
       \label{unibind}
     \end{figure}
 
