@@ -33,7 +33,7 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v1
       - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@master
+        uses: AffineParameter/latex-action@a0.2.1
         with:
           root_file: uiophdthesis-main.tex
       - name: Upload PDF to the workflow tab
